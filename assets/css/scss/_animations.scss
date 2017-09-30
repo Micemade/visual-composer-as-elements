@@ -1,0 +1,197 @@
+/*---------------------------------*/
+// ANIMATONS:
+
+
+.drop-in {
+	@include dropIn(.5s); 
+}
+.fade-in-down {
+	@include fadeInDown(.5s);
+}
+.fade-in-left {
+	@include fadeInLeft(.5s);
+}
+.fade-in-right {
+	@include fadeInRight(.5s);
+}
+.fade-in-up {
+	@include fadeInUp(.5s);
+}
+.fade-in-zoom-big {
+	@include fadeInZoomBig(.5s);
+}
+.fade-in-zoom {
+	@include fadeInZoom(.5s);
+}
+.fade-in {
+	@include fadeIn(.5s);
+}
+.newspaper {
+	@include newspaper(.5s);
+}
+.pop-in {
+	@include popIn(.5s);
+}
+.rise-in {
+	@include riseIn(.5s);
+}
+.slide-in-left {
+	@include slideInLeft(.5s);
+}
+.slide-in-right {
+	@include slideInRight(.5s);
+}
+.stretch-up {
+	@include stretchUp(.5s);
+}
+.stretch-down {
+	@include stretchDown(.5s);
+}
+.turn-in-up {
+	@include turnInUp(.5s);
+}
+.turn-in-down {
+	@include turnInDown(.5s);
+}
+
+
+
+
+
+.anim-wrap {
+	
+	.back {
+		
+		.no-hover-anim & {
+			opacity: 0;
+			@extend %main-transition;
+		}
+		
+		.hover-drop-in & {
+			@include dropOut(.5s); 
+		}
+		.hover-fade-in-down & {
+				@include fadeOutDown(.5s);
+			}
+		.hover-fade-in-left & {
+			@include fadeOutLeft(.5s);
+		}
+		.hover-fade-in-right {
+			@include fadeOutRight(.5s);
+		}
+		.hover-fade-in-up & {
+			@include fadeOutUp(.5s);
+		}
+		.hover-fade-in-zoom-big & {
+			@include fadeOutZoomBig(.5s);
+		}
+		.hover-fade-in-zoom & {
+			@include fadeOutZoom(.5s);
+		}
+		.hover-fade-in & {
+			@include fadeOut(.5s);
+		}
+		
+		.hover-newspaper & {
+				opacity: 0 ;
+				@include fadeOut(.5s);
+			}
+		
+			.hover-pop-in & {
+				@include fadeOut(.5s);
+			}
+		
+		.hover-rise-in & {
+			@include riseOut(.5s);
+		}
+		.hover-slide-in-left & {
+			@include slideOutLeft(.5s);
+		}
+		.hover-slide-in-right & {
+			@include slideOutRight(.5s);
+		}
+		
+			.hover-stretch-up & {
+				@include compressUp(.5s);
+			}
+			.hover-stretch-down & {
+				@include compressDown(.5s);
+			}
+		
+		.hover-turn-in-up & {
+			@include turnOutUp(.5s);
+		}
+		.hover-turn-in-down & {
+			@include turnOutDown(.5s);
+		}
+	} //.back
+
+} //.anim-wrap
+
+.anim-wrap {
+	
+	&:hover {
+		
+		.back {
+		
+			.no-hover-anim & { opacity: 1 }
+			
+			.hover-drop-in & {
+				@include dropIn(.5s); 
+			}
+			.hover-fade-in-down & {
+				@include fadeInDown(.5s);
+			}
+			.hover-fade-in-left & {
+				@include fadeInLeft(.5s);
+			}
+			.hover-fade-in-right {
+				@include fadeInRight(.5s);
+			}
+			.hover-fade-in-up & {
+				@include fadeInUp(.5s);
+			}
+			.hover-fade-in-zoom-big & {
+				@include fadeInZoomBig(.5s);
+			}
+			.hover-fade-in-zoom & {
+				@include fadeInZoom(.5s);
+			}
+			.hover-fade-in & {
+				@include fadeIn(.5s);
+			}
+			.hover-newspaper & {
+				opacity: 1;
+				@include newspaper(.5s);
+			}
+			.hover-pop-in & {
+				@include popIn(.5s);
+			}
+			.hover-rise-in & {
+				@include riseIn(.5s);
+			}
+			.hover-slide-in-left & {
+				@include slideInLeft(.5s);
+			}
+			.hover-slide-in-right & {
+				@include slideInRight(.5s);
+			}
+			.hover-stretch-up & {
+				@include stretchUp(.5s);
+			}
+			.hover-stretch-down & {
+				@include stretchDown(.5s);
+			}
+			.hover-turn-in-up & {
+				@include turnInUp(.5s);
+			}
+			.hover-turn-in-down & {
+				@include turnInDown(.5s);
+			}
+		
+		
+		}//. back
+	
+	} // &:hover
+
+}//.anim-wrap

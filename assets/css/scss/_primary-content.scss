@@ -1,0 +1,78 @@
+#primary {
+	
+	header{
+	
+		.titles-holder {
+			
+			padding:0 0 $column-gutter / 2;
+			margin: $column-gutter 0;
+			
+			@extend %borderbottom;
+			
+			.archive-title {
+			
+			}
+			
+			
+		}
+		
+		.site-description {
+		
+			@include special-uppercase(13);// in _mixins
+		}
+	
+	}
+	article {
+	
+		position: relative;
+		
+		.post-title {
+			@include border(0,1,0,0,#000, 0.8);
+		}
+		
+		.post-content {
+			position: relative;
+			background-color: transparentize($prim-back-color, 0.1);
+			margin:{
+				top: - $column-gutter * 2; // Foudation var
+				bottom:  $column-gutter * 2;
+				left: $column-gutter * 2 ; 
+				right: 0; 
+
+			}
+			padding: $column-gutter;
+			
+			p {
+				margin:$column-gutter / 2 0 $column-gutter ;
+			}
+			
+			@include postmeta;
+			
+			&.no-feat-img {
+				margin: {
+					top: 0;
+					bottom: $column-gutter;
+					left: $column-gutter;
+					right: 0;
+				} 
+			}
+				
+		} // .post-content
+			
+		.search-notfound-text {
+			
+			.notfound-icon {
+				position: absolute;
+				opacity: 0.1;
+				font-size: $column-gutter * 8;
+				top:0;
+				right: 0;
+			}
+		
+		}
+		
+		@include clearfix;
+			
+	} // article
+	
+} // #primary

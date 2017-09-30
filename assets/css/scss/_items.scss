@@ -1,0 +1,799 @@
+/*
+ *	General styling for items:
+ *  - individual posts / products in archive / list / grid
+ */
+
+.item {
+		
+	position: relative;
+	margin-bottom: $column-gutter; // Foundation var
+	z-index: 0;
+	display: inline-block;
+	
+	.js-masonry & {
+		display: block;
+		float: left;
+	}
+	
+	&:hover {
+		z-index: 1;
+	}
+	
+	.owl-carousel & { display: block; }
+	
+	.anim-wrap {
+		
+		position: relative;
+		float: left;
+		width: 100%;
+		height: auto;
+		
+		
+		&.to-anim {
+			opacity: 0;
+		}
+		
+		.readmore {
+			margin-bottom: 0;
+			margin-top: $column-gutter / 4;
+		}
+		
+		.item-img {
+			
+			position: relative;
+			@include clearfix;
+			
+			.entry-image, img { margin: 0 !important; }
+			
+			h4 .posted_in {
+			    display: block;
+				text-transform: none;
+				font-size: 0.8em;
+				letter-spacing: 0.05rem;
+				
+				a {
+					display: inline-block !important;
+					text-transform: none;
+					font-weight: 400;
+					letter-spacing: 0.05em;
+				}				
+				.style4 & {
+					
+					position: absolute;
+					top: 130%;
+					text-align: center;
+					left: 0;
+					right: 0;
+										
+
+				} // .style4 &
+				
+				
+			} // h4 .posted_in
+			
+			.front {
+				position: relative;
+				z-index: 0;
+				
+			}	
+			.back {
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width:100.1%;
+				opacity: 0;
+				@include outline-hover-effect;
+				
+				.item-overlay {
+					.ajax-cats &, .filter-cats & {
+						width: auto;
+						height: auto;
+						top: $column-gutter / 2 ;
+						bottom: $column-gutter / 2 ;
+						left: $column-gutter / 2 ;
+						right: $column-gutter / 2 ;
+					}
+				}
+				
+				.item-buttons-holder {
+				
+					position: absolute;
+					height: 100%;
+					width: 100%;
+					z-index: 3;
+					text-align: center;
+					top: 0;
+					left: 0;
+					
+					.button-row {
+						position: absolute;
+						width: 100%;
+						top:50%;
+						margin-top: - $column-gutter /2;
+					}
+					
+					.button-cell {
+						display: inline-block;
+					}
+					
+					.button-cell > * {
+						margin: 0;
+						padding: 0;
+						position: relative;
+					}
+					
+					a {
+						@extend %item-buttons;
+					}
+					
+					.yith-wcwl-add-to-wishlist {
+						
+						position: relative;
+						
+						.ajax-loading {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							margin:{
+								left: -8px;
+								top: -8px;
+							}
+							z-index: 2;
+							
+						} // ajax-loading
+						
+					} // add-to-wihlist
+					
+				} //.item-buttons-holder
+				
+				
+				.back-buttons {
+					display: table;
+					position: absolute;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					z-index:2;
+					
+					a {
+						display: table-cell;
+						vertical-align: middle;
+						text-align: center;
+						
+						.as-loading {
+							position: absolute;
+							left: 0;
+							right: 0;
+							top: 0;
+							bottom:0;
+							color: #222;
+							background: transparentize( #fff, 0.2);
+						}
+						.fa {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							margin-top: -7px;
+							margin-left: -7px;
+							font-weight: 400;
+							
+							.style1 &,
+							.style2 & {
+								margin-top: -7px;
+								margin-left: -7px;
+							}
+						}
+						
+					} // a
+					
+					.ajax-cats &, .filter-cats & {
+
+						padding: {
+							top: $column-gutter / 2 ;
+							bottom: $column-gutter / 2 ;
+							left: $column-gutter / 2 ;
+							right: $column-gutter / 2 ;						
+						}
+
+					}
+				} // back-buttons
+				
+			} // back		
+			
+			ul.list & {
+				width: 30%;
+				float: left;
+			}
+			
+			// SECOND BLOCK STYLE ( as_ajax_cats.php, as_filter_cats.php )
+			.style2 & { 
+				width: 40%;
+				float: left;
+				@media #{$medium-only}, #{$small-only}{
+					width: 100%;
+				}
+			} // style2
+
+			
+			// THIRD BLOCK STYLE ( as_ajax_cats.php, as_filter_cats.php )
+			.style3 & { 
+				
+				.light &, .light_expanded & {
+								
+					.alter{
+						@include linear-gradient(to bottom, rgba(#fff,0) 10%, rgba(#fff,0.8) 80%, $fallback: rgba(#fff,0) );
+						color: #222;	
+					}
+					h4 {
+						
+						color: #222;
+						pointer-events: none;
+						a { color: #222; pointer-events: initial; }
+						
+					}			
+					
+					.back {
+						 background-color: rgba(#fff,0.9);
+					}					
+						
+				}
+					
+				.dark &, .dark_expanded & {
+								
+					.alter {
+						@include linear-gradient(to bottom, rgba(#000,0) 0%, rgba(#000,0.6) 70%, $fallback: rgba(#000,0) );
+						
+					}
+					.excerpt {
+						color: #fff;
+					}
+					h4 {
+						
+						color: #fff;
+						pointer-events: none;
+						a { color: #fff; pointer-events: initial;}
+						
+					}
+					.back {
+						background-color: rgba(#222,0.9);
+					}					
+						
+				}
+				
+				.back {
+					.back-buttons {
+						display: block;
+					}
+				}
+				
+				
+				// full size overlay:
+				.light_expanded & , .dark_expanded & {
+					.alter {
+						top:0;
+						bottom:0;
+						left:0;
+						width: 100.1%;
+					}
+				}
+				
+				h4 {
+					position: absolute;
+					bottom: 0;
+					text-align: center;
+					left: $column-gutter / 2 ;
+					right: $column-gutter / 2 ;
+					bottom: $column-gutter ;
+					font-size: 1.1rem;
+					z-index: 2;
+				}
+				
+				.back {
+						
+					text-align: center;
+					@extend %main-transition;
+					
+					.item-buttons-holder {
+						margin-top: 0;
+					}
+					
+					.excerpt {
+						padding: $column-gutter;
+						padding-bottom: 0;
+						overflow: hidden;
+						p {
+							font-size: 0.96rem;
+							line-height: 1.8;
+							letter-spacing: 0.02rem;
+						}
+						
+						
+					
+						@media  #{$medium-only}, #{$small-only} {
+
+							display: none;
+
+						}
+					
+					}					
+					
+					.item-buttons-holder {
+						
+						@media #{$large-only} {
+							.button-row {
+								top:30%;
+							}
+						}
+					}
+					
+				}	// .back			
+				
+				
+			}// style 3
+			
+			.style4 & {
+			
+				.light &, .light_expanded & {
+								
+					.back {
+						color: #222;	
+						.item-overlay {
+							@include linear-gradient(to bottom, rgba(#fff,0.6) 0%, rgba(#fff,1) 100%, $fallback: rgba(#fff,0) );
+						}
+					}
+					a {
+						h4 { color: #222; }
+					}			
+				
+				}
+					
+				.dark &, .dark_expanded & {
+								
+					.back {
+						color: #fff;	
+						.item-overlay {
+							@include linear-gradient(to bottom, rgba(#000,0) 0%, rgba(#000,0.7) 100%, $fallback: rgba(#000,0) );
+						}
+					}
+					h4 {
+						color: #fff;
+						a { color: #fff; }
+					}			
+				
+				} 
+				
+				.light_expanded &, .dark_expanded & {
+					.item-overlay {
+						top: 0;
+						bottom: 0;
+						left: 0;
+						width: 100.1%;
+					}
+				}
+				
+				
+				.back {
+					
+					padding: $column-gutter;
+					@extend %main-transition;
+					text-align: center;
+					
+					.back-buttons {
+						display: block;
+					}
+						
+					h4 {
+						position: absolute;
+						top: 50%;
+						margin-top: - $column-gutter /2 ;
+						bottom: auto;
+						text-align: center;
+						left: $column-gutter / 2 ;
+						right: $column-gutter / 2 ;
+						font-size: 1.1rem;
+						z-index: 2;
+						
+						> a {
+							display: block;
+							font-size: 1.1rem;
+						}
+						
+					}
+						
+					.item-buttons-holder {
+						height: 0;
+						
+						.button-row {
+							margin-top: $column-gutter;
+						}
+						
+						@media #{$large-only} {
+							.button-row {
+								margin-top: $column-gutter /2;
+							}
+						}
+					}
+				} // .back
+
+				
+			} // 
+			
+			// POST META FOR STYLE 3 AND STYLE 4
+			.style3 &, .style4 & {
+			
+				.vcase-post-meta {
+					position: absolute;
+					bottom: 0;
+					z-index: 2;
+					left: 0;
+					right: 0;
+					text-align: center;
+					
+					> span {
+						display: inline-block;
+						float:none;
+						a {
+							display: inline-block;
+						}
+					
+					}
+					
+					
+					
+				} // .vcase-post-meta
+			} // .style3 &, .style4 & 
+			
+			
+		} // item-img
+		
+		.item-data, .item-data-list {
+			
+			position: relative;
+			
+			.posted_in {
+				clear: both;
+				font-size: 0.9rem;
+				display: block;
+			}
+
+			
+		} //.item-data, .item-data-list
+		
+		
+		
+		// list products view for item data:
+		.item-data {
+			
+			height: $column-gutter * 3;
+			margin-bottom: $column-gutter ;
+			backface-visibility: hidden;
+			@include clearfix;
+			
+			ul.list & { display: none; }
+			
+			.excerpt {
+				p {
+					margin: 0 0 ($column-gutter / 2) ;
+				}
+				.readmore {
+					clear: both;
+					margin-top: $column-gutter / 2 ;
+				}
+			}
+			
+			.prod-title-price {
+			
+				padding: ($column-gutter / 2) 0;
+				
+				> * {
+					width: 100%;
+					float: left;
+					padding: $column-gutter / 8 0;
+				}
+				
+				@include clearfix;
+			}
+			
+			h4 {
+				font-size: $column-gutter / 2;
+				padding:{
+					top: $column-gutter / 2 ;
+					bottom: $column-gutter / 4 ;
+					left: 0;
+					right: 0;
+				}				
+				
+				@include border(0,1,0,0,#999,0.2);
+				
+				.content-block & {
+					
+
+					margin: 0;
+					
+					a {
+						border: none !important;
+						&:before, &:after {
+							display: none !important;
+						}
+					}
+					
+					@media  #{$medium-only}, #{$small-only} {
+						padding:{
+							top: $column-gutter / 2 ;
+							bottom: $column-gutter / 2;
+						}
+					}
+					
+				} // content-block
+				
+				.style2 & { // second block style ( as_ajax_cats.php, as_filter_cats.php )
+					padding-top: 0;
+					@media #{$medium-only}, #{$small-only} {
+						padding-top: $column-gutter / 2 ;
+					}
+				}					
+
+				
+				&.prod-title {
+					font-size: 1.1rem;
+					font-weight: 600;
+					text-align: center;
+					margin: 0;
+					border: none;
+					padding:0;
+				}
+				
+			} // h4
+			
+			.price {
+				padding:{
+					bottom: $column-gutter / 2 ;
+				}
+				font-size: 1.4rem;
+
+				del { font-size: 0.8em; }
+				
+			}			
+			
+			// .item-data second block style ( as_ajax_cats.php, as_filter_cats.php )
+			.style2 & {
+				width: 60%;
+				float: left;
+				padding-left: $column-gutter ;
+				
+				@media #{$medium-only}, #{$small-only} {
+					width: 100%;
+					padding-left:0;
+				}
+			}
+			
+			&.no-post-thumb {
+				width: 100%;
+				padding: 0;
+			}
+			
+		
+		}
+		.item-data-list {
+			
+			width: 70%;
+			display: block;
+			float: left;
+			
+			.inner-wrap {
+				
+				padding-left: $column-gutter; // Foundation var
+
+				h4, [itemprop="description"], .price {
+					clear: both;
+					display: block;
+					text-align: left;
+					padding-bottom: $column-gutter / 2;
+					margin: 0;
+					
+					del { 
+						display: inline-block;
+						font-size: 0.8em;
+					}
+										
+				}
+				
+				h4, .price {
+					font-size: 1.8rem;
+					@media #{$medium-only} {
+						font-size: 1.6rem;
+					}
+					
+					@media #{$small-only} {
+						font-size: 1.25rem;
+					}
+				}
+
+				.price {
+					margin-bottom: 1.25rem;
+				}
+
+			}
+			.rating-wrapper {
+				position: relative;
+				float: left;
+			}
+
+			
+		} // item-data-list
+	
+		@include postmeta ;
+		
+		@include clearfix;
+		
+		// WooCommerce
+		.rating-wrapper {
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			text-align: center;
+			height: 1rem;
+			overflow: hidden;
+			
+			.star-rating {
+				float: none;
+				display: inline-block;
+				text-align: left;
+			}
+			
+		} // rating-wrapper
+		
+		
+	}// anim-wrap
+	
+	// list products view for item:
+	ul.list & {
+		width: 100%
+	}
+
+	
+	// AJAX QUICK VIEW EXPANDER (added to ul element):
+	.expand-box & {
+		vertical-align: top;
+		float: none;
+		margin: 0;
+	}
+	
+
+
+}// item
+
+// EXPANDING QUICK VIEW:
+ul {
+	.qv-holder {
+		display: inline-block;
+		float: left;
+		position: relative;
+		background: $sec-back-color;
+		margin:{
+			top: - $column-gutter; 
+			bottom: $column-gutter;
+			left: 0;
+			right: 0;
+		}
+		z-index: 2;
+		left: $column-gutter / 2;
+		
+		@include calc(width, "100% - #{$column-gutter}");
+		
+		@include clearfix;
+
+	}
+}
+// PAGINTAION (posts, products, projects ... )
+.pagination {
+	
+	@include pagination;
+	
+	@include clearfix;
+}
+
+// OWL Carousel:
+.owl-carousel {
+	
+	position: relative;
+	
+	.owl-nav {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right:0;
+		margin-top: - $column-gutter ;
+		text-align: center;
+		opacity: 0;
+		@include transition-var(opacity, .5s);
+		
+		.owl-prev, .owl-next {
+			position: absolute;
+			width: $column-gutter ;
+			height: $column-gutter ;
+			background: $body-font-color;
+			color:  $prim-back-color;
+			opacity: 0.8;
+			
+			span {
+				display: block;
+				line-height: $column-gutter;
+			}
+			
+			&:hover {
+				cursor: pointer;
+				opacity: 0.5;
+			}
+			
+			&.disabled, &.disabled:hover {
+				opacity: 0.2;
+				cursor: default;
+			}
+			
+		} // owl-prev, owl-next
+		.owl-prev {
+			left: 0 ;
+		}
+		.owl-next {
+			right: 0 ;
+		}
+
+		&.disabled {
+			opacity: 0 !important;
+		}
+		
+	} // owl-nav
+	
+	// on single and quick view
+	&.productslides {
+		.owl-nav {
+			margin-top: - $column-gutter / 2;
+		}
+	}
+	
+	&:hover {
+		.owl-nav, .owl-dots {
+			opacity: 1;
+		}
+		
+	}
+	
+	.owl-dots {
+		position: absolute;
+		bottom: $column-gutter / 2;
+		margin-bottom: - $column-gutter / 4;
+		left: 0;
+		right: 0;
+		text-align: center;
+		opacity: 0;
+		@extend %main-transition;
+		
+		.owl-dot {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			background-color: $body-font-color;
+			border-radius: 100%;
+			margin: 0px 5px ;
+			opacity: 0.3;
+			@extend %main-transition;
+			
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.4,1.4);
+				opacity: 0.8;
+			}
+			&.active {
+				opacity: 1;
+			}
+		}
+		
+	}// owl-dots
+	
+} // owl-carousel

@@ -1,0 +1,29 @@
+/**
+ * WooCommerce CSS Variables
+ */
+
+@import "../variables"; /// import theme / Foundation variables
+ 
+ 
+$woocommerce:   	#a46497;
+$green:         	$success-color; // ALL FOUNDATION imports
+$red:           	$warning-color;
+$orange:        	$alert-color; 
+$blue:          	$info-color;
+
+
+$primary:           $primary-color;										// Primary colour for buttons
+$primarytext:       desaturate( lighten( $primary, 50% ), 50% );		// Text on primary colour bg
+
+//$secondary:         desaturate( lighten( $primary, 50% ), 50% );		// Secondary buttons
+
+$secondary:         $secondary-color;									// Secondary buttons
+$secondarytext:     desaturate( darken( $secondary, 60% ), 21% );		// Text on secondary colour bg
+
+$primary_hued:		adjust-hue( $primary, 180deg );
+
+$highlight:         desaturate( lighten( $primary_hued, 20% ), 40% );		// Prices, In stock labels, sales flash
+$highlightext:      desaturate( lighten( $highlight, 80% ), 80% );			// Text on highlight colour bg
+
+$contentbg:         $prim-back-color;                                   // Content BG - Tabs (active state)
+$subtext:           #777;                                       		// small, breadcrumbs etc 

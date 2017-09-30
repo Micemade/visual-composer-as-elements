@@ -1,0 +1,80 @@
+.qv-overlay {
+	background-color: rgba( #000, 0.5 );
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1003;
+	overflow: auto;
+	
+	.qv-holder {
+		position: absolute;
+		top:50%;
+		left: 15%;
+		right: 15%;
+		background-color: #fff;
+		height:50px;
+		overflow:hidden;
+		
+		
+		@media #{$large-only}, #{$medium-only} {
+			left: 10% !important;
+			right: 10% !important;			
+		}
+		
+		@media #{$small-only} {
+			left: $column-gutter !important;
+			right: $column-gutter !important;			
+		}
+		
+		.qv-wrapper {
+			position: relative;
+			padding: $column-gutter; // Foundation var
+			opacity: 0;
+			margin-top:0;
+		
+			.images, 
+			.summary {
+				width:50%;
+				height: auto;
+				float: left;
+				@media #{$medium-only}, #{$small-only} {
+					clear: both;
+					width:100% !important;
+					.inner-wrap {
+						padding-top: $column-gutter;
+						padding-left: 0;
+					}
+					
+				} // media
+				
+			} // .image, .summary
+			
+			h4 {
+				margin: 0 0 1.5rem;
+				font-size: 1.9rem;
+			}
+			
+			.inner-wrap {
+				padding-left: $column-gutter;
+			}
+			
+			@include clearfix;
+		} 
+		
+		.vc-ase-remove {
+			position: absolute;
+			top: $column-gutter /2 ;
+			right: $column-gutter /2;
+			
+			&:hover {
+				cursor: pointer;
+				opacity: 0.6;
+			}
+		}
+		
+
+	} // qv-holder
+	
+} // .qv-overlay

@@ -1,0 +1,88 @@
+/**
+ *	SPECIAL ELEMENTS AND TWEAKS
+ *	appearing all over the site
+ */
+
+// TABLE LAYOUT (for vertical and horiz. centering)
+.table {
+	display: table;
+	table-layout: fixed;
+	height: 100%;
+	&.fullwidth {
+		width: 100%
+	}
+}
+
+.tablerow {
+	display: table-row;
+	height: 100%;
+}
+
+.tablecell {
+	display: table-cell;
+	vertical-align: middle;
+	height: 100%;
+	&.top {
+		vertical-align: top;
+	}
+	&.bottom {
+		vertical-align: bottom;
+	}
+}
+
+.item-overlay {
+	@extend %main-transition;
+	position: absolute;
+	top: $column-gutter / 2;
+	bottom: $column-gutter / 2;
+	left: $column-gutter / 2;
+	right: $column-gutter / 2;
+	background-color: $overlay-color;
+	z-index: 1;
+}
+
+.item-img {
+	
+	img {
+		@extend %itemimages;
+	}
+}
+
+.entry-image {
+	> img {
+		@extend %itemimages;
+	}
+}
+.vc-ase-loading {
+	
+	padding: $column-gutter / 2 ;
+	text-align: center;
+	@include special-uppercase(12);
+
+	 > * { vertical-align: middle; }
+	
+	span {
+		margin-left: $column-gutter / 4 ; 
+	}
+	.fa {
+		font-size: 16px;
+		width: 16px;
+		height: 16px;
+	}
+}
+// FORCING EXACT FONT PROPERTIES FOR ICONS:
+.fa {
+	font-family: FontAwesome;
+	font-size: 14px !important;
+	font-weight: normal !important;
+	font-style: normal !important;
+	font-variant: normal !important;
+	line-height:1;
+}
+
+.to-drag {
+	cursor: -webkit-grab; cursor: -moz-grab;
+}
+.dragged {
+	cursor: -webkit-grabbing; cursor: -moz-grabbing;
+}

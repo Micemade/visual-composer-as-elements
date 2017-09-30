@@ -1,0 +1,66 @@
+/** VISUAL COMPOSER  */
+
+.vc_element-icon.as_ajax_prod,
+.vc_element-icon.as_ajax_cats,
+.vc_element-icon.as_filter_cats,
+.vc_element-icon.as_filter_prod,
+.vc_element-icon.as_prod_category,
+.vc_element-icon.as_prod_cats,
+.vc_element-icon.as_slick_slider,
+.vc_element-icon.as_superslides,
+.vc_element-icon.as_single_prod,
+.vc_element-icon.as_single_prod_cat,
+.vc_element-icon.as_prod_cat_single,
+.vc_element-icon.as_menu,
+.vc_element-icon.as_social,
+.vc_element-icon.as_banner,
+.vc_element-icon.as_testimonials,
+.vc_element-icon.as_images_slider,
+.vc_element-icon.as_single_lookbook ,
+.vc_element-icon.as_gmap,
+.vc_element-icon.as_heading,
+.vc_element-icon.as_contact,
+.vc_element-icon.as_video, 
+.vc_element-icon.as_widget_areas,
+.vc_element-icon.as_wc_catalog_view,
+.vc_element-icon.as_button
+{
+	background-image: url(../images/as_vc_icon.svg);
+}
+.wpb_el_type_separator {
+	clear: both;
+	display: block;
+	border-bottom-style: double;
+	border-bottom-color: #D1D1D1;
+	border-bottom-width: 4px;
+	text-align: center;
+	margin: 20px 15px;
+	width: auto;
+	float: none;
+}
+.wpb_el_type_separator:after {
+	content: "";
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 1px;
+}
+
+.wpb_el_type_separator:first-child {
+	margin-top: 0;
+}
+.wpb_el_type_separator .wpb_element_label {
+	background: #FFF;
+	display: inline-block;
+	padding: 10px;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+}
+
+.vc_properties-list select {
+	height: 2.2rem;
+	padding: 0.2rem;
+}
+.vc_checkbox-label {
+	display: block;
+}
