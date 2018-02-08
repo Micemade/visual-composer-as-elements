@@ -483,7 +483,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 						$(this).removeClass('to-anim');
 					});
 				}
-								
+
 			}
 		})( jQuery );
 		
@@ -495,6 +495,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 			
 			function onLayout_filter_posts() {
 				Foundation.libs.equalizer.reflow();
+				$(window).trigger('resize'); 
 			}
 			
 			$("#filter-post-<?php echo esc_attr($block_id); ?>").on( "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", onLayout_filter_posts );

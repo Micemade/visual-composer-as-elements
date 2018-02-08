@@ -1,9 +1,7 @@
 # VISUAL COMPOSER AS ELEMENTS
 
-**Author URI:** http://micemade.com
-
-**Plugin URI:** https://github.com/Micemade/visual-composer-as-elements
-
+**Author URI:** http://micemade.com  
+**Plugin URI:** https://github.com/Micemade/visual-composer-as-elements  
 **Contributors:** Micemade  
 **Tags:** visual composer, elements, widget, extension, woocommerce, masonry, filter, grid, gallery, carousel, shortcode, tabs, admin, plugin, page  
 **Requires at least:** 4.7  

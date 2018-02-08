@@ -3,7 +3,7 @@
 Plugin Name: Visual Composer AS elements
 Plugin URI: http://aligator-studio.com
 Description: Extension plugin for Visual Composer plugin - additional elements for page builder. Elements are best used with Aligator Studio themes, but can be used with any theme.
-Version: 1.1.0
+Version: 1.2.0
 Author: Aligator Studio
 Author URI: http://aligator-studio.com
 Text Domain: vc_ase
