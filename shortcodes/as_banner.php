@@ -237,7 +237,7 @@ function vc_ase_as_banner_func( $atts, $content = '' ) {
 						loop		: true,
 						preStringTyped: function() {
 							var cursor		= thisBlock.find(".typed-cursor");
-							cursor.css("font-size" , <?php echo $title_size ? '"' .esc_js( $title_size ). '"'  : "\"100%\""; ?>);					
+							cursor.css("font-size" , <?php echo $title_size ? '"' .esc_js( $title_size ). '"'  : "\"100%\""; ?>);
 						},
 					});
 					

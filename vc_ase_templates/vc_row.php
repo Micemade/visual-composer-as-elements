@@ -97,7 +97,7 @@ if ( ! $parallax && $has_video_bg ) {
 //
 // VC ASE =======================
 if ( $equalize || $equal_height ) {
-	$wrapper_attributes[] = 'data-equalizer data-equalizer-mq="large-up"';
+	$wrapper_attributes[] = 'data-equalizer';
 }
 
 //

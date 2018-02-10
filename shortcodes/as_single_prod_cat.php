@@ -234,7 +234,7 @@ function vc_ase_as_single_prod_cat_func( $atts, $content = null ) {
 			
 			<input type="hidden" class="slides-config" data-navigation="<?php echo $slider_navig ? '0' : '1'; ?>" data-pagination="<?php echo $slider_pagin ? '0' : '1'; ?>" data-auto="<?php echo esc_attr($slider_timing); ?>" data-desktop="<?php echo $items_desktop; ?>" data-tablet="<?php echo esc_attr($items_tablet); ?>" data-mobile="<?php echo esc_attr($items_mobile); ?>" data-loop="<?php echo ($no_loop ? '0' : '1'); ?>" />
 			
-			<div class="category-content <?php echo !$hide_slider ? 'owl-carousel contentslides' : 'shuffle';?><?php echo ' '. esc_attr($anim) ;?> <?php echo $data_anim == 'none' ? '' : esc_attr($data_anim); ?>"  id="ajax-prod-<?php echo esc_attr($block_id); ?>">
+			<div class="category-content row <?php echo !$hide_slider ? 'owl-carousel contentslides' : 'shuffle';?><?php echo ' '. esc_attr($anim) ;?> <?php echo $data_anim == 'none' ? '' : esc_attr($data_anim); ?>"  id="ajax-prod-<?php echo esc_attr($block_id); ?>">
 			
 			<?php 
 			$i = 1;

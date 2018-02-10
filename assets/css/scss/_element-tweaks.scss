@@ -33,10 +33,10 @@
 .item-overlay {
 	@extend %main-transition;
 	position: absolute;
-	top: $column-gutter / 2;
-	bottom: $column-gutter / 2;
-	left: $column-gutter / 2;
-	right: $column-gutter / 2;
+	top: $space / 2;
+	bottom: $space / 2;
+	left: $space / 2;
+	right: $space / 2;
 	background-color: $overlay-color;
 	z-index: 1;
 }
@@ -55,14 +55,14 @@
 }
 .vc-ase-loading {
 	
-	padding: $column-gutter / 2 ;
+	padding: $space / 2 ;
 	text-align: center;
 	@include special-uppercase(12);
 
 	 > * { vertical-align: middle; }
 	
 	span {
-		margin-left: $column-gutter / 4 ; 
+		margin-left: $space / 4 ; 
 	}
 	.fa {
 		font-size: 16px;

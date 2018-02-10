@@ -3,7 +3,7 @@
 "use strict";
 $(document).ready(function() {	
 	
-	var ajaxurl = window.vc_ase_ajaxurl;
+	var ajaxurl = vc_ase_jsvars.vc_ase_ajax_url;
 
 	var prettyPhotoMarkup = '<div class="pp_pic_holder">'+
 								'<div class="ppt">&nbsp;</div>'+
@@ -94,7 +94,6 @@ $(document).ready(function() {
 			
 		});
 		
-		
 		$.ajax({
 			type: "POST",
 			url: ajaxurl,
@@ -121,7 +120,7 @@ $(document).ready(function() {
 					cat_content.owlCarousel("replace", response).owlCarousel("refresh");
 				
 				}else{
-										
+
 					cat_content.html($.trim(response));
 						
 					cat_content.stop().delay(300).animate({opacity: 1 }, 500);
@@ -158,10 +157,11 @@ $(document).ready(function() {
 			
 
 	});
-/**
- *	AJAX - POSTS and PORTFOLIO CATEGORIES
- *
- */
+
+	/**
+	 *	AJAX - POSTS and PORTFOLIO CATEGORIES
+	*
+	*/
  
 	$(document).on("click", "a.ajax-posts", function(e) {
 
@@ -219,13 +219,13 @@ $(document).ready(function() {
 					load_anim.fadeToggle(300);
 								
 					// BACK TO FULL OPACITY:
-					cat_content.stop(false,true).animate({opacity: 1 }, 500);						
+					cat_content.stop(false,true).animate({opacity: 1 }, 500);
 					
 					/*  SUPPORT FOR PLUGINS AND FUNCTIONS AFTER AJAX LOAD */
 					
 					// OWL CAROUSEL :
 					if( cat_content.hasClass("contentslides") ) {
-						 						
+
 						cat_content.owlCarousel("replace", response).owlCarousel("refresh");
 						
 					}else{
@@ -316,21 +316,19 @@ $(document).ready(function() {
 		}else{
 			
 			holder		= $("body");
-			toAdd	= "<div class=\"qv-overlay\"><div class=\"qv-holder woocommerce\" id=\"qv-holder-"+prod_ID+"\"><div class=\"vc-ase-loading\"><i class=\"fa fa-spinner fa-spin\"></i><span>"+ wplocalize_vcase_js.loading_qb + "</span></div></div></div>"
+			toAdd	= "<div class=\"qv-overlay\"><div class=\"qv-holder woocommerce\" id=\"qv-holder-"+prod_ID+"\"><div class=\"vc-ase-loading\"><i class=\"fa fa-spinner fa-spin\"></i><span>"+ vc_ase_jsvars.vc_ase_loading_qv + "</span></div></div></div>"
 			holder.append( toAdd );
 			
 		}
 		
-		var	lang			= aLink.attr("data-lang");
-		var	qv_holder		= $("#qv-holder-"+prod_ID+"");
-		var qv_overlay		= $(".qv-overlay");
-		var load_anim		= qv_holder.find(".vc-ase-loading");
-		var load_anim_item	= aLink.find(".vc-ase-loading");
-		var qv_img_format	= aLink.attr("data-qv_img_format");
-
+		var	lang			= aLink.attr("data-lang"),
+			qv_holder		= $("#qv-holder-"+prod_ID+""),
+			qv_overlay		= $(".qv-overlay"),
+			load_anim		= qv_holder.find(".vc-ase-loading"),
+			load_anim_item	= aLink.find(".vc-ase-loading"),
+			qv_img_format	= aLink.attr("data-qv_img_format");
 		
 		qv_overlay.fadeIn();
-		
 		
 		// REMOVE IF CLICKED ON OVERLAY:
 		qv_overlay.on("click", function(e) {
@@ -340,7 +338,7 @@ $(document).ready(function() {
 		});
 		
 		$.ajax({
-		
+			
 			type: "POST",
 			url: ajaxurl,
 			data: { "action": "load-quick-view", productID: prod_ID, lang: lang, qv_img_format: qv_img_format  },
@@ -351,7 +349,6 @@ $(document).ready(function() {
 				
 				// fill with response from server:
 				qv_holder.html(response);
-
 				
 				// -------- > REMOVING ACTIONS:
 				// add QV window remover:
@@ -359,36 +356,17 @@ $(document).ready(function() {
 				// on remover click:	
 				qv_holder.find(".vc-ase-remove").on("click", function(e) {
 					
-					// if EXPANDER:
-					if( qv_holder.hasClass("expander") ){
-						
-						qv_holder.fadeOut("slow", function() { 
-							qv_holder.remove();
-							$.waypoints("refresh");
-							
-							$("body,html").delay(200).animate(
+					var	wc_prod_gall = qv_holder.find('.woocommerce-product-gallery');
 
-								{scrollTop:aLink_offset - WP_adminbar - 30}, 1000, 'easeInOutQuint', function(){
-
-									$(window).delay(200).trigger("resize");
-									aLink_offset = "";
-								}
-							
-							);
-							
-						});
-					// if  MODAL:
-					}else{
-						qv_overlay.fadeOut("slow", function() { qv_overlay.remove(); });
-					}
+					qv_overlay.fadeOut( 300, function() { qv_overlay.remove(); });
 				
 				});
 				// end removing actions
-
+				
 				
 			}, // end success
-			error: function () {
-				alert("Ajax fetching or transmitting data error");
+			error: function(xhr, status, error) {
+				console.log(xhr.responseText);
 			}
 		});
  

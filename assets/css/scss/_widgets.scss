@@ -12,18 +12,18 @@
 		margin-bottom: 5rem;
 		
 		&:first-child {
-			margin-top: $column-gutter;
+			margin-top: $space;
 		}
 		&:last-child {
-			margin-bottom: $column-gutter * 2;
+			margin-bottom: $space * 2;
 		}	
 	} // aside
 	
 	
 	// Widget titles
 	h4 {
-		margin-bottom: $column-gutter / 2;
-		padding-bottom: $column-gutter / 4;
+		margin-bottom: $space / 2;
+		padding-bottom: $space / 4;
 		
 		@include border(0,2,0,0,$body-font-color,0.1 );
 	}
@@ -32,7 +32,7 @@
 	ul {
 
 		li {
-			padding: $column-gutter / 4 0;
+			padding: $space / 4 0;
 			display: block;
 			@include border(0,1,0,0, $body-font-color,0.1);
 			
@@ -42,10 +42,10 @@
 			
 			// TWEAKS ONLY FOR FOOTER WIDGETS:
 			#footerwidgets & {
-				padding: $column-gutter / 8 0 !important;
+				padding: $space / 8 0 !important;
 				
 				h5 {
-					margin-bottom: $column-gutter /4;
+					margin-bottom: $space /4;
 					@include border(0,1,0,0, #999, 0.2)
 				}
 				
@@ -109,10 +109,10 @@
 		.widget_nav_menu {
 			.menu-item-has-children {
 				> .sub-menu {
-					margin-top: $column-gutter /2;
-					a { margin-right: $column-gutter /2 }
+					margin-top: $space /2;
+					a { margin-right: $space /2 }
 					.sub-menu {
-						a { margin-right: $column-gutter }
+						a { margin-right: $space }
 					}
 				}
 				
@@ -124,9 +124,9 @@
 		.widget_nav_menu {
 			.menu-item-has-children {
 				> .sub-menu {;
-					a { margin-left: $column-gutter /2 }
+					a { margin-left: $space /2 }
 					.sub-menu {
-						a { margin-left: $column-gutter }
+						a { margin-left: $space }
 					}
 				}
 				
@@ -147,9 +147,9 @@
 			.children {
 				display: none;
 				margin: 0;
-				margin-bottom: -($column-gutter /4);
+				margin-bottom: -($space /4);
 				a { 
-					padding-right: $column-gutter /2;
+					padding-right: $space /2;
 					&:before {
 						content:"--";
 						display: block;
@@ -159,7 +159,7 @@
 				}
 				.children {
 					a { 
-						padding-right: $column-gutter;
+						padding-right: $space;
 						&:before {
 							content:"----";
 							display: block;
@@ -176,9 +176,9 @@
 			.children {
 				display: none;
 				margin: 0;
-				margin-bottom: -($column-gutter /4);
+				margin-bottom: -($space /4);
 				a { 
-					padding-left: $column-gutter /2;
+					padding-left: $space /2;
 					&:before {
 						content:"--";
 						display: block;
@@ -188,7 +188,7 @@
 				}
 				.children {
 					a { 
-						padding-left: $column-gutter;
+						padding-left: $space;
 						&:before {
 							content:"----";
 							display: block;
@@ -235,7 +235,7 @@
 			a{
 				.fa {
 					margin-left: 0;
-					margin-bottom: $column-gutter / 4;
+					margin-bottom: $space / 4;
 				}
 			}
 		}
@@ -244,7 +244,7 @@
 		.social {
 			a{
 				.fa {
-					margin-right: $column-gutter / 4; 
+					margin-right: $space / 4; 
 					margin-left:0;
 				}
 			}
@@ -267,7 +267,7 @@
 	// Text widget
 	.textwidget {
 		padding:{
-			bottom: $column-gutter /2; 
+			bottom: $space /2; 
 		}
 	}
 	// END Text widget

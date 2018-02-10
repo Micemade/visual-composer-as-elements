@@ -18,38 +18,45 @@
 		overflow:hidden;
 		
 		
-		@media #{$large-only}, #{$medium-only} {
+		@include breakpoint(large down) {
 			left: 10% !important;
-			right: 10% !important;			
+			right: 10% !important;
 		}
 		
-		@media #{$small-only} {
-			left: $column-gutter !important;
-			right: $column-gutter !important;			
+		@include breakpoint(small only) {
+			left: $space !important;
+			right: $space !important;
 		}
 		
 		.qv-wrapper {
 			position: relative;
-			padding: $column-gutter; // Foundation var
+			padding: $space; // Foundation var
 			opacity: 0;
 			margin-top:0;
+			transition: opacity 0.4s linear;
+
+			&.active {
+				opacity: 1;
+			}
 		
 			.images, 
 			.summary {
 				width:50%;
 				height: auto;
 				float: left;
-				@media #{$medium-only}, #{$small-only} {
+				
+				@include breakpoint(medium down) {
 					clear: both;
 					width:100% !important;
 					.inner-wrap {
-						padding-top: $column-gutter;
+						padding-top: $space;
 						padding-left: 0;
 					}
-					
-				} // media
-				
-			} // .image, .summary
+				}
+			} // .images, .summary
+			.images {
+				margin-bottom: 0;
+			}
 			
 			h4 {
 				margin: 0 0 1.5rem;
@@ -57,7 +64,7 @@
 			}
 			
 			.inner-wrap {
-				padding-left: $column-gutter;
+				padding-left: $space;
 			}
 			
 			@include clearfix;
@@ -65,8 +72,8 @@
 		
 		.vc-ase-remove {
 			position: absolute;
-			top: $column-gutter /2 ;
-			right: $column-gutter /2;
+			top: $space /2 ;
+			right: $space /2;
 			
 			&:hover {
 				cursor: pointer;

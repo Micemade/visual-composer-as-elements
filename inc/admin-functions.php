@@ -29,7 +29,7 @@ function as_vce_terms_func( $taxonomy ) {
 		$terms = get_terms( $taxonomy,'hide_empty=1, hierarchical=0');
 		if ( $terms ) {
 			foreach ($terms as $term) {
-				$terms_arr[$term->name]= $term->slug ;
+				$terms_arr[$term->name] = $term->slug ;
 			}
 		}else{
 			$terms_arr = array();

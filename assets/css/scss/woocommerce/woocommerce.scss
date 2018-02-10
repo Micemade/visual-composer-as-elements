@@ -36,7 +36,7 @@ p.demo_store {
 	box-shadow: 0 1px 2em rgba(0,0,0,0.3);
 	line-height: 1.5;
 
-	@media #{$medium-only}, #{$small-only} {
+	@include breakpoint(medium down) {
 		left: 0;
 		right: 260px;
 		width: auto;
@@ -90,8 +90,8 @@ p.demo_store {
 	.woocommerce-message,
 	.woocommerce-error,
 	.woocommerce-info {
-		padding: $column-gutter ;
-		margin: 0 0 $column-gutter ;
+		padding: $space ;
+		margin: 0 0 $space ;
 		position: relative;
 		color: $body-font-color;
 		width: auto;
@@ -110,15 +110,15 @@ p.demo_store {
 			text-align: center;
 			background-color: #FFF;
 			border-radius: 100%;
-			margin-right: $column-gutter;
-			width: $column-gutter;
-			height: $column-gutter;
+			margin-right: $space;
+			width: $space;
+			height: $space;
 		}
 
 		.button {
 			float: right;
 			margin:{
-				left: $column-gutter / 2 ;
+				left: $space / 2 ;
 			}
 		}
 
@@ -203,7 +203,7 @@ p.demo_store {
 	.notfound-sales, .related {
 		
 		h2, h3 {
-			margin: $column-gutter  0;
+			margin: $space  0;
 		}
 	}
 	
@@ -229,13 +229,13 @@ p.demo_store {
 
 	.quantity {
 		.qty {
-			width:$column-gutter * 2;
+			width:$space * 2;
 			text-align: center;
 			margin-bottom: 0;
 			min-height: 3.35rem;
 			
-			@media #{$medium-only}, #{$small-only} {
-				width:$column-gutter;
+			@include breakpoint(medium down) {
+				width:$space;
 				input[type=number]::-webkit-inner-spin-button {
 					display: none;
 				}
@@ -247,7 +247,7 @@ p.demo_store {
 		
 		span.onsale {
 			
-			top: -( $column-gutter );
+			top: -( $space );
 			left: auto;
 			right: 0;
 		}
@@ -255,7 +255,7 @@ p.demo_store {
 		.related {
 			span.onsale {
 				top: 0;
-				left:$column-gutter;
+				left:$space;
 				right: auto;
 			}
 		}
@@ -270,23 +270,23 @@ p.demo_store {
 		
 		.columns-in {
 			margin:{
-				left: - $column-gutter / 2 ; 
-				right: - $column-gutter / 2 ;
-				bottom: $column-gutter ;
+				left: - $space / 2 ; 
+				right: - $space / 2 ;
+				bottom: $space ;
 			}
 			max-width: none;
 			
 			@include clearfix;
 		}
 		
-		margin-top: $column-gutter;
+		margin-top: $space;
 		margin-bottom: 0;
 		position: relative;
 		max-width: 100%;
 		
 		.woocommerce-review-link {
 			font-size: rem-calc( 14 );
-			margin-left: $column-gutter / 4 ; 
+			margin-left: $space / 4 ; 
 		}
 
 		
@@ -301,7 +301,7 @@ p.demo_store {
 			
 			ins, del {
 				float: left;
-				margin-right: $column-gutter / 2 ; 
+				margin-right: $space / 2 ; 
 			}
 
 			del {
@@ -333,7 +333,7 @@ p.demo_store {
 			&.layout-2 {
 				float: left;
 				text-align: left !important;
-				font-size: $column-gutter * 0.75;
+				font-size: $space * 0.75;
 				
 				&:before { left: 6px; right: auto; }
 				&:after { display: none; }
@@ -343,7 +343,7 @@ p.demo_store {
 			&.layout-3 {
 				float: right;
 				text-align: right !important;
-				font-size: $column-gutter * 0.75;
+				font-size: $space * 0.75;
 				
 				&:before { right: 6px; left: auto; }
 				&:after { display: none; }
@@ -376,8 +376,8 @@ p.demo_store {
 				
 				&:not(.vertical-thumbs) {
 					margin:{
-						left: - $column-gutter / 2;
-						right: - $column-gutter / 2;
+						left: - $space / 2;
+						right: - $space / 2;
 					}		
 				}
 				&.vertical-thumbs {
@@ -398,9 +398,9 @@ p.demo_store {
 						left: 0;
 					}
 					
-					@media  #{$small-only} {
+					@include breakpoint(small only) {
 						position: relative; 
-						margin-bottom: $column-gutter;
+						margin-bottom: $space;
 						.item {
 							margin-bottom: 0;
 							display: block;
@@ -422,7 +422,7 @@ p.demo_store {
 				
 				.star-rating {
 					float: right;
-					margin-left: $column-gutter /2;
+					margin-left: $space /2;
 				}
 				
 				p.price {
@@ -441,8 +441,8 @@ p.demo_store {
 						float: right;
 					}
 					.single_variation {
-						margin-top: - $column-gutter /2;
-						margin-bottom: $column-gutter /2;
+						margin-top: - $space /2;
+						margin-bottom: $space /2;
 						line-height: 1;
 					}
 				}
@@ -450,7 +450,7 @@ p.demo_store {
 			}
 			
 			[itemprop=description]{
-				margin-bottom: $column-gutter ;
+				margin-bottom: $space ;
 				font-size: 0.9rem;
 			}
 			
@@ -458,7 +458,7 @@ p.demo_store {
 				clear: both;
 				font-size: 12px12px;
 				@include border(1,0,0,0,#000,0.2);
-				padding: 0 0 ($column-gutter / 2 );
+				padding: 0 0 ($space / 2 );
 				@include clearfix;
 				margin-top: 0;
 				
@@ -466,7 +466,7 @@ p.demo_store {
 					clear: both;
 					display: block;
 					@include border(0,1,0,0,#999,0.2);
-					padding: ($column-gutter / 4 ) 0;
+					padding: ($space / 4 ) 0;
 				}
 				
 			}
@@ -489,7 +489,7 @@ p.demo_store {
 
 		
 		.woocommerce-product-rating {
-			margin-bottom: $column-gutter;
+			margin-bottom: $space;
 		}
 
 	
@@ -523,7 +523,7 @@ p.demo_store {
 			@include clearfix;
 			
 			margin:{
-				top: $column-gutter;
+				top: $space;
 			}
 			
 			ul.tabs {
@@ -548,7 +548,7 @@ p.demo_store {
 						text-transform: uppercase;
 						letter-spacing: 0.1rem;
 						display: inline-block;
-						padding: $column-gutter / 4 $column-gutter / 2;
+						padding: $space / 4 $space / 2;
 						color: $secondarytext;
 						text-decoration: none;
 
@@ -571,7 +571,7 @@ p.demo_store {
 						
 					}
 					
-					@media #{$large-only}, #{$medium-only}, #{$small-only} {
+					@include breakpoint(large down) {
 						display: block;
 						margin: 0; 
 					}
@@ -585,19 +585,19 @@ p.demo_store {
 				
 				h2 {
 					font-size: rem-calc(24);
-					margin-bottom: $column-gutter /2;
+					margin-bottom: $space /2;
 				}
 			}
 		}
 
 		p.cart {
-			margin-bottom: $column-gutter;
+			margin-bottom: $space;
 			@include clearfix();
 		}
 
 		form.cart {
 			
-			margin: $column-gutter 0;
+			margin: $space 0;
 			@include clearfix();
 
 			div.quantity {
@@ -642,7 +642,7 @@ p.demo_store {
 					width: 100%;
 					float: left;
 					margin: 0;
-					padding-right: $column-gutter;
+					padding-right: $space;
 					border-top: 0;
 					border-bottom: 0;
 					border-left: 0;
@@ -659,7 +659,7 @@ p.demo_store {
 						content:"\f00d";
 						font-family: "FontAwesome";
 						display: inline-block;
-						margin-right: $column-gutter /8 ;
+						margin-right: $space /8 ;
 						opacity: 0.7;
 					}
 					&:after { display: none; }
@@ -669,9 +669,9 @@ p.demo_store {
 				td.label {
 					padding: {
 						top: 0;
-						right:$column-gutter;
+						right:$space;
 						bottom: 0;
-						left: $column-gutter / 2;
+						left: $space / 2;
 					}
 					min-height: 3.35rem;
 					@include special-uppercase( 9, 600 );
@@ -688,15 +688,15 @@ p.demo_store {
 			
 			.single_variation_wrap {
 				clear: both;
-				margin: $column-gutter 0 0;
+				margin: $space 0 0;
 				@include clearfix;
 				
 				.variations_button {
 					float: left;
 				}
 				.single_variation {
-					margin-top: - $column-gutter /2;
-					margin-bottom: $column-gutter /2;
+					margin-top: - $space /2;
+					margin-bottom: $space /2;
 					line-height: 1;
 				}
 			}
@@ -729,11 +729,11 @@ p.demo_store {
 	span.onsale {
 		position: absolute;
 		z-index: 2;
-		padding: $column-gutter / 8 $column-gutter / 4; // Foundation var
+		padding: $space / 8 $space / 4; // Foundation var
 		font-weight: 500;
 		text-align: center;
 		top: 0;
-		left:$column-gutter;
+		left:$space;
 		margin: 0;
 		background-color: $body-font-color;
 		color: $prim-back-color;
@@ -924,7 +924,7 @@ p.demo_store {
 	}
 
 	a.added_to_cart {
-		padding: 0 ($column-gutter / 4);
+		padding: 0 ($space / 4);
 		white-space: nowrap;
 		display: inline-block;		
 	}
@@ -990,7 +990,7 @@ p.demo_store {
 					img.avatar {
 						float: left;
 						position: absolute;
-						top: $column-gutter / 2;
+						top: $space / 2;
 						left: 0;
 						width: 40px;
 						height: auto;
@@ -1001,7 +1001,7 @@ p.demo_store {
 
 					.comment-text {
 						margin: 0 0 0 50px;						
-						padding: $column-gutter / 2 $column-gutter / 2 0;
+						padding: $space / 2 $space / 2 0;
 						@include border(0,1,0,0,$secondary ,0.3);
 						@include clearfix();
 
@@ -1043,7 +1043,7 @@ p.demo_store {
 	.star-rating {
 		overflow: hidden;
 		position: relative;
-		height: $column-gutter /2;
+		height: $space /2;
 		line-height: 1;
 		font-size: 1em;
 		width: 5.4em;
@@ -1277,19 +1277,19 @@ p.demo_store {
 
 		th {
 			font-weight: 700;
-			padding: $column-gutter / 2;
+			padding: $space / 2;
 		}
 
 		td {
 			border-top: 1px solid rgba(0,0,0,0.1);
-			padding: $column-gutter / 2;
+			padding: $space / 2;
 			vertical-align: middle;
 			position: relative;
 			small {
 				font-weight: normal;
 			}
-			@media #{$medium-only}, #{$small-only} {
-				padding: $column-gutter / 4;
+			@include breakpoint(medium down) {
+				padding: $space / 4;
 			}
 		}
 
@@ -1312,7 +1312,7 @@ p.demo_store {
 		.remove {
 			position: absolute !important;
 			z-index: 1;
-			left: $column-gutter / 4;
+			left: $space / 4;
 			top: 50%;
 			margin-top: -8px;
 		}
@@ -1324,7 +1324,7 @@ p.demo_store {
 					display: none !important;
 				}
 				&.add_to_cart_button {
-					font-size: $column-gutter / 2;
+					font-size: $space / 2;
 					opacity: 0.8;
 					&:hover {
 						opacity: 0.5;
@@ -1333,7 +1333,7 @@ p.demo_store {
 			}
 		}
 		.product-thumbnail, .product-price {
-			@media  #{$small-only} {
+			@include breakpoint(small only) {
 				display: none;
 			}
 		}
@@ -1421,7 +1421,7 @@ p.demo_store {
 		
 		li {
 			position: relative;
-			padding: ($column-gutter / 4) 0;
+			padding: ($space / 4) 0;
 			margin: 0;
 			@include clearfix();
 			list-style: none;
@@ -1439,7 +1439,7 @@ p.demo_store {
 
 			img {
 				float: right;
-				margin-left: $column-gutter / 4;
+				margin-left: $space / 4;
 				width: 80px;
 				height: auto;
 				box-shadow: none;
@@ -1509,7 +1509,7 @@ p.demo_store {
 				}
 				a.remove {
 					position: absolute;
-					top: $column-gutter / 4;
+					top: $space / 4;
 					right: -8px;
 					line-height: 1.2;
 					font-weight: 400;
@@ -1773,7 +1773,7 @@ p.demo_store {
 		.price_slider_wrapper {
 
 			position: relative;
-			padding: ($column-gutter / 2) 0;
+			padding: ($space / 2) 0;
 			
 			.price_slider_amount {
 				padding-top: 2rem;
@@ -1838,7 +1838,7 @@ p.demo_store {
 
 		.price_slider_wrapper {
 			position: relative;
-			padding: ($column-gutter / 2) 0;
+			padding: ($space / 2) 0;
 			.ui-widget-content {
 				border-radius: 1em;
 				background-color: $primary - #444;
@@ -1975,10 +1975,10 @@ p.demo_store {
 	.cart.actions {
 		
 		label[for=coupon_code] {
-			padding: $column-gutter /2 0;
+			padding: $space /2 0;
 		}
 		input.input-text {
-			margin-bottom: $column-gutter /2;
+			margin-bottom: $space /2;
 		}
 			
 	}
@@ -2042,7 +2042,7 @@ p.demo_store {
 				}
 
 				td {
-					padding: $column-gutter / 2 ;
+					padding: $space / 2 ;
 				}
 
 				td,
@@ -2050,8 +2050,8 @@ p.demo_store {
 					vertical-align: top;
 					border-left: 0;
 					border-right: 0;
-					padding: ($column-gutter / 4) ($column-gutter / 2) ;
-					line-height: $column-gutter;
+					padding: ($space / 4) ($space / 2) ;
+					line-height: $space;
 				}
 
 				small {
@@ -2139,7 +2139,7 @@ p.demo_store {
 	#payment {
 		
 		background: $sec-back-color;
-		padding: $column-gutter / 2;
+		padding: $space / 2;
 
 		ul.payment_methods {
 			@include clearfix();

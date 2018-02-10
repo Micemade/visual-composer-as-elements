@@ -1,53 +1,25 @@
-# Copyright Micemade (c) {2017}
+# Copyright (C) 2018 vc_ase
+# This file is distributed under the same license as the vc_ase package.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/index\n"
-"POT-Creation-Date: 2017-04-13 19:36:29+00:00\n"
+"Project-Id-Version: vc_ase\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.4\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
-"Language: en\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Country: United States\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-Basepath: ../\n"
+"Language-Team: Micemade <alen@micemade.com>\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-Bookmarks: \n"
-"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: helpers/BFI_Thumb.php:148
-msgid ""
-"The server does not have ImageMagick or GD installed and/or enabled! Any of "
-"these libraries are required for WordPress to be able to resize images. "
-"Please contact your server administrator to enable this before continuing."
+#: visual-composer-as-elements.php:85
+msgid "Visual composer AS elements is not effective without Visual Composer plugin activated. Either install and activate Visual Composer plugin or deactivate Visual composer AS elements plugin. "
 msgstr ""
 
-#: helpers/BFI_Thumb.php:276
-msgid "Image rotate failed."
-msgstr ""
-
-#: helpers/BFI_Thumb.php:299
-msgid "Image opacity change failed."
-msgstr ""
-
-#: helpers/BFI_Thumb.php:386
-msgid "Image color change failed."
-msgstr ""
-
-#: helpers/BFI_Thumb.php:403
-msgid "Image grayscale failed."
-msgstr ""
-
-#: helpers/BFI_Thumb.php:420
-msgid "Image negate failed."
+#: visual-composer-as-elements.php:161
+msgid "Loading quick view"
 msgstr ""
 
 #: helpers/meta.php:31
@@ -66,25 +38,15 @@ msgstr ""
 msgid "This post is password protected"
 msgstr ""
 
-#: helpers/vc-ase-ajax.php:114
-msgid "No product was found for this category."
-msgstr ""
-
-#: helpers/vc-ase-ajax.php:244
-msgid ""
-"AJAX PRODUCTS BLOCK DISABLED.<br> Sorry, it seems like WooCommerce is not "
-"active. Please install and activate last version of WooCommerce."
-msgstr ""
-
-#: helpers/vc-ase-ajax.php:832
+#: helpers/vc-ase-ajax.php:804
 msgid "Read more about the"
 msgstr ""
 
-#: helpers/vc-ase-ajax.php:832
+#: helpers/vc-ase-ajax.php:804
 msgid "Product details"
 msgstr ""
 
-#: helpers/vc-ase-ajax.php:860
+#: helpers/vc-ase-ajax.php:832
 msgid "No products are selected, or the product doesn't exsist anymore."
 msgstr ""
 
@@ -96,80 +58,51 @@ msgstr ""
 msgid "Larix theme background"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:17
-msgid ""
-"Use Larix theme primary or secondary back color for content -<strong> THEME "
-"CUSTOMIZE changes will apply</strong> (will be discarded when theme is "
-"switched)"
-msgstr ""
-
-#: inc/default-added-shortcode-params.php:38
-#: shortcodes-mapping/as_heading_params.php:19
+#: inc/default-added-shortcode-params.php:38, shortcodes-mapping/as_heading_params.php:19
 msgid "Element title"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:49
-#: shortcodes-mapping/as_heading_params.php:29
+#: inc/default-added-shortcode-params.php:49, shortcodes-mapping/as_heading_params.php:29
 msgid "Element subtitle"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:59
-#: shortcodes-mapping/as_heading_params.php:39
+#: inc/default-added-shortcode-params.php:59, shortcodes-mapping/as_heading_params.php:39
 msgid "Element title style"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:74
-#: shortcodes-mapping/as_heading_params.php:54
+#: inc/default-added-shortcode-params.php:74, shortcodes-mapping/as_heading_params.php:54
 msgid "Element subtitle style"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:90
-#: shortcodes-mapping/as_banner_params.php:65
-#: shortcodes-mapping/as_heading_params.php:80
+#: inc/default-added-shortcode-params.php:90, shortcodes-mapping/as_banner_params.php:65, shortcodes-mapping/as_heading_params.php:80
 msgid "Title custom css"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:93
-#: shortcodes-mapping/as_banner_params.php:68
-#: shortcodes-mapping/as_heading_params.php:83
+#: inc/default-added-shortcode-params.php:93, shortcodes-mapping/as_banner_params.php:68, shortcodes-mapping/as_heading_params.php:83
 msgid "Custom css selector for title"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:103
-#: shortcodes-mapping/as_banner_params.php:77
-#: shortcodes-mapping/as_heading_params.php:92
+#: inc/default-added-shortcode-params.php:103, shortcodes-mapping/as_banner_params.php:77, shortcodes-mapping/as_heading_params.php:92
 msgid "Subtitle custom css"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:106
-#: shortcodes-mapping/as_banner_params.php:80
-#: shortcodes-mapping/as_heading_params.php:95
+#: inc/default-added-shortcode-params.php:106, shortcodes-mapping/as_banner_params.php:80, shortcodes-mapping/as_heading_params.php:95
 msgid "Custom css selector for subtitle"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:116
-#: shortcodes-mapping/as_heading_params.php:114
-#: shortcodes-mapping/as_images_slider_params.php:103
+#: inc/default-added-shortcode-params.php:116, shortcodes-mapping/as_heading_params.php:114, shortcodes-mapping/as_images_slider_params.php:103
 msgid "Title color"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:126
-#: shortcodes-mapping/as_heading_params.php:123
+#: inc/default-added-shortcode-params.php:126, shortcodes-mapping/as_heading_params.php:123
 msgid "Subtitle color"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:137
-#: shortcodes-mapping/as_heading_params.php:144
+#: inc/default-added-shortcode-params.php:137, shortcodes-mapping/as_heading_params.php:144
 msgid "Title additional sizing"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:153
-#: shortcodes-mapping/as_banner_params.php:241
-#: shortcodes-mapping/as_contact_params.php:110
-#: shortcodes-mapping/as_heading_params.php:293
-#: shortcodes-mapping/as_single_prod_params.php:228
-#: shortcodes-mapping/as_social_params.php:193
-#: shortcodes-mapping/as_widget_areas_params.php:34
+#: inc/default-added-shortcode-params.php:153, shortcodes-mapping/as_banner_params.php:241, shortcodes-mapping/as_contact_params.php:110, shortcodes-mapping/as_heading_params.php:293, shortcodes-mapping/as_single_prod_params.php:228, shortcodes-mapping/as_social_params.php:193, shortcodes-mapping/as_widget_areas_params.php:34
 msgid "Css"
 msgstr ""
 
@@ -177,19 +110,7 @@ msgstr ""
 msgid "Title and subtitle settings"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:170
-msgid "Parallax background properties"
-msgstr ""
-
-#: inc/default-added-shortcode-params.php:179
-msgid ""
-"set repeating or stretching parallax image. NOTE: row ID must be set (look "
-"above for ID field)"
-msgstr ""
-
-#: inc/default-added-shortcode-params.php:189
-#: shortcodes-mapping/as_ajax_prod_params.php:123
-#: shortcodes-mapping/as_single_prod_cat_params.php:86
+#: inc/default-added-shortcode-params.php:189, shortcodes-mapping/as_ajax_prod_params.php:123, shortcodes-mapping/as_single_prod_cat_params.php:86
 msgid "Overlay color"
 msgstr ""
 
@@ -197,21 +118,11 @@ msgstr ""
 msgid "Choose color for overlay - between content and (paralax) background image"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:194
-#: inc/default-added-shortcode-params.php:204
-#: inc/default-added-shortcode-params.php:215
-#: inc/default-added-shortcode-params.php:227
-#: inc/default-added-shortcode-params.php:238
-#: inc/default-added-shortcode-params.php:279
-#: inc/default-added-shortcode-params.php:289
-#: inc/default-added-shortcode-params.php:299
+#: inc/default-added-shortcode-params.php:194, inc/default-added-shortcode-params.php:204, inc/default-added-shortcode-params.php:215, inc/default-added-shortcode-params.php:227, inc/default-added-shortcode-params.php:238, inc/default-added-shortcode-params.php:279, inc/default-added-shortcode-params.php:289, inc/default-added-shortcode-params.php:299
 msgid "VC ASE settings"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:199
-#: shortcodes-mapping/as_ajax_prod_params.php:132
-#: shortcodes-mapping/as_prod_category_params.php:80
-#: shortcodes-mapping/as_prod_cats_params.php:146
+#: inc/default-added-shortcode-params.php:199, shortcodes-mapping/as_ajax_prod_params.php:132, shortcodes-mapping/as_prod_category_params.php:80, shortcodes-mapping/as_prod_cats_params.php:146
 msgid "Overlay opacity"
 msgstr ""
 
@@ -223,76 +134,6 @@ msgstr ""
 msgid "Equalize row columns"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:224
-#: inc/default-added-shortcode-params.php:235
-#: inc/default-added-shortcode-params.php:276
-#: inc/default-added-shortcode-params.php:286
-#: inc/default-added-shortcode-params.php:296
-#: shortcodes-mapping/as_ajax_cats_params.php:225
-#: shortcodes-mapping/as_ajax_cats_params.php:234
-#: shortcodes-mapping/as_ajax_cats_params.php:252
-#: shortcodes-mapping/as_ajax_cats_params.php:261
-#: shortcodes-mapping/as_ajax_cats_params.php:270
-#: shortcodes-mapping/as_ajax_cats_params.php:279
-#: shortcodes-mapping/as_ajax_cats_params.php:349
-#: shortcodes-mapping/as_ajax_cats_params.php:358
-#: shortcodes-mapping/as_ajax_cats_params.php:368
-#: shortcodes-mapping/as_ajax_prod_params.php:217
-#: shortcodes-mapping/as_ajax_prod_params.php:227
-#: shortcodes-mapping/as_ajax_prod_params.php:237
-#: shortcodes-mapping/as_ajax_prod_params.php:296
-#: shortcodes-mapping/as_ajax_prod_params.php:305
-#: shortcodes-mapping/as_ajax_prod_params.php:314
-#: shortcodes-mapping/as_ajax_prod_params.php:334
-#: shortcodes-mapping/as_banner_params.php:29
-#: shortcodes-mapping/as_banner_params.php:178
-#: shortcodes-mapping/as_contact_params.php:74
-#: shortcodes-mapping/as_filter_cats_params.php:88
-#: shortcodes-mapping/as_filter_cats_params.php:192
-#: shortcodes-mapping/as_filter_cats_params.php:201
-#: shortcodes-mapping/as_filter_cats_params.php:223
-#: shortcodes-mapping/as_filter_prod_params.php:148
-#: shortcodes-mapping/as_filter_prod_params.php:158
-#: shortcodes-mapping/as_filter_prod_params.php:168
-#: shortcodes-mapping/as_filter_prod_params.php:281
-#: shortcodes-mapping/as_gmap_params.php:181
-#: shortcodes-mapping/as_heading_params.php:72
-#: shortcodes-mapping/as_heading_params.php:224
-#: shortcodes-mapping/as_images_slider_params.php:134
-#: shortcodes-mapping/as_images_slider_params.php:143
-#: shortcodes-mapping/as_prod_category_params.php:102
-#: shortcodes-mapping/as_prod_cats_params.php:91
-#: shortcodes-mapping/as_prod_cats_params.php:167
-#: shortcodes-mapping/as_single_prod_cat_params.php:48
-#: shortcodes-mapping/as_single_prod_cat_params.php:58
-#: shortcodes-mapping/as_single_prod_cat_params.php:157
-#: shortcodes-mapping/as_single_prod_cat_params.php:167
-#: shortcodes-mapping/as_single_prod_cat_params.php:177
-#: shortcodes-mapping/as_single_prod_cat_params.php:234
-#: shortcodes-mapping/as_single_prod_cat_params.php:243
-#: shortcodes-mapping/as_single_prod_cat_params.php:252
-#: shortcodes-mapping/as_single_prod_params.php:72
-#: shortcodes-mapping/as_single_prod_params.php:90
-#: shortcodes-mapping/as_single_prod_params.php:100
-#: shortcodes-mapping/as_single_prod_params.php:153
-#: shortcodes-mapping/as_single_prod_params.php:163
-#: shortcodes-mapping/as_slick_slider_params.php:208
-#: shortcodes-mapping/as_slick_slider_params.php:218
-#: shortcodes-mapping/as_slick_slider_params.php:229
-#: shortcodes-mapping/as_slick_slider_params.php:259
-#: shortcodes-mapping/as_slick_slider_params.php:268
-#: shortcodes-mapping/as_slick_slider_params.php:287
-#: shortcodes-mapping/as_slick_slider_params.php:308
-#: shortcodes-mapping/as_superslides_params.php:201
-#: shortcodes-mapping/as_superslides_params.php:210
-#: shortcodes-mapping/as_superslides_params.php:237
-#: shortcodes-mapping/as_superslides_params.php:247
-#: shortcodes-mapping/as_testimonials_params.php:116
-#: shortcodes-mapping/as_testimonials_params.php:125
-#: shortcodes-mapping/as_wc_catalog_view_params.php:37
-msgid "Yes, please"
-msgstr ""
-
 #: inc/default-added-shortcode-params.php:225
 msgid "make columns inside row to have equal heights."
 msgstr ""
@@ -302,26 +143,18 @@ msgid "Row Z index above"
 msgstr ""
 
 #: inc/default-added-shortcode-params.php:236
-msgid ""
-"put this row in rendering above other rows (usefull when \"Custom menu\" "
-"element is inside row - to make sure submenus appear completely )"
+msgid "put this row in rendering above other rows (usefull when \"Custom menu\" element is inside row - to make sure submenus appear completely )"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:256
-#: shortcodes-mapping/as_ajax_prod_params.php:113
-#: shortcodes-mapping/as_banner_params.php:139
-#: shortcodes-mapping/as_single_prod_cat_params.php:76
+#: inc/default-added-shortcode-params.php:256, shortcodes-mapping/as_ajax_prod_params.php:113, shortcodes-mapping/as_banner_params.php:139, shortcodes-mapping/as_single_prod_cat_params.php:76
 msgid "Text color"
 msgstr ""
 
 #: inc/default-added-shortcode-params.php:259
-msgid ""
-"Choose color for text - general column setting - can be overriden by inner "
-"elements settings"
+msgid "Choose color for text - general column setting - can be overriden by inner elements settings"
 msgstr ""
 
-#: inc/default-added-shortcode-params.php:260
-#: inc/default-added-shortcode-params.php:269
+#: inc/default-added-shortcode-params.php:260, inc/default-added-shortcode-params.php:269
 msgid "Design Options"
 msgstr ""
 
@@ -354,17 +187,14 @@ msgid "Column Z index above"
 msgstr ""
 
 #: inc/default-added-shortcode-params.php:297
-msgid ""
-"put this column in rendering above other columns (usefull when \"Custom "
-"menu\" element is inside - to make sure submenus appear completely )"
+msgid "put this column in rendering above other columns (usefull when \"Custom menu\" element is inside - to make sure submenus appear completely )"
 msgstr ""
 
-#: shortcodes/as_ajax_cats.php:189 shortcodes/as_ajax_prod.php:226
-#: shortcodes/as_filter_cats.php:169 shortcodes/as_filter_prod.php:201
+#: shortcodes/as_ajax_cats.php:189, shortcodes/as_ajax_prod.php:204, shortcodes/as_filter_cats.php:169, shortcodes/as_filter_prod.php:201
 msgid "All"
 msgstr ""
 
-#: shortcodes/as_ajax_prod.php:353
+#: shortcodes/as_ajax_prod.php:331
 msgid "Reset categories"
 msgstr ""
 
@@ -405,9 +235,7 @@ msgid "Problem in sending e-mail."
 msgstr ""
 
 #: shortcodes/as_filter_prod.php:508
-msgid ""
-"FILTERED PRODUCTS BLOCK DISABLED.<br> Sorry, it seems like WooCommerce is "
-"not active. Please install and activate last version of WooCommerce."
+msgid "FILTERED PRODUCTS BLOCK DISABLED.<br> Sorry, it seems like WooCommerce is not active. Please install and activate last version of WooCommerce."
 msgstr ""
 
 #: shortcodes/as_gmap.php:77
@@ -415,19 +243,15 @@ msgid "Google maps error"
 msgstr ""
 
 #: shortcodes/as_gmap.php:78
-msgid ""
-"Please check your address inputs - there's a probable error in data, or use "
-"manual longitude and latitude inputs."
+msgid "Please check your address inputs - there's a probable error in data, or use manual longitude and latitude inputs."
 msgstr ""
 
 #: shortcodes/as_gmap.php:209
 msgid "No Google Maps API key provided."
 msgstr ""
 
-#: shortcodes/as_prod_category.php:132 shortcodes/as_single_prod_cat.php:386
-msgid ""
-"Product category name (slug) has changed, category doesn't exist, or "
-"doesn't contain any products."
+#: shortcodes/as_prod_category.php:132, shortcodes/as_single_prod_cat.php:367
+msgid "Product category name (slug) has changed, category doesn't exist, or doesn't contain any products."
 msgstr ""
 
 #: shortcodes/as_prod_cats.php:189
@@ -435,108 +259,70 @@ msgid "Product category names (slugs) changed, or no product category exists."
 msgstr ""
 
 #: shortcodes/as_prod_cats.php:260
-msgid ""
-"PRODUCT CATEGORIES BLOCK DISABLED.<br> Sorry, it seems like WooCommerce is "
-"not active. Please install and activate last version of WooCommerce."
+msgid "PRODUCT CATEGORIES BLOCK DISABLED.<br> Sorry, it seems like WooCommerce is not active. Please install and activate last version of WooCommerce."
 msgstr ""
 
 #: shortcodes/as_single_product.php:104
 msgid "Loading product"
 msgstr ""
 
-#: shortcodes/as_wc_catalog_view.php:212
+#: shortcodes/as_wc_catalog_view.php:204
 msgid "Products from selected categories"
 msgstr ""
 
-#: shortcodes/as_wc_catalog_view.php:256
+#: shortcodes/as_wc_catalog_view.php:248
 msgid "No products to display."
 msgstr ""
 
-#: shortcodes/as_wc_catalog_view.php:285
-msgid ""
-"WC LIST/GRID BLOCK DISABLED.<br> Sorry, it seems like WooCommerce is not "
-"active. Please install and activate last version of WooCommerce."
+#: shortcodes/as_wc_catalog_view.php:277
+msgid "WC LIST/GRID BLOCK DISABLED.<br> Sorry, it seems like WooCommerce is not active. Please install and activate last version of WooCommerce."
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:8
-#: shortcodes-mapping/as_ajax_prod_params.php:14
-#: shortcodes-mapping/as_banner_params.php:258
-#: shortcodes-mapping/as_contact_params.php:14
-#: shortcodes-mapping/as_filter_cats_params.php:14
-#: shortcodes-mapping/as_filter_prod_params.php:14
-#: shortcodes-mapping/as_gmap_params.php:43
-#: shortcodes-mapping/as_heading_params.php:191
-#: shortcodes-mapping/as_images_slider_params.php:14
-#: shortcodes-mapping/as_menu_params.php:13
-#: shortcodes-mapping/as_prod_category_params.php:14
-#: shortcodes-mapping/as_prod_cats_params.php:14
-#: shortcodes-mapping/as_single_prod_cat_params.php:14
-#: shortcodes-mapping/as_single_prod_params.php:181
-#: shortcodes-mapping/as_social_params.php:14
-#: shortcodes-mapping/as_testimonials_params.php:14
-#: shortcodes-mapping/as_widget_areas_params.php:14
+#: shortcodes-mapping/as_ajax_cats_params.php:8, shortcodes-mapping/as_ajax_prod_params.php:14, shortcodes-mapping/as_banner_params.php:258, shortcodes-mapping/as_contact_params.php:14, shortcodes-mapping/as_filter_cats_params.php:14, shortcodes-mapping/as_filter_prod_params.php:14, shortcodes-mapping/as_gmap_params.php:43, shortcodes-mapping/as_heading_params.php:191, shortcodes-mapping/as_images_slider_params.php:14, shortcodes-mapping/as_menu_params.php:13, shortcodes-mapping/as_prod_category_params.php:14, shortcodes-mapping/as_prod_cats_params.php:14, shortcodes-mapping/as_single_prod_cat_params.php:14, shortcodes-mapping/as_single_prod_params.php:181, shortcodes-mapping/as_social_params.php:14, shortcodes-mapping/as_testimonials_params.php:14, shortcodes-mapping/as_widget_areas_params.php:14
 msgid "Viewport enter animation"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:18
-#: shortcodes-mapping/as_filter_cats_params.php:24
-#: shortcodes-mapping/as_single_prod_params.php:14
+#: shortcodes-mapping/as_ajax_cats_params.php:18, shortcodes-mapping/as_filter_cats_params.php:24, shortcodes-mapping/as_single_prod_params.php:14
 msgid "Block style"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:33
-#: shortcodes-mapping/as_filter_cats_params.php:40
+#: shortcodes-mapping/as_ajax_cats_params.php:33, shortcodes-mapping/as_filter_cats_params.php:40
 msgid "Block style color"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:42
-#: shortcodes-mapping/as_filter_cats_params.php:49
-msgid ""
-"<strong>Applies only to  Style 3 and Style 4.</strong> Light: white "
-"gradient background with dark text; Dark : dark gradient background with "
-"white text. Expanded: expand color overlay to item image edges."
+#: shortcodes-mapping/as_ajax_cats_params.php:42, shortcodes-mapping/as_filter_cats_params.php:49
+msgid "<strong>Applies only to  Style 3 and Style 4.</strong> Light: white gradient background with dark text; Dark : dark gradient background with white text. Expanded: expand color overlay to item image edges."
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:58
-#: shortcodes-mapping/as_filter_cats_params.php:55
+#: shortcodes-mapping/as_ajax_cats_params.php:58, shortcodes-mapping/as_filter_cats_params.php:55
 msgid "Post types and categories"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:67
-#: shortcodes-mapping/as_filter_cats_params.php:63
+#: shortcodes-mapping/as_ajax_cats_params.php:67, shortcodes-mapping/as_filter_cats_params.php:63
 msgid "Post types"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:83
-#: shortcodes-mapping/as_filter_cats_params.php:152
+#: shortcodes-mapping/as_ajax_cats_params.php:83, shortcodes-mapping/as_filter_cats_params.php:152
 msgid "Taxonomy menu style"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:99
-#: shortcodes-mapping/as_filter_cats_params.php:166
+#: shortcodes-mapping/as_ajax_cats_params.php:99, shortcodes-mapping/as_filter_cats_params.php:166
 msgid "Taxonomy menu alignment"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:123
-#: shortcodes-mapping/as_filter_cats_params.php:76
+#: shortcodes-mapping/as_ajax_cats_params.php:123, shortcodes-mapping/as_filter_cats_params.php:76
 msgid "Post categories"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:126
-#: shortcodes-mapping/as_filter_cats_params.php:79
-#: shortcodes-mapping/as_slick_slider_params.php:83
-#: shortcodes-mapping/as_superslides_params.php:109
+#: shortcodes-mapping/as_ajax_cats_params.php:126, shortcodes-mapping/as_filter_cats_params.php:79, shortcodes-mapping/as_slick_slider_params.php:83, shortcodes-mapping/as_superslides_params.php:109
 msgid "select one or multiple, \"Post types\" must be set to \"Post\""
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:134
-#: shortcodes-mapping/as_filter_cats_params.php:95
+#: shortcodes-mapping/as_ajax_cats_params.php:134, shortcodes-mapping/as_filter_cats_params.php:95
 msgid "Portfolio  categories"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:137
-#: shortcodes-mapping/as_ajax_cats_params.php:147
-#: shortcodes-mapping/as_filter_cats_params.php:98
+#: shortcodes-mapping/as_ajax_cats_params.php:137, shortcodes-mapping/as_ajax_cats_params.php:147, shortcodes-mapping/as_filter_cats_params.php:98
 msgid "select one or multiple, \"Post types\" must be set to \"Portfolio\""
 msgstr ""
 
@@ -544,68 +330,31 @@ msgstr ""
 msgid "Product  categories"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:156
-#: shortcodes-mapping/as_ajax_prod_params.php:152
-#: shortcodes-mapping/as_filter_cats_params.php:105
-#: shortcodes-mapping/as_single_prod_cat_params.php:96
+#: shortcodes-mapping/as_ajax_cats_params.php:156, shortcodes-mapping/as_ajax_prod_params.php:152, shortcodes-mapping/as_filter_cats_params.php:105, shortcodes-mapping/as_single_prod_cat_params.php:96
 msgid "Image settings"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:165
-#: shortcodes-mapping/as_ajax_prod_params.php:162
-#: shortcodes-mapping/as_contact_params.php:53
-#: shortcodes-mapping/as_filter_cats_params.php:114
-#: shortcodes-mapping/as_filter_prod_params.php:107
-#: shortcodes-mapping/as_images_slider_params.php:53
-#: shortcodes-mapping/as_single_prod_cat_params.php:105
-#: shortcodes-mapping/as_single_prod_params.php:59
-#: shortcodes-mapping/as_slick_slider_params.php:133
-#: shortcodes-mapping/as_superslides_params.php:126
+#: shortcodes-mapping/as_ajax_cats_params.php:165, shortcodes-mapping/as_ajax_prod_params.php:162, shortcodes-mapping/as_contact_params.php:53, shortcodes-mapping/as_filter_cats_params.php:114, shortcodes-mapping/as_filter_prod_params.php:107, shortcodes-mapping/as_images_slider_params.php:53, shortcodes-mapping/as_single_prod_cat_params.php:105, shortcodes-mapping/as_single_prod_params.php:59, shortcodes-mapping/as_slick_slider_params.php:133, shortcodes-mapping/as_superslides_params.php:126
 msgid "Image format"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:169
-#: shortcodes-mapping/as_ajax_prod_params.php:153
-#: shortcodes-mapping/as_contact_params.php:57
-#: shortcodes-mapping/as_filter_cats_params.php:118
-#: shortcodes-mapping/as_filter_prod_params.php:111
-#: shortcodes-mapping/as_images_slider_params.php:57
-#: shortcodes-mapping/as_single_prod_cat_params.php:109
-#: shortcodes-mapping/as_single_prod_params.php:63
-#: shortcodes-mapping/as_slick_slider_params.php:137
-#: shortcodes-mapping/as_superslides_params.php:130
-msgid ""
-"list of registered image sizes. WARNING: in case of theme switch some sizes "
-"will be removed."
+#: shortcodes-mapping/as_ajax_cats_params.php:169, shortcodes-mapping/as_ajax_prod_params.php:153, shortcodes-mapping/as_contact_params.php:57, shortcodes-mapping/as_filter_cats_params.php:118, shortcodes-mapping/as_filter_prod_params.php:111, shortcodes-mapping/as_images_slider_params.php:57, shortcodes-mapping/as_single_prod_cat_params.php:109, shortcodes-mapping/as_single_prod_params.php:63, shortcodes-mapping/as_slick_slider_params.php:137, shortcodes-mapping/as_superslides_params.php:130
+msgid "list of registered image sizes. WARNING: in case of theme switch some sizes will be removed."
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:175
-#: shortcodes-mapping/as_filter_cats_params.php:124
-#: shortcodes-mapping/as_filter_prod_params.php:118
-#: shortcodes-mapping/as_slick_slider_params.php:100
+#: shortcodes-mapping/as_ajax_cats_params.php:175, shortcodes-mapping/as_filter_cats_params.php:124, shortcodes-mapping/as_filter_prod_params.php:118, shortcodes-mapping/as_slick_slider_params.php:100
 msgid "Custom image width"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:184
-#: shortcodes-mapping/as_filter_cats_params.php:133
-#: shortcodes-mapping/as_filter_prod_params.php:127
-#: shortcodes-mapping/as_slick_slider_params.php:111
+#: shortcodes-mapping/as_ajax_cats_params.php:184, shortcodes-mapping/as_filter_cats_params.php:133, shortcodes-mapping/as_filter_prod_params.php:127, shortcodes-mapping/as_slick_slider_params.php:111
 msgid "Custom image height"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:203
-#: shortcodes-mapping/as_ajax_prod_params.php:283
-#: shortcodes-mapping/as_filter_prod_params.php:197
-#: shortcodes-mapping/as_single_prod_cat_params.php:221
-#: shortcodes-mapping/as_slick_slider_params.php:162
-#: shortcodes-mapping/as_wc_catalog_view_params.php:72
+#: shortcodes-mapping/as_ajax_cats_params.php:203, shortcodes-mapping/as_ajax_prod_params.php:283, shortcodes-mapping/as_filter_prod_params.php:197, shortcodes-mapping/as_single_prod_cat_params.php:221, shortcodes-mapping/as_slick_slider_params.php:162, shortcodes-mapping/as_wc_catalog_view_params.php:72
 msgid "Total items"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:206
-#: shortcodes-mapping/as_ajax_prod_params.php:286
-#: shortcodes-mapping/as_filter_cats_params.php:213
-#: shortcodes-mapping/as_single_prod_cat_params.php:224
+#: shortcodes-mapping/as_ajax_cats_params.php:206, shortcodes-mapping/as_ajax_prod_params.php:286, shortcodes-mapping/as_filter_cats_params.php:213, shortcodes-mapping/as_single_prod_cat_params.php:224
 msgid "If empty, all items will e showed."
 msgstr ""
 
@@ -625,19 +374,15 @@ msgstr ""
 msgid "Display only item title and excerpt (simple posts list)."
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:232
-#: shortcodes-mapping/as_filter_cats_params.php:86
+#: shortcodes-mapping/as_ajax_cats_params.php:232, shortcodes-mapping/as_filter_cats_params.php:86
 msgid "Show only featured ?"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:235
-#: shortcodes-mapping/as_filter_cats_params.php:89
+#: shortcodes-mapping/as_ajax_cats_params.php:235, shortcodes-mapping/as_filter_cats_params.php:89
 msgid "show only featured posts or portfolio items"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:250
-#: shortcodes-mapping/as_ajax_prod_params.php:294
-#: shortcodes-mapping/as_single_prod_cat_params.php:232
+#: shortcodes-mapping/as_ajax_cats_params.php:250, shortcodes-mapping/as_ajax_prod_params.php:294, shortcodes-mapping/as_single_prod_cat_params.php:232
 msgid "Disable slider"
 msgstr ""
 
@@ -649,102 +394,51 @@ msgstr ""
 msgid "if slider is disabled, mansory is automatically on."
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:268
-#: shortcodes-mapping/as_ajax_prod_params.php:303
-#: shortcodes-mapping/as_images_slider_params.php:132
-#: shortcodes-mapping/as_single_prod_cat_params.php:241
-#: shortcodes-mapping/as_testimonials_params.php:114
+#: shortcodes-mapping/as_ajax_cats_params.php:268, shortcodes-mapping/as_ajax_prod_params.php:303, shortcodes-mapping/as_images_slider_params.php:132, shortcodes-mapping/as_single_prod_cat_params.php:241, shortcodes-mapping/as_testimonials_params.php:114
 msgid "Hide slider navigation?"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:271
-#: shortcodes-mapping/as_ajax_prod_params.php:306
-#: shortcodes-mapping/as_images_slider_params.php:135
-#: shortcodes-mapping/as_single_prod_cat_params.php:244
-#: shortcodes-mapping/as_single_prod_params.php:91
-#: shortcodes-mapping/as_testimonials_params.php:117
+#: shortcodes-mapping/as_ajax_cats_params.php:271, shortcodes-mapping/as_ajax_prod_params.php:306, shortcodes-mapping/as_images_slider_params.php:135, shortcodes-mapping/as_single_prod_cat_params.php:244, shortcodes-mapping/as_single_prod_params.php:91, shortcodes-mapping/as_testimonials_params.php:117
 msgid "use prev / next arrows"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:277
-#: shortcodes-mapping/as_ajax_prod_params.php:312
-#: shortcodes-mapping/as_images_slider_params.php:141
-#: shortcodes-mapping/as_single_prod_cat_params.php:250
-#: shortcodes-mapping/as_testimonials_params.php:123
+#: shortcodes-mapping/as_ajax_cats_params.php:277, shortcodes-mapping/as_ajax_prod_params.php:312, shortcodes-mapping/as_images_slider_params.php:141, shortcodes-mapping/as_single_prod_cat_params.php:250, shortcodes-mapping/as_testimonials_params.php:123
 msgid "Hide slider pagination?"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:280
-#: shortcodes-mapping/as_ajax_prod_params.php:315
-#: shortcodes-mapping/as_images_slider_params.php:144
-#: shortcodes-mapping/as_single_prod_cat_params.php:253
-#: shortcodes-mapping/as_single_prod_params.php:101
-#: shortcodes-mapping/as_testimonials_params.php:126
+#: shortcodes-mapping/as_ajax_cats_params.php:280, shortcodes-mapping/as_ajax_prod_params.php:315, shortcodes-mapping/as_images_slider_params.php:144, shortcodes-mapping/as_single_prod_cat_params.php:253, shortcodes-mapping/as_single_prod_params.php:101, shortcodes-mapping/as_testimonials_params.php:126
 msgid "pagination dots bellow the slider"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:287
-#: shortcodes-mapping/as_ajax_prod_params.php:322
-#: shortcodes-mapping/as_images_slider_params.php:151
-#: shortcodes-mapping/as_single_prod_cat_params.php:260
-#: shortcodes-mapping/as_single_prod_params.php:108
-#: shortcodes-mapping/as_slick_slider_params.php:275
-#: shortcodes-mapping/as_superslides_params.php:225
-#: shortcodes-mapping/as_testimonials_params.php:133
+#: shortcodes-mapping/as_ajax_cats_params.php:287, shortcodes-mapping/as_ajax_prod_params.php:322, shortcodes-mapping/as_images_slider_params.php:151, shortcodes-mapping/as_single_prod_cat_params.php:260, shortcodes-mapping/as_single_prod_params.php:108, shortcodes-mapping/as_slick_slider_params.php:275, shortcodes-mapping/as_superslides_params.php:225, shortcodes-mapping/as_testimonials_params.php:133
 msgid "Slider timing"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:290
-#: shortcodes-mapping/as_ajax_prod_params.php:325
-#: shortcodes-mapping/as_single_prod_cat_params.php:263
-#: shortcodes-mapping/as_single_prod_params.php:111
-#: shortcodes-mapping/as_testimonials_params.php:136
+#: shortcodes-mapping/as_ajax_cats_params.php:290, shortcodes-mapping/as_ajax_prod_params.php:325, shortcodes-mapping/as_single_prod_cat_params.php:263, shortcodes-mapping/as_single_prod_params.php:111, shortcodes-mapping/as_testimonials_params.php:136
 msgid "If empty, no automatic sliding will happen."
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:300
-#: shortcodes-mapping/as_ajax_prod_params.php:342
-#: shortcodes-mapping/as_images_slider_params.php:161
-#: shortcodes-mapping/as_single_prod_cat_params.php:269
-#: shortcodes-mapping/as_testimonials_params.php:145
+#: shortcodes-mapping/as_ajax_cats_params.php:300, shortcodes-mapping/as_ajax_prod_params.php:342, shortcodes-mapping/as_images_slider_params.php:161, shortcodes-mapping/as_single_prod_cat_params.php:269, shortcodes-mapping/as_testimonials_params.php:145
 msgid "Responsive slider settings"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:309
-#: shortcodes-mapping/as_ajax_prod_params.php:351
-#: shortcodes-mapping/as_images_slider_params.php:170
-#: shortcodes-mapping/as_single_prod_cat_params.php:278
-#: shortcodes-mapping/as_testimonials_params.php:154
+#: shortcodes-mapping/as_ajax_cats_params.php:309, shortcodes-mapping/as_ajax_prod_params.php:351, shortcodes-mapping/as_images_slider_params.php:170, shortcodes-mapping/as_single_prod_cat_params.php:278, shortcodes-mapping/as_testimonials_params.php:154
 msgid "Items in desktop view"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:312
-#: shortcodes-mapping/as_ajax_cats_params.php:322
-#: shortcodes-mapping/as_ajax_cats_params.php:331
-#: shortcodes-mapping/as_ajax_prod_params.php:354
-#: shortcodes-mapping/as_ajax_prod_params.php:364
-#: shortcodes-mapping/as_ajax_prod_params.php:373
+#: shortcodes-mapping/as_ajax_cats_params.php:312, shortcodes-mapping/as_ajax_cats_params.php:322, shortcodes-mapping/as_ajax_cats_params.php:331, shortcodes-mapping/as_ajax_prod_params.php:354, shortcodes-mapping/as_ajax_prod_params.php:364, shortcodes-mapping/as_ajax_prod_params.php:373
 msgid "If slider is disabled, this setting convert to \"Items in row\""
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:319
-#: shortcodes-mapping/as_ajax_prod_params.php:361
-#: shortcodes-mapping/as_images_slider_params.php:180
-#: shortcodes-mapping/as_single_prod_cat_params.php:288
-#: shortcodes-mapping/as_testimonials_params.php:164
+#: shortcodes-mapping/as_ajax_cats_params.php:319, shortcodes-mapping/as_ajax_prod_params.php:361, shortcodes-mapping/as_images_slider_params.php:180, shortcodes-mapping/as_single_prod_cat_params.php:288, shortcodes-mapping/as_testimonials_params.php:164
 msgid "Items in tablet view"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:328
-#: shortcodes-mapping/as_ajax_prod_params.php:370
-#: shortcodes-mapping/as_images_slider_params.php:189
-#: shortcodes-mapping/as_single_prod_cat_params.php:297
-#: shortcodes-mapping/as_testimonials_params.php:173
+#: shortcodes-mapping/as_ajax_cats_params.php:328, shortcodes-mapping/as_ajax_prod_params.php:370, shortcodes-mapping/as_images_slider_params.php:189, shortcodes-mapping/as_single_prod_cat_params.php:297, shortcodes-mapping/as_testimonials_params.php:173
 msgid "Items in mobile view"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:347
-#: shortcodes-mapping/as_filter_cats_params.php:190
+#: shortcodes-mapping/as_ajax_cats_params.php:347, shortcodes-mapping/as_filter_cats_params.php:190
 msgid "Hide zoom button?"
 msgstr ""
 
@@ -752,93 +446,47 @@ msgstr ""
 msgid "display button for zooming image (not applied to \"style3\" and \"style4\")"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:356
-#: shortcodes-mapping/as_filter_cats_params.php:199
+#: shortcodes-mapping/as_ajax_cats_params.php:356, shortcodes-mapping/as_filter_cats_params.php:199
 msgid "Hide link button ?"
 msgstr ""
 
 #: shortcodes-mapping/as_ajax_cats_params.php:359
-msgid ""
-"display button with link to post/portfolio item (not applied to \"style3\" "
-"and \"style4\")"
+msgid "display button with link to post/portfolio item (not applied to \"style3\" and \"style4\")"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:366
-#: shortcodes-mapping/as_ajax_prod_params.php:332
-#: shortcodes-mapping/as_filter_cats_params.php:221
-#: shortcodes-mapping/as_filter_prod_params.php:279
-#: shortcodes-mapping/as_prod_cats_params.php:89
+#: shortcodes-mapping/as_ajax_cats_params.php:366, shortcodes-mapping/as_ajax_prod_params.php:332, shortcodes-mapping/as_filter_cats_params.php:221, shortcodes-mapping/as_filter_prod_params.php:279, shortcodes-mapping/as_prod_cats_params.php:89
 msgid "Remove items gutter"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:369
-#: shortcodes-mapping/as_filter_cats_params.php:224
-#: shortcodes-mapping/as_filter_prod_params.php:282
-#: shortcodes-mapping/as_prod_cats_params.php:92
+#: shortcodes-mapping/as_ajax_cats_params.php:369, shortcodes-mapping/as_filter_cats_params.php:224, shortcodes-mapping/as_filter_prod_params.php:282, shortcodes-mapping/as_prod_cats_params.php:92
 msgid "remove spaces between items and on element sides, created by grid"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:376
-#: shortcodes-mapping/as_ajax_prod_params.php:186
-#: shortcodes-mapping/as_single_prod_cat_params.php:126
-#: shortcodes-mapping/as_single_prod_params.php:172
+#: shortcodes-mapping/as_ajax_cats_params.php:376, shortcodes-mapping/as_ajax_prod_params.php:186, shortcodes-mapping/as_single_prod_cat_params.php:126, shortcodes-mapping/as_single_prod_params.php:172
 msgid "Animations settings for items"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:384
-#: shortcodes-mapping/as_ajax_prod_params.php:194
-#: shortcodes-mapping/as_filter_cats_params.php:301
-#: shortcodes-mapping/as_filter_prod_params.php:268
-#: shortcodes-mapping/as_images_slider_params.php:24
-#: shortcodes-mapping/as_single_prod_cat_params.php:134
-#: shortcodes-mapping/as_single_prod_params.php:192
+#: shortcodes-mapping/as_ajax_cats_params.php:384, shortcodes-mapping/as_ajax_prod_params.php:194, shortcodes-mapping/as_filter_cats_params.php:301, shortcodes-mapping/as_filter_prod_params.php:268, shortcodes-mapping/as_images_slider_params.php:24, shortcodes-mapping/as_single_prod_cat_params.php:134, shortcodes-mapping/as_single_prod_params.php:192
 msgid "Hover image animation"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:395
-#: shortcodes-mapping/as_ajax_prod_params.php:382
-#: shortcodes-mapping/as_filter_cats_params.php:313
-#: shortcodes-mapping/as_filter_prod_params.php:259
-#: shortcodes-mapping/as_filter_prod_params.php:290
-#: shortcodes-mapping/as_single_prod_cat_params.php:309
-#: shortcodes-mapping/as_single_prod_params.php:203
+#: shortcodes-mapping/as_ajax_cats_params.php:395, shortcodes-mapping/as_ajax_prod_params.php:382, shortcodes-mapping/as_filter_cats_params.php:313, shortcodes-mapping/as_filter_prod_params.php:259, shortcodes-mapping/as_filter_prod_params.php:290, shortcodes-mapping/as_single_prod_cat_params.php:309, shortcodes-mapping/as_single_prod_params.php:203
 msgid "Additional settings"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:404
-#: shortcodes-mapping/as_ajax_prod_params.php:391
-#: shortcodes-mapping/as_banner_params.php:288
-#: shortcodes-mapping/as_filter_cats_params.php:322
-#: shortcodes-mapping/as_filter_prod_params.php:300
-#: shortcodes-mapping/as_single_prod_cat_params.php:318
+#: shortcodes-mapping/as_ajax_cats_params.php:404, shortcodes-mapping/as_ajax_prod_params.php:391, shortcodes-mapping/as_banner_params.php:288, shortcodes-mapping/as_filter_cats_params.php:322, shortcodes-mapping/as_filter_prod_params.php:300, shortcodes-mapping/as_single_prod_cat_params.php:318
 msgid "Button label"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:407
-#: shortcodes-mapping/as_ajax_prod_params.php:394
-#: shortcodes-mapping/as_banner_params.php:291
-#: shortcodes-mapping/as_filter_cats_params.php:325
-#: shortcodes-mapping/as_filter_prod_params.php:303
-#: shortcodes-mapping/as_single_prod_cat_params.php:321
+#: shortcodes-mapping/as_ajax_cats_params.php:407, shortcodes-mapping/as_ajax_prod_params.php:394, shortcodes-mapping/as_banner_params.php:291, shortcodes-mapping/as_filter_cats_params.php:325, shortcodes-mapping/as_filter_prod_params.php:303, shortcodes-mapping/as_single_prod_cat_params.php:321
 msgid "If this setting is empty, and link is set, link will apply to whole banner."
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:413
-#: shortcodes-mapping/as_ajax_prod_params.php:400
-#: shortcodes-mapping/as_banner_params.php:297
-#: shortcodes-mapping/as_button_params.php:75
-#: shortcodes-mapping/as_filter_cats_params.php:331
-#: shortcodes-mapping/as_filter_prod_params.php:309
-#: shortcodes-mapping/as_single_prod_cat_params.php:327
+#: shortcodes-mapping/as_ajax_cats_params.php:413, shortcodes-mapping/as_ajax_prod_params.php:400, shortcodes-mapping/as_banner_params.php:297, shortcodes-mapping/as_button_params.php:75, shortcodes-mapping/as_filter_cats_params.php:331, shortcodes-mapping/as_filter_prod_params.php:309, shortcodes-mapping/as_single_prod_cat_params.php:327
 msgid "Add link"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:422
-#: shortcodes-mapping/as_ajax_prod_params.php:418
-#: shortcodes-mapping/as_button_params.php:83
-#: shortcodes-mapping/as_filter_cats_params.php:340
-#: shortcodes-mapping/as_filter_prod_params.php:318
-#: shortcodes-mapping/as_single_prod_cat_params.php:336
+#: shortcodes-mapping/as_ajax_cats_params.php:422, shortcodes-mapping/as_ajax_prod_params.php:418, shortcodes-mapping/as_button_params.php:83, shortcodes-mapping/as_filter_cats_params.php:340, shortcodes-mapping/as_filter_prod_params.php:318, shortcodes-mapping/as_single_prod_cat_params.php:336
 msgid "Button holder css"
 msgstr ""
 
@@ -846,51 +494,11 @@ msgstr ""
 msgid "Apply css to button wrapper element (not button itself)"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:430
-#: shortcodes-mapping/as_ajax_prod_params.php:426
-#: shortcodes-mapping/as_banner_params.php:315
-#: shortcodes-mapping/as_button_params.php:90
-#: shortcodes-mapping/as_contact_params.php:101
-#: shortcodes-mapping/as_filter_cats_params.php:348
-#: shortcodes-mapping/as_filter_prod_params.php:326
-#: shortcodes-mapping/as_gmap_params.php:219
-#: shortcodes-mapping/as_heading_params.php:272
-#: shortcodes-mapping/as_images_slider_params.php:209
-#: shortcodes-mapping/as_menu_params.php:52
-#: shortcodes-mapping/as_prod_category_params.php:110
-#: shortcodes-mapping/as_prod_cats_params.php:184
-#: shortcodes-mapping/as_single_prod_cat_params.php:352
-#: shortcodes-mapping/as_single_prod_params.php:219
-#: shortcodes-mapping/as_slick_slider_params.php:316
-#: shortcodes-mapping/as_social_params.php:185
-#: shortcodes-mapping/as_superslides_params.php:265
-#: shortcodes-mapping/as_testimonials_params.php:193
-#: shortcodes-mapping/as_video_params.php:74
-#: shortcodes-mapping/as_wc_catalog_view_params.php:163
-#: shortcodes-mapping/as_widget_areas_params.php:110
+#: shortcodes-mapping/as_ajax_cats_params.php:430, shortcodes-mapping/as_ajax_prod_params.php:426, shortcodes-mapping/as_banner_params.php:315, shortcodes-mapping/as_button_params.php:90, shortcodes-mapping/as_contact_params.php:101, shortcodes-mapping/as_filter_cats_params.php:348, shortcodes-mapping/as_filter_prod_params.php:326, shortcodes-mapping/as_gmap_params.php:219, shortcodes-mapping/as_heading_params.php:272, shortcodes-mapping/as_images_slider_params.php:209, shortcodes-mapping/as_menu_params.php:52, shortcodes-mapping/as_prod_category_params.php:110, shortcodes-mapping/as_prod_cats_params.php:184, shortcodes-mapping/as_single_prod_cat_params.php:352, shortcodes-mapping/as_single_prod_params.php:219, shortcodes-mapping/as_slick_slider_params.php:316, shortcodes-mapping/as_social_params.php:185, shortcodes-mapping/as_superslides_params.php:265, shortcodes-mapping/as_testimonials_params.php:193, shortcodes-mapping/as_video_params.php:74, shortcodes-mapping/as_wc_catalog_view_params.php:163, shortcodes-mapping/as_widget_areas_params.php:110
 msgid "Additional CSS classes"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:433
-#: shortcodes-mapping/as_ajax_prod_params.php:429
-#: shortcodes-mapping/as_banner_params.php:318
-#: shortcodes-mapping/as_button_params.php:93
-#: shortcodes-mapping/as_contact_params.php:104
-#: shortcodes-mapping/as_filter_cats_params.php:351
-#: shortcodes-mapping/as_filter_prod_params.php:329
-#: shortcodes-mapping/as_gmap_params.php:222
-#: shortcodes-mapping/as_heading_params.php:275
-#: shortcodes-mapping/as_images_slider_params.php:212
-#: shortcodes-mapping/as_menu_params.php:55
-#: shortcodes-mapping/as_prod_category_params.php:113
-#: shortcodes-mapping/as_prod_cats_params.php:187
-#: shortcodes-mapping/as_single_prod_cat_params.php:355
-#: shortcodes-mapping/as_single_prod_params.php:222
-#: shortcodes-mapping/as_social_params.php:188
-#: shortcodes-mapping/as_testimonials_params.php:196
-#: shortcodes-mapping/as_video_params.php:77
-#: shortcodes-mapping/as_wc_catalog_view_params.php:166
-#: shortcodes-mapping/as_widget_areas_params.php:113
+#: shortcodes-mapping/as_ajax_cats_params.php:433, shortcodes-mapping/as_ajax_prod_params.php:429, shortcodes-mapping/as_banner_params.php:318, shortcodes-mapping/as_button_params.php:93, shortcodes-mapping/as_contact_params.php:104, shortcodes-mapping/as_filter_cats_params.php:351, shortcodes-mapping/as_filter_prod_params.php:329, shortcodes-mapping/as_gmap_params.php:222, shortcodes-mapping/as_heading_params.php:275, shortcodes-mapping/as_images_slider_params.php:212, shortcodes-mapping/as_menu_params.php:55, shortcodes-mapping/as_prod_category_params.php:113, shortcodes-mapping/as_prod_cats_params.php:187, shortcodes-mapping/as_single_prod_cat_params.php:355, shortcodes-mapping/as_single_prod_params.php:222, shortcodes-mapping/as_social_params.php:188, shortcodes-mapping/as_testimonials_params.php:196, shortcodes-mapping/as_video_params.php:77, shortcodes-mapping/as_wc_catalog_view_params.php:166, shortcodes-mapping/as_widget_areas_params.php:113
 msgid "Adds a wrapper div with additional css classes for more styling control"
 msgstr ""
 
@@ -898,28 +506,7 @@ msgstr ""
 msgid "Content (ajax)"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_cats_params.php:461
-#: shortcodes-mapping/as_ajax_prod_params.php:455
-#: shortcodes-mapping/as_banner_params.php:344
-#: shortcodes-mapping/as_button_params.php:108
-#: shortcodes-mapping/as_contact_params.php:126
-#: shortcodes-mapping/as_filter_cats_params.php:377
-#: shortcodes-mapping/as_filter_prod_params.php:344
-#: shortcodes-mapping/as_gmap_params.php:238
-#: shortcodes-mapping/as_heading_params.php:10
-#: shortcodes-mapping/as_images_slider_params.php:228
-#: shortcodes-mapping/as_menu_params.php:71
-#: shortcodes-mapping/as_prod_category_params.php:129
-#: shortcodes-mapping/as_prod_cats_params.php:203
-#: shortcodes-mapping/as_single_prod_cat_params.php:380
-#: shortcodes-mapping/as_single_prod_params.php:255
-#: shortcodes-mapping/as_slick_slider_params.php:332
-#: shortcodes-mapping/as_social_params.php:209
-#: shortcodes-mapping/as_superslides_params.php:281
-#: shortcodes-mapping/as_testimonials_params.php:212
-#: shortcodes-mapping/as_video_params.php:92
-#: shortcodes-mapping/as_wc_catalog_view_params.php:183
-#: shortcodes-mapping/as_widget_areas_params.php:129
+#: shortcodes-mapping/as_ajax_cats_params.php:461, shortcodes-mapping/as_ajax_prod_params.php:455, shortcodes-mapping/as_banner_params.php:344, shortcodes-mapping/as_button_params.php:108, shortcodes-mapping/as_contact_params.php:126, shortcodes-mapping/as_filter_cats_params.php:377, shortcodes-mapping/as_filter_prod_params.php:344, shortcodes-mapping/as_gmap_params.php:238, shortcodes-mapping/as_heading_params.php:10, shortcodes-mapping/as_images_slider_params.php:228, shortcodes-mapping/as_menu_params.php:71, shortcodes-mapping/as_prod_category_params.php:129, shortcodes-mapping/as_prod_cats_params.php:203, shortcodes-mapping/as_single_prod_cat_params.php:380, shortcodes-mapping/as_single_prod_params.php:255, shortcodes-mapping/as_slick_slider_params.php:332, shortcodes-mapping/as_social_params.php:209, shortcodes-mapping/as_superslides_params.php:281, shortcodes-mapping/as_testimonials_params.php:212, shortcodes-mapping/as_video_params.php:92, shortcodes-mapping/as_wc_catalog_view_params.php:183, shortcodes-mapping/as_widget_areas_params.php:129
 msgid "VC Aligator Studio Elements"
 msgstr ""
 
@@ -927,14 +514,7 @@ msgstr ""
 msgid "posts (or portfolio) via ajax"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:35
-#: shortcodes-mapping/as_filter_prod_params.php:33
-#: shortcodes-mapping/as_prod_category_params.php:24
-#: shortcodes-mapping/as_prod_cats_params.php:24
-#: shortcodes-mapping/as_prod_cats_params.php:198
-#: shortcodes-mapping/as_slick_slider_params.php:15
-#: shortcodes-mapping/as_superslides_params.php:15
-#: shortcodes-mapping/as_wc_catalog_view_params.php:24
+#: shortcodes-mapping/as_ajax_prod_params.php:35, shortcodes-mapping/as_filter_prod_params.php:33, shortcodes-mapping/as_prod_category_params.php:24, shortcodes-mapping/as_prod_cats_params.php:24, shortcodes-mapping/as_prod_cats_params.php:198, shortcodes-mapping/as_slick_slider_params.php:15, shortcodes-mapping/as_superslides_params.php:15, shortcodes-mapping/as_wc_catalog_view_params.php:24
 msgid "Product categories"
 msgstr ""
 
@@ -962,19 +542,15 @@ msgstr ""
 msgid "Product categories menu colors"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:116
-#: shortcodes-mapping/as_single_prod_cat_params.php:79
+#: shortcodes-mapping/as_ajax_prod_params.php:116, shortcodes-mapping/as_single_prod_cat_params.php:79
 msgid "If categories images - choose color for text"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:126
-#: shortcodes-mapping/as_single_prod_cat_params.php:89
+#: shortcodes-mapping/as_ajax_prod_params.php:126, shortcodes-mapping/as_single_prod_cat_params.php:89
 msgid "If categories images - choose color for image overlay"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:141
-#: shortcodes-mapping/as_prod_category_params.php:89
-#: shortcodes-mapping/as_prod_cats_params.php:155
+#: shortcodes-mapping/as_ajax_prod_params.php:141, shortcodes-mapping/as_prod_category_params.php:89, shortcodes-mapping/as_prod_cats_params.php:155
 msgid "Overlay opacity on hover"
 msgstr ""
 
@@ -982,20 +558,15 @@ msgstr ""
 msgid "select image format for element items."
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:174
-#: shortcodes-mapping/as_filter_prod_params.php:176
-#: shortcodes-mapping/as_single_prod_cat_params.php:115
+#: shortcodes-mapping/as_ajax_prod_params.php:174, shortcodes-mapping/as_filter_prod_params.php:176, shortcodes-mapping/as_single_prod_cat_params.php:115
 msgid "Quick view image format"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:177
-#: shortcodes-mapping/as_filter_prod_params.php:179
-#: shortcodes-mapping/as_single_prod_cat_params.php:118
+#: shortcodes-mapping/as_ajax_prod_params.php:177, shortcodes-mapping/as_filter_prod_params.php:179, shortcodes-mapping/as_single_prod_cat_params.php:118
 msgid "select image format for popup \"Quick view\" window."
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:206
-#: shortcodes-mapping/as_single_prod_cat_params.php:146
+#: shortcodes-mapping/as_ajax_prod_params.php:206, shortcodes-mapping/as_single_prod_cat_params.php:146
 msgid "Products settings"
 msgstr ""
 
@@ -1003,45 +574,31 @@ msgstr ""
 msgid "Show \"Quick view\" ?"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:225
-#: shortcodes-mapping/as_single_prod_cat_params.php:165
+#: shortcodes-mapping/as_ajax_prod_params.php:225, shortcodes-mapping/as_single_prod_cat_params.php:165
 msgid "Show \"Add to cart/Select options\" button ?"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:235
-#: shortcodes-mapping/as_single_prod_cat_params.php:175
+#: shortcodes-mapping/as_ajax_prod_params.php:235, shortcodes-mapping/as_single_prod_cat_params.php:175
 msgid "Show \"Add to wishlist\" button ?"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:238
-#: shortcodes-mapping/as_single_prod_cat_params.php:178
+#: shortcodes-mapping/as_ajax_prod_params.php:238, shortcodes-mapping/as_single_prod_cat_params.php:178
 msgid "Yith WooCommerce Wishlist plugin must be installed"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:254
-#: shortcodes-mapping/as_filter_prod_params.php:90
-#: shortcodes-mapping/as_single_prod_cat_params.php:194
-#: shortcodes-mapping/as_slick_slider_params.php:145
-#: shortcodes-mapping/as_superslides_params.php:138
-#: shortcodes-mapping/as_wc_catalog_view_params.php:45
+#: shortcodes-mapping/as_ajax_prod_params.php:254, shortcodes-mapping/as_filter_prod_params.php:90, shortcodes-mapping/as_single_prod_cat_params.php:194, shortcodes-mapping/as_slick_slider_params.php:145, shortcodes-mapping/as_superslides_params.php:138, shortcodes-mapping/as_wc_catalog_view_params.php:45
 msgid "Special filters"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:265
-#: shortcodes-mapping/as_single_prod_cat_params.php:204
+#: shortcodes-mapping/as_ajax_prod_params.php:265, shortcodes-mapping/as_single_prod_cat_params.php:204
 msgid "make a special selection with these filters"
 msgstr ""
 
 #: shortcodes-mapping/as_ajax_prod_params.php:335
-msgid ""
-"remove spaces between items and on element sides, created by grid (applied "
-"both to category images and product items )"
+msgid "remove spaces between items and on element sides, created by grid (applied both to category images and product items )"
 msgstr ""
 
-#: shortcodes-mapping/as_ajax_prod_params.php:420
-#: shortcodes-mapping/as_filter_cats_params.php:342
-#: shortcodes-mapping/as_filter_prod_params.php:320
-#: shortcodes-mapping/as_single_prod_cat_params.php:338
+#: shortcodes-mapping/as_ajax_prod_params.php:420, shortcodes-mapping/as_filter_cats_params.php:342, shortcodes-mapping/as_filter_prod_params.php:320, shortcodes-mapping/as_single_prod_cat_params.php:338
 msgid "Apply css to button holder element (not button itself)-"
 msgstr ""
 
@@ -1061,16 +618,12 @@ msgstr ""
 msgid "Banner title"
 msgstr ""
 
-#: shortcodes-mapping/as_banner_params.php:27
-#: shortcodes-mapping/as_heading_params.php:70
+#: shortcodes-mapping/as_banner_params.php:27, shortcodes-mapping/as_heading_params.php:70
 msgid "Add typewriter effect on title"
 msgstr ""
 
-#: shortcodes-mapping/as_banner_params.php:30
-#: shortcodes-mapping/as_heading_params.php:73
-msgid ""
-"add typewriter effect with multiple senteces to title, divided by sign "
-"\"|\" (without quotation)"
+#: shortcodes-mapping/as_banner_params.php:30, shortcodes-mapping/as_heading_params.php:73
+msgid "add typewriter effect with multiple senteces to title, divided by sign \"|\" (without quotation)"
 msgstr ""
 
 #: shortcodes-mapping/as_banner_params.php:37
@@ -1101,10 +654,7 @@ msgstr ""
 msgid "If zero or empty, it will be ignored"
 msgstr ""
 
-#: shortcodes-mapping/as_banner_params.php:142
-#: shortcodes-mapping/as_prod_category_params.php:64
-#: shortcodes-mapping/as_prod_category_params.php:73
-#: shortcodes-mapping/as_prod_cats_params.php:131
+#: shortcodes-mapping/as_banner_params.php:142, shortcodes-mapping/as_prod_category_params.php:64, shortcodes-mapping/as_prod_category_params.php:73, shortcodes-mapping/as_prod_cats_params.php:131
 msgid "Choose text color"
 msgstr ""
 
@@ -1120,8 +670,7 @@ msgstr ""
 msgid "TEXT overlay color"
 msgstr ""
 
-#: shortcodes-mapping/as_banner_params.php:188
-#: shortcodes-mapping/as_prod_cats_params.php:140
+#: shortcodes-mapping/as_banner_params.php:188, shortcodes-mapping/as_prod_cats_params.php:140
 msgid "Choose overlay color"
 msgstr ""
 
@@ -1130,9 +679,7 @@ msgid "Banner overlay color"
 msgstr ""
 
 #: shortcodes-mapping/as_banner_params.php:207
-msgid ""
-"Choose overlay color for all block (text block has it's separate color "
-"controls )"
+msgid "Choose overlay color for all block (text block has it's separate color controls )"
 msgstr ""
 
 #: shortcodes-mapping/as_banner_params.php:214
@@ -1163,12 +710,8 @@ msgstr ""
 msgid "Animation delay"
 msgstr ""
 
-#: shortcodes-mapping/as_banner_params.php:271
-#: shortcodes-mapping/as_gmap_params.php:56
-#: shortcodes-mapping/as_heading_params.php:205
-msgid ""
-"Type the value for delay of block animation delay. Use the miliseconds ( "
-"1second = 1000 miliseconds; example: 100 for 1/10th of second )"
+#: shortcodes-mapping/as_banner_params.php:271, shortcodes-mapping/as_gmap_params.php:56, shortcodes-mapping/as_heading_params.php:205
+msgid "Type the value for delay of block animation delay. Use the miliseconds ( 1second = 1000 miliseconds; example: 100 for 1/10th of second )"
 msgstr ""
 
 #: shortcodes-mapping/as_banner_params.php:279
@@ -1185,10 +728,6 @@ msgstr ""
 
 #: shortcodes-mapping/as_button_params.php:14
 msgid "Button text"
-msgstr ""
-
-#: shortcodes-mapping/as_button_params.php:16
-msgid "Enter your text here"
 msgstr ""
 
 #: shortcodes-mapping/as_button_params.php:25
@@ -1235,11 +774,7 @@ msgstr ""
 msgid "Location description"
 msgstr ""
 
-#: shortcodes-mapping/as_contact_params.php:112
-#: shortcodes-mapping/as_heading_params.php:289
-#: shortcodes-mapping/as_heading_params.php:295
-#: shortcodes-mapping/as_single_prod_params.php:230
-#: shortcodes-mapping/as_social_params.php:195
+#: shortcodes-mapping/as_contact_params.php:112, shortcodes-mapping/as_heading_params.php:289, shortcodes-mapping/as_heading_params.php:295, shortcodes-mapping/as_single_prod_params.php:230, shortcodes-mapping/as_social_params.php:195
 msgid "Design options"
 msgstr ""
 
@@ -1255,9 +790,7 @@ msgstr ""
 msgid "Menu settings"
 msgstr ""
 
-#: shortcodes-mapping/as_filter_cats_params.php:181
-#: shortcodes-mapping/as_filter_prod_params.php:188
-#: shortcodes-mapping/as_wc_catalog_view_params.php:63
+#: shortcodes-mapping/as_filter_cats_params.php:181, shortcodes-mapping/as_filter_prod_params.php:188, shortcodes-mapping/as_wc_catalog_view_params.php:63
 msgid "Item settings"
 msgstr ""
 
@@ -1273,18 +806,15 @@ msgstr ""
 msgid "Total number of items"
 msgstr ""
 
-#: shortcodes-mapping/as_filter_cats_params.php:240
-#: shortcodes-mapping/as_filter_prod_params.php:207
+#: shortcodes-mapping/as_filter_cats_params.php:240, shortcodes-mapping/as_filter_prod_params.php:207
 msgid "Items in row (desktop)"
 msgstr ""
 
-#: shortcodes-mapping/as_filter_cats_params.php:257
-#: shortcodes-mapping/as_filter_prod_params.php:224
+#: shortcodes-mapping/as_filter_cats_params.php:257, shortcodes-mapping/as_filter_prod_params.php:224
 msgid "Items in row (tablet)"
 msgstr ""
 
-#: shortcodes-mapping/as_filter_cats_params.php:274
-#: shortcodes-mapping/as_filter_prod_params.php:241
+#: shortcodes-mapping/as_filter_cats_params.php:274, shortcodes-mapping/as_filter_prod_params.php:241
 msgid "Items in row (mobile)"
 msgstr ""
 
@@ -1300,14 +830,11 @@ msgstr ""
 msgid "filter by categories"
 msgstr ""
 
-#: shortcodes-mapping/as_filter_prod_params.php:24
-#: shortcodes-mapping/as_wc_catalog_view_params.php:15
+#: shortcodes-mapping/as_filter_prod_params.php:24, shortcodes-mapping/as_wc_catalog_view_params.php:15
 msgid "Product categories and categories menu"
 msgstr ""
 
-#: shortcodes-mapping/as_filter_prod_params.php:36
-#: shortcodes-mapping/as_prod_cats_params.php:27
-#: shortcodes-mapping/as_wc_catalog_view_params.php:27
+#: shortcodes-mapping/as_filter_prod_params.php:36, shortcodes-mapping/as_prod_cats_params.php:27, shortcodes-mapping/as_wc_catalog_view_params.php:27
 msgid "select one or multiple product categories"
 msgstr ""
 
@@ -1315,8 +842,7 @@ msgstr ""
 msgid "Categories menu style"
 msgstr ""
 
-#: shortcodes-mapping/as_filter_prod_params.php:66
-#: shortcodes-mapping/as_prod_cats_params.php:74
+#: shortcodes-mapping/as_filter_prod_params.php:66, shortcodes-mapping/as_prod_cats_params.php:74
 msgid "Categories menu alignment"
 msgstr ""
 
@@ -1352,8 +878,7 @@ msgstr ""
 msgid "show button for add to wishlist (YITH WC Wishlist plugin must be activated)"
 msgstr ""
 
-#: shortcodes-mapping/as_filter_prod_params.php:200
-#: shortcodes-mapping/as_wc_catalog_view_params.php:75
+#: shortcodes-mapping/as_filter_prod_params.php:200, shortcodes-mapping/as_wc_catalog_view_params.php:75
 msgid "If empty, all items will be displayed."
 msgstr ""
 
@@ -1370,18 +895,17 @@ msgid "Google maps API key"
 msgstr ""
 
 #: shortcodes-mapping/as_gmap_params.php:15
-msgid ""
-"Google Maps API key must be entered to enable Google Map Element. Learn how "
-"to obtain API key: "
-"https://developers.google.com/maps/documentation/javascript/get-api-key "
+msgid "Google Maps API key must be entered to enable Google Map Element. Learn how to obtain API key: https://developers.google.com/maps/documentation/javascript/get-api-key "
 msgstr ""
 
 #: shortcodes-mapping/as_gmap_params.php:23
 msgid "API key"
 msgstr ""
 
-#: shortcodes-mapping/as_gmap_params.php:53
-#: shortcodes-mapping/as_heading_params.php:202
+#: shortcodes-mapping/as_gmap_params.php:26
+msgstr ""
+
+#: shortcodes-mapping/as_gmap_params.php:53, shortcodes-mapping/as_heading_params.php:202
 msgid "Animation delay ( in milliseconds )"
 msgstr ""
 
@@ -1446,9 +970,7 @@ msgid "Select map style"
 msgstr ""
 
 #: shortcodes-mapping/as_gmap_params.php:203
-msgid ""
-"choose style generated by authors in https://snazzymaps.com (styles names "
-"are created by style authors)"
+msgid "choose style generated by authors in https://snazzymaps.com (styles names are created by style authors)"
 msgstr ""
 
 #: shortcodes-mapping/as_gmap_params.php:233
@@ -1495,9 +1017,7 @@ msgstr ""
 msgid "Top position"
 msgstr ""
 
-#: shortcodes-mapping/as_heading_params.php:237
-#: shortcodes-mapping/as_heading_params.php:247
-#: shortcodes-mapping/as_heading_params.php:257
+#: shortcodes-mapping/as_heading_params.php:237, shortcodes-mapping/as_heading_params.php:247, shortcodes-mapping/as_heading_params.php:257
 msgid "enter value AND unit (px, em, rem or %)"
 msgstr ""
 
@@ -1521,13 +1041,11 @@ msgstr ""
 msgid "Images"
 msgstr ""
 
-#: shortcodes-mapping/as_images_slider_params.php:46
-#: shortcodes-mapping/as_testimonials_params.php:49
+#: shortcodes-mapping/as_images_slider_params.php:46, shortcodes-mapping/as_testimonials_params.php:49
 msgid "Select images from media library."
 msgstr ""
 
-#: shortcodes-mapping/as_images_slider_params.php:64
-#: shortcodes-mapping/as_testimonials_params.php:55
+#: shortcodes-mapping/as_images_slider_params.php:64, shortcodes-mapping/as_testimonials_params.php:55
 msgid "Image style"
 msgstr ""
 
@@ -1539,8 +1057,7 @@ msgstr ""
 msgid "Image title 1,Image title 2,Image title 3"
 msgstr ""
 
-#: shortcodes-mapping/as_images_slider_params.php:80
-#: shortcodes-mapping/as_testimonials_params.php:71
+#: shortcodes-mapping/as_images_slider_params.php:80, shortcodes-mapping/as_testimonials_params.php:71
 msgid "Use new line (press Enter) for each author"
 msgstr ""
 
@@ -1561,9 +1078,7 @@ msgid "Hover overlay color"
 msgstr ""
 
 #: shortcodes-mapping/as_images_slider_params.php:154
-msgid ""
-"If empty, no automatic sliding will happen. Set value in milliseconds, for "
-"example: 5000 for 5 seconds."
+msgid "If empty, no automatic sliding will happen. Set value in milliseconds, for example: 5000 for 5 seconds."
 msgstr ""
 
 #: shortcodes-mapping/as_images_slider_params.php:223
@@ -1602,39 +1117,31 @@ msgstr ""
 msgid "select single product category"
 msgstr ""
 
-#: shortcodes-mapping/as_prod_category_params.php:34
-#: shortcodes-mapping/as_prod_cats_params.php:108
+#: shortcodes-mapping/as_prod_category_params.php:34, shortcodes-mapping/as_prod_cats_params.php:108
 msgid "Image width"
 msgstr ""
 
-#: shortcodes-mapping/as_prod_category_params.php:43
-#: shortcodes-mapping/as_prod_cats_params.php:117
+#: shortcodes-mapping/as_prod_category_params.php:43, shortcodes-mapping/as_prod_cats_params.php:117
 msgid "Image height"
 msgstr ""
 
-#: shortcodes-mapping/as_prod_category_params.php:61
-#: shortcodes-mapping/as_prod_cats_params.php:128
+#: shortcodes-mapping/as_prod_category_params.php:61, shortcodes-mapping/as_prod_cats_params.php:128
 msgid "Text over category image color"
 msgstr ""
 
-#: shortcodes-mapping/as_prod_category_params.php:70
-#: shortcodes-mapping/as_prod_cats_params.php:137
+#: shortcodes-mapping/as_prod_category_params.php:70, shortcodes-mapping/as_prod_cats_params.php:137
 msgid "Category image overlay color"
 msgstr ""
 
-#: shortcodes-mapping/as_prod_category_params.php:100
-#: shortcodes-mapping/as_prod_cats_params.php:165
+#: shortcodes-mapping/as_prod_category_params.php:100, shortcodes-mapping/as_prod_cats_params.php:165
 msgid "Hide category description"
 msgstr ""
 
-#: shortcodes-mapping/as_prod_category_params.php:103
-#: shortcodes-mapping/as_prod_cats_params.php:168
+#: shortcodes-mapping/as_prod_category_params.php:103, shortcodes-mapping/as_prod_cats_params.php:168
 msgid "category descirptions are added in \"Products\" > \"Categories\""
 msgstr ""
 
-#: shortcodes-mapping/as_prod_category_params.php:124
-#: shortcodes-mapping/as_single_prod_cat_params.php:25
-#: shortcodes-mapping/as_single_prod_cat_params.php:35
+#: shortcodes-mapping/as_prod_category_params.php:124, shortcodes-mapping/as_single_prod_cat_params.php:25, shortcodes-mapping/as_single_prod_cat_params.php:35
 msgid "Product category"
 msgstr ""
 
@@ -1650,10 +1157,6 @@ msgstr ""
 msgid "Menu columns"
 msgstr ""
 
-#: shortcodes-mapping/as_prod_cats_params.php:67
-msgid "applies only if categories menu is \"With images\""
-msgstr ""
-
 #: shortcodes-mapping/as_prod_cats_params.php:204
 msgid "product categories with images"
 msgstr ""
@@ -1667,9 +1170,7 @@ msgid "Force hiding title (category name)"
 msgstr ""
 
 #: shortcodes-mapping/as_single_prod_cat_params.php:49
-msgid ""
-"by default, if no elements title set, category name will be displayed. This "
-"will force hide it. "
+msgid "by default, if no elements title set, category name will be displayed. This will force hide it. "
 msgstr ""
 
 #: shortcodes-mapping/as_single_prod_cat_params.php:56
@@ -1677,10 +1178,7 @@ msgid "Force hiding subtitle (category description)"
 msgstr ""
 
 #: shortcodes-mapping/as_single_prod_cat_params.php:59
-msgid ""
-"by default, if no elements subtitle set, category description (if entered "
-"in Products > Categories > [category]) will be displayed. This will force "
-"hide it. "
+msgid "by default, if no elements subtitle set, category description (if entered in Products > Categories > [category]) will be displayed. This will force hide it. "
 msgstr ""
 
 #: shortcodes-mapping/as_single_prod_cat_params.php:67
@@ -1763,25 +1261,19 @@ msgstr ""
 msgid "single product with action buttons"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:18
-#: shortcodes-mapping/as_superslides_params.php:18
+#: shortcodes-mapping/as_slick_slider_params.php:18, shortcodes-mapping/as_superslides_params.php:18
 msgid "select one or multiple, \"Post types\" must be set to \"Products\""
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:34
-#: shortcodes-mapping/as_superslides_params.php:34
+#: shortcodes-mapping/as_slick_slider_params.php:34, shortcodes-mapping/as_superslides_params.php:34
 msgid "Portfolio categories"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:37
-#: shortcodes-mapping/as_superslides_params.php:37
-msgid ""
-"select one or multiple, \"Post types\" must be set to \"Portfolio "
-"categories\""
+#: shortcodes-mapping/as_slick_slider_params.php:37, shortcodes-mapping/as_superslides_params.php:37
+msgid "select one or multiple, \"Post types\" must be set to \"Portfolio categories\""
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:53
-#: shortcodes-mapping/as_superslides_params.php:68
+#: shortcodes-mapping/as_slick_slider_params.php:53, shortcodes-mapping/as_superslides_params.php:68
 msgid "Post type and categories"
 msgstr ""
 
@@ -1789,56 +1281,43 @@ msgstr ""
 msgid "Post type"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:80
-#: shortcodes-mapping/as_superslides_params.php:106
+#: shortcodes-mapping/as_slick_slider_params.php:80, shortcodes-mapping/as_superslides_params.php:106
 msgid "Blog post categories"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:91
-#: shortcodes-mapping/as_superslides_params.php:117
+#: shortcodes-mapping/as_slick_slider_params.php:91, shortcodes-mapping/as_superslides_params.php:117
 msgid "Image settings and filtering"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:103
-#: shortcodes-mapping/as_slick_slider_params.php:114
+#: shortcodes-mapping/as_slick_slider_params.php:103, shortcodes-mapping/as_slick_slider_params.php:114
 msgid "enter only value, units are hardcoded in pixels"
 msgstr ""
 
 #: shortcodes-mapping/as_slick_slider_params.php:123
-msgid ""
-"custom image width and height will override image format setting, but both "
-"width and height values must be set"
+msgid "custom image width and height will override image format setting, but both width and height values must be set"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:165
-#: shortcodes-mapping/as_superslides_params.php:191
+#: shortcodes-mapping/as_slick_slider_params.php:165, shortcodes-mapping/as_superslides_params.php:191
 msgid "how many items will scroll in slick scroller ?"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:173
-#: shortcodes-mapping/as_superslides_params.php:155
+#: shortcodes-mapping/as_slick_slider_params.php:173, shortcodes-mapping/as_superslides_params.php:155
 msgid "Style and effects settings"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:182
-#: shortcodes-mapping/as_superslides_params.php:164
+#: shortcodes-mapping/as_slick_slider_params.php:182, shortcodes-mapping/as_superslides_params.php:164
 msgid "Text layer style"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:189
-#: shortcodes-mapping/as_superslides_params.php:171
-msgid ""
-"Light style has white gradient background with dark text, dark style has "
-"dark gradient background with white text"
+#: shortcodes-mapping/as_slick_slider_params.php:189, shortcodes-mapping/as_superslides_params.php:171
+msgid "Light style has white gradient background with dark text, dark style has dark gradient background with white text"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:206
-#: shortcodes-mapping/as_superslides_params.php:245
+#: shortcodes-mapping/as_slick_slider_params.php:206, shortcodes-mapping/as_superslides_params.php:245
 msgid "Use KenBurns effect ?"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:209
-#: shortcodes-mapping/as_superslides_params.php:248
+#: shortcodes-mapping/as_slick_slider_params.php:209, shortcodes-mapping/as_superslides_params.php:248
 msgid "KenBurns effect is slowly zooming and panning image"
 msgstr ""
 
@@ -1854,35 +1333,27 @@ msgstr ""
 msgid "Text layer animation type"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:248
-#: shortcodes-mapping/as_superslides_params.php:179
+#: shortcodes-mapping/as_slick_slider_params.php:248, shortcodes-mapping/as_superslides_params.php:179
 msgid "Slider settings"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:257
-#: shortcodes-mapping/as_superslides_params.php:199
+#: shortcodes-mapping/as_slick_slider_params.php:257, shortcodes-mapping/as_superslides_params.php:199
 msgid "Show navigation arrows ?"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:266
-#: shortcodes-mapping/as_superslides_params.php:208
+#: shortcodes-mapping/as_slick_slider_params.php:266, shortcodes-mapping/as_superslides_params.php:208
 msgid "Show navigation dots ?"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:278
-#: shortcodes-mapping/as_superslides_params.php:228
-msgid ""
-"type in the timing for auto sliding items. If left blank no auto sliding "
-"will occur."
+#: shortcodes-mapping/as_slick_slider_params.php:278, shortcodes-mapping/as_superslides_params.php:228
+msgid "type in the timing for auto sliding items. If left blank no auto sliding will occur."
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:285
-#: shortcodes-mapping/as_superslides_params.php:235
+#: shortcodes-mapping/as_slick_slider_params.php:285, shortcodes-mapping/as_superslides_params.php:235
 msgid "Fade images"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:288
-#: shortcodes-mapping/as_superslides_params.php:238
+#: shortcodes-mapping/as_slick_slider_params.php:288, shortcodes-mapping/as_superslides_params.php:238
 msgid "Use fading images instead of sliding"
 msgstr ""
 
@@ -1894,8 +1365,7 @@ msgstr ""
 msgid "Hide thumbnails navigation ?"
 msgstr ""
 
-#: shortcodes-mapping/as_slick_slider_params.php:319
-#: shortcodes-mapping/as_superslides_params.php:268
+#: shortcodes-mapping/as_slick_slider_params.php:319, shortcodes-mapping/as_superslides_params.php:268
 msgid "add your custom css classes"
 msgstr ""
 
@@ -2008,12 +1478,7 @@ msgid "Stretched of fixed"
 msgstr ""
 
 #: shortcodes-mapping/as_superslides_params.php:60
-msgid ""
-"- If <strong>\"Stretch\"</strong>, the slider will resize (width and "
-"height) with other elements in row.<strong><br>NOTE:<br>- Row settings must "
-"have checked \"Equalize row columns\" (Theme row settings tab)<br>- If set "
-"to \"Stretched\" the \"Set slides height\" will be overriden<br>- Use "
-"\"Stretched\" only with other elements in row. </strong>"
+msgid "- If <strong>\"Stretch\"</strong>, the slider will resize (width and height) with other elements in row.<strong><br>NOTE:<br>- Row settings must have checked \"Equalize row columns\" (Theme row settings tab)<br>- If set to \"Stretched\" the \"Set slides height\" will be overriden<br>- Use \"Stretched\" only with other elements in row. </strong>"
 msgstr ""
 
 #: shortcodes-mapping/as_superslides_params.php:77
@@ -2029,9 +1494,7 @@ msgid "Slide images"
 msgstr ""
 
 #: shortcodes-mapping/as_superslides_params.php:95
-msgid ""
-"Select images from media library images for slide. Must have selected "
-"\"Images\" from option above"
+msgid "Select images from media library images for slide. Must have selected \"Images\" from option above"
 msgstr ""
 
 #: shortcodes-mapping/as_superslides_params.php:188
@@ -2043,10 +1506,7 @@ msgid "Set slides height"
 msgstr ""
 
 #: shortcodes-mapping/as_superslides_params.php:258
-msgid ""
-"Will add responsiveness to slides.<br>Enter the value <strong>AND</strong> "
-"units (<strong>px</strong>, <strong>pt</strong>,<strong> em</strong> or "
-"<strong>rem</strong>)"
+msgid "Will add responsiveness to slides.<br>Enter the value <strong>AND</strong> units (<strong>px</strong>, <strong>pt</strong>,<strong> em</strong> or <strong>rem</strong>)"
 msgstr ""
 
 #: shortcodes-mapping/as_superslides_params.php:276
@@ -2062,9 +1522,7 @@ msgid "Testimonial items alignment"
 msgstr ""
 
 #: shortcodes-mapping/as_testimonials_params.php:40
-msgid ""
-"For each testimonial item, add image, add testimonial text and testimonial "
-"auhor name, separated by new line"
+msgid "For each testimonial item, add image, add testimonial text and testimonial auhor name, separated by new line"
 msgstr ""
 
 #: shortcodes-mapping/as_testimonials_params.php:46
@@ -2193,17 +1651,6 @@ msgstr ""
 
 #: shortcodes-mapping/as_widget_areas_params.php:130
 msgid "add widget area (sidebar)"
-msgstr ""
-
-#: visual-composer-as-elements.php:114
-msgid ""
-"Visual composer AS elements is not effective without Visual Composer plugin "
-"activated. Either install and activate Visual Composer plugin or deactivate "
-"Visual composer AS elements plugin. "
-msgstr ""
-
-#: visual-composer-as-elements.php:192
-msgid "Loading quick view"
 msgstr ""
 
 #: wishlist-templates/add-to-wishlist-button.php:14

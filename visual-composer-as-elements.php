@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: Visual Composer AS elements
-Plugin URI: http://aligator-studio.com
-Description: Extension plugin for Visual Composer plugin - additional elements for page builder. Elements are best used with Aligator Studio themes, but can be used with any theme.
-Version: 1.2.0
-Author: Aligator Studio
-Author URI: http://aligator-studio.com
+Plugin URI: https://micemade.com
+Description: Extension plugin for WPBakery Page Builder (ex. Visual Composer) plugin - additional elements for page builder. Elements are best used with Micemade Larix theme, but can be used with any theme, with caution.
+Version: 1.3.0
+Author: Micemade
+Author URI: https://micemade.com
 Text Domain: vc_ase
 Domain Path: /languages
 
-Copyright: © 2016 Aligator Studio.
+Copyright: © 2018 Micemade
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -33,7 +33,7 @@ class AS_VC_ELEMENTS {
 			register_deactivation_hook( __CLASS__, 'as_vce_on_deactivation' );
 			
 			// Main files for VC elements:
-			$this->include_vc_init();			
+			$this->include_vc_init();
 			
 			$this->activation_checks();	
 			
@@ -43,10 +43,6 @@ class AS_VC_ELEMENTS {
 			// Enqueue scripts and styles for frontend
 			add_action( 'wp_enqueue_scripts', array( $this,'vc_ase_styles') );
 			add_action( 'wp_enqueue_scripts', array( $this,'vc_ase_scripts') );
-			
-			
-			// Ajax script URL (wp admin ajax), for frontend
-			add_action('wp_head', array( $this, 'ajax_url_var') );
 			
 			define('VC_ASE_PLACEHOLDER_IMAGE', VC_ASE_URL .'assets/images/as_vc_no-image.jpg');
 			
@@ -65,9 +61,9 @@ class AS_VC_ELEMENTS {
 		if ( in_array( 'js_composer/js_composer.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )  {
 			
 			$vc_ase_is_active = true; 
-			define('VC_IS_ACTIVE', true );						
+			define('VC_IS_ACTIVE', true );
 		}else{
-			define('VC_IS_ACTIVE', false );	
+			define('VC_IS_ACTIVE', false );
 		}
 		
 		return $vc_ase_is_active;
@@ -144,27 +140,18 @@ class AS_VC_ELEMENTS {
 	public function vc_ase_scripts () {
 		
 		// JS scripts:
-		wp_register_script('vc-ase-vendors', VC_ASE_URL .'assets/js/vendors.min.js');
-		wp_enqueue_script('vc-ase-vendors', VC_ASE_URL .'assets/js/vendors.min.js', array('jQuery'), '1.0', true);
-		
-		wp_register_script('vc-ase-foundation-js', VC_ASE_URL .'assets/js/foundation.min.js');
-		wp_enqueue_script('vc-ase-foundation-js', VC_ASE_URL .'assets/js/foundation.min.js', array('jQuery'), '1.0', true);
-		
 		wp_register_script('vc-ase-ajax-js', VC_ASE_URL .'assets/js/vc_ase_ajax.js');
-		wp_enqueue_script('vc-ase-ajax-js', VC_ASE_URL .'assets/js/vc_ase_ajax.js', array('jQuery'), '1.0', true);
+		wp_enqueue_script('vc-ase-ajax-js', VC_ASE_URL .'assets/js/vc_ase_ajax.js', array('jQuery','wc-single-product'), '1.0', true);
 		
-		wp_register_script('vc-ase-custom-js', VC_ASE_URL .'assets/js/vc_ase_custom.js');
-		wp_enqueue_script('vc-ase-custom-js', VC_ASE_URL .'assets/js/vc_ase_custom.js', array('jQuery'), '1.0', true);
+		wp_register_script('vc-ase-scripts', VC_ASE_URL .'assets/js/vc_ase_scripts.min.js');
+		wp_enqueue_script('vc-ase-scripts', VC_ASE_URL .'assets/js/vc_ase_scripts.min.js', array('jQuery'), '1.0', true);
 		
 		// Localize the script with our data.
 		$translation_array = array( 
-			'loading_qb' => __( 'Loading quick view','vc_ase' )
+			'vc_ase_loading_qv' => __( 'Loading quick view','vc_ase' ),
+			'vc_ase_ajax_url' => admin_url("admin-ajax.php")
 		);
-		wp_localize_script( 'vc-ase-ajax-js', 'wplocalize_vcase_js', $translation_array );
-	}
-	
-	public function ajax_url_var() {
-		echo '<script type="text/javascript">var vc_ase_ajaxurl = "'. admin_url("admin-ajax.php") .'"</script>';
+		wp_localize_script( 'vc-ase-ajax-js', 'vc_ase_jsvars', $translation_array );
 	}
 	
 	function updater() {

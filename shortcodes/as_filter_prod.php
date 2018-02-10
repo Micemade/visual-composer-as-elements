@@ -256,7 +256,7 @@ function vc_ase_as_filter_prod_func( $atts, $content = null ) {
 			$posts = get_posts($all_args);
 			?>	
 		
-			<ul class="vcase-masonry<?php echo ' '. esc_attr($anim) ;?> woocommerce" id="masonry-filter-<?php echo esc_attr($block_id); ?>">
+			<ul class="row vcase-masonry<?php echo ' '. esc_attr($anim) ;?> woocommerce" id="masonry-filter-<?php echo esc_attr($block_id); ?>">
 			
 			<?php 
 	
@@ -264,7 +264,7 @@ function vc_ase_as_filter_prod_func( $atts, $content = null ) {
 			
 			//start products loop
 			foreach ( $posts as $post ) {
-								
+				
 				setup_postdata( $post );
 				
 				global $product;
@@ -309,22 +309,9 @@ function vc_ase_as_filter_prod_func( $atts, $content = null ) {
 				if ( $attachment_ids ) {
 					$image_url = wp_get_attachment_image_src( $attachment_ids[0], 'full'  );
 					$img_url = $image_url[0];
-					/* 
-					// CURRENTLY REGISTERED IMAGE SIZES:
-					$imgSizes	= apply_filters('vc_ase_get_image_sizes','');
-					// if current img_format not exsist in registered img sizes (theme switch case)
-					// set WP default image format
-					$imgSizes_array = array_keys($imgSizes);
-					if( !in_array( $img_format, $imgSizes_array ) ) {
-						$img_format = 'thumbnail';
-					}
 					
-					$img_width	= $imgSizes[$img_format]['width'];
-					$img_height = $imgSizes[$img_format]['height'];
-					*/
 				}
 				// end DATA for back image
-				
 				
 				
 				// PRODUCT TITLE AND PRODUCT CATS

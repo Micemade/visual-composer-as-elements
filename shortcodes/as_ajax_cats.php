@@ -58,17 +58,37 @@ function vc_ase_as_ajax_cats_func( $atts, $content = null ) {
 			  
 		), $atts ) );
 
-	$content = wpb_js_remove_wpautop($content, true);
-	
-	
-	$button 	= vc_build_link( $ac_link_button );
-	$but_url	= $button['url'];
-	$but_title	= $button['title'];
-	$but_target	= $button['target'];
-	
-	$btn_vc_css_class =  vc_shortcode_custom_css_class( $btn_css, ' '  );
-	
-	$sticky_array = get_option( 'sticky_posts' );
+		$content = wpb_js_remove_wpautop( $content, true );
+		
+		
+		$button 	= vc_build_link( $ac_link_button );
+		$but_url	= $button['url'];
+		$but_title	= $button['title'];
+		$but_target	= $button['target'];
+		$btn_vc_css_class =  vc_shortcode_custom_css_class( $btn_css, ' ' );
+
+
+		// If post type is product - enqueue WC image gallery scripts:
+		$list = 'enqueued';
+		if( $post_type == 'product' ) {
+			if( !wp_script_is('zoom', $list) ) {
+				wp_enqueue_script( 'zoom' );
+			}
+			if( !wp_script_is('flexslider', $list) ) {
+				wp_enqueue_script( 'flexslider' );
+			}
+			if( !wp_script_is('photoswipe-ui-default', $list) ) {
+				wp_enqueue_script( 'photoswipe-ui-default' );
+				wp_enqueue_style( 'photoswipe-default-skin' );
+				add_action( 'wp_footer', 'woocommerce_photoswipe' );
+			}
+			if( !wp_script_is('wc-single-product', $list) ) {
+				wp_enqueue_script( 'wc-single-product' );
+			}	
+		}
+
+		
+		$sticky_array = get_option( 'sticky_posts' );
 		$total_items = $total_items ? $total_items : -1;
 		
 		// FEATURED POSTS FILTER ARGS
@@ -280,7 +300,7 @@ function vc_ase_as_ajax_cats_func( $atts, $content = null ) {
 					thisBlock.find('.anim-wrap').each( function() {
 						$(this).removeClass('to-anim');
 					});
-				}				
+				}
 			}
 		})( jQuery );
 		
@@ -302,7 +322,7 @@ function vc_ase_as_ajax_cats_func( $atts, $content = null ) {
 
 			
 			<input type="hidden" class="slides-config" data-navigation="<?php echo $slider_navig ? '0' : '1'; ?>" data-pagination="<?php echo $slider_pagin ? '0' : '1'; ?>" data-auto="<?php echo esc_attr($slider_timing); ?>" data-desktop="<?php echo esc_attr($items_desktop); ?>" data-tablet="<?php echo esc_attr($items_tablet); ?>" data-mobile="<?php echo esc_attr($items_mobile); ?>"  data-loop="<?php echo esc_attr($slider_loop); ?>" />
-						
+
 			
 			<?php
 			$sm_css = "";
@@ -313,9 +333,9 @@ function vc_ase_as_ajax_cats_func( $atts, $content = null ) {
 			}
 			?>
 			
-			<div class="category-content <?php echo esc_attr($sm_css) . esc_attr($anim) . esc_attr(' '.$block_style) ; ?>" id="ajax-cats-<?php echo esc_attr($block_id); ?>" > 
+			<div class="category-content row <?php echo esc_attr($sm_css) . esc_attr($anim) . esc_attr(' '.$block_style) ; ?>" id="ajax-cats-<?php echo esc_attr($block_id); ?>" > 
 			
-			<?php 			
+			<?php
 			$i = 1;
 
 			foreach ( $posts as $post ) {
@@ -374,7 +394,7 @@ function vc_ase_as_ajax_cats_func( $atts, $content = null ) {
 							<div class="back">
 						
 								<div class="item-overlay"></div>
-																					
+
 								<div class="back-buttons">
 							
 								<?php
@@ -415,7 +435,7 @@ function vc_ase_as_ajax_cats_func( $atts, $content = null ) {
 					<div class="item-data<?php echo $no_post_thumb ? ' no-post-thumb' : ''; ?>">
 						
 						<?php echo wp_kses_post($post_title); ?>
-												
+
 						<div class="vcase-post-meta">
 						
 							<?php 
@@ -423,7 +443,7 @@ function vc_ase_as_ajax_cats_func( $atts, $content = null ) {
 							do_action('vc_ase_entry_author');
 							?>
 						
-						</div>						
+						</div>
 						
 						<?php 
 						echo '<div class="excerpt">';
@@ -472,7 +492,7 @@ function vc_ase_as_ajax_cats_func( $atts, $content = null ) {
 									excerpt		= $(this).find(".excerpt"),
 									bott_bound	= excerpt.position().top + excerpt.outerHeight(),
 									top_bound	= title.position().top;
-																									
+
 								
 								if( bott_bound >= top_bound ) {
 									excerpt.css("opacity", 0);
@@ -480,18 +500,18 @@ function vc_ase_as_ajax_cats_func( $atts, $content = null ) {
 									excerpt.css("opacity", 1);
 								}
 								
-							});		
+							});
 							
-						});					
+						});
 
 					}
 					
 					style3_excerpt();
 					
 					$( document ).ajaxComplete(function( event,request, settings ) {
-						style3_excerpt();					
+						style3_excerpt();
 					});
-									
+
 				});
 			})(jQuery);
 			</script>
@@ -557,4 +577,3 @@ function vc_ase_as_ajax_cats_func( $atts, $content = null ) {
 }
 
 add_shortcode( 'as_ajax_cats', 'vc_ase_as_ajax_cats_func' );
-?>

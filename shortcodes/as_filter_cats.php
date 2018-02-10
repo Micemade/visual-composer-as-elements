@@ -219,7 +219,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 		$posts = get_posts($all_args);
 		?>
 		
-		<ul class="vcase-masonry<?php echo ' '.esc_attr($anim) ;?> <?php echo ' '.esc_attr($block_style); ?>" id="masonry-filter-<?php echo esc_attr($block_id); ?>">
+		<ul class="row vcase-masonry<?php echo ' '.esc_attr($anim) ;?> <?php echo ' '.esc_attr($block_style); ?>" id="masonry-filter-<?php echo esc_attr($block_id); ?>">
 			
 			<?php 
 	
@@ -299,7 +299,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 							<div class="back">
 						
 								<div class="item-overlay"></div>
-																					
+								
 								<div class="back-buttons">
 							
 								<?php
@@ -384,7 +384,6 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 								excerpt		= $(this).find(".excerpt"),
 								bott_bound	= excerpt.position().top + excerpt.outerHeight(),
 								top_bound	= title.position().top;
-																							 	
 							
 							if( bott_bound >= top_bound ) {
 								excerpt.css("opacity", 0);
@@ -394,7 +393,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 							
 						});		
 						
-					});					
+					});
 
 				}
 				

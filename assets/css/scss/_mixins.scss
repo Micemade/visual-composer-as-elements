@@ -1,10 +1,13 @@
+@import "foundation6/global";
+@import "foundation6/settings/settings";
+@import "foundation6/util/util";
 @import "variables";
 /* 
  * @EXTENDS 
  */
 %lists {
 	ul, ol {
-		margin-bottom: $column-gutter;
+		margin-bottom: $space;
 		list-style-position: inside;
 	}
 	
@@ -118,9 +121,9 @@
 }
 
 %item-buttons {
-	width: $column-gutter ;
-	height: $column-gutter ;
-	line-height: $column-gutter;
+	width: $space ;
+	height: $space ;
+	line-height: $space;
 	background-color: $body-font-color;
 	color: $sec-back-color;
 	text-align: center;
@@ -149,7 +152,7 @@
 		&:after {
 			position: absolute;
 			bottom: -8px;
-			left: $column-gutter / 4;
+			left: $space / 4;
 		}
 		//// disable outline-hover-effect
 		&:hover {
@@ -213,8 +216,8 @@
 		position: absolute;
 		top: 0;
 		padding: 0;
-		width: $column-gutter;
-		height: $column-gutter;
+		width: $space;
+		height: $space;
 		background: inherit;
 		.fa {
 			width: 14px;
@@ -266,7 +269,7 @@
 		@include clearfix;
 		
 		.content-block & {
-			padding: ($column-gutter / 4) 0 $column-gutter / 2 ;// Foundation var
+			padding: ($space / 4) 0 $space / 2 ;// Foundation var
 			
 			a {
 				border: none !important;
@@ -279,14 +282,14 @@
 		
 		> span {
 			
-			margin-right: $column-gutter /4;
+			margin-right: $space /4;
 			float: left;
 			display: inline-block;
 			i {
-				margin-right: $column-gutter /8;
+				margin-right: $space /8;
 			}
 			a {
-				margin: 0 $column-gutter /8;
+				margin: 0 $space /8;
 			}
 			
 			i, a, span {
@@ -303,7 +306,7 @@
 		}
 		
 		&.bottom {
-			padding: $column-gutter / 4 0;
+			padding: $space / 4 0;
 			@include border(1,0,0,0,#000, 0.4);
 			@include clearfix;
 		}
@@ -326,7 +329,7 @@
 		li {
 			
 			padding: 0;
-			margin: 0 $column-gutter /8;
+			margin: 0 $space /8;
 			float: left;
 			display: inline;
 

@@ -6,7 +6,7 @@
 .item {
 		
 	position: relative;
-	margin-bottom: $column-gutter; // Foundation var
+	margin-bottom: $space; // Foundation var
 	z-index: 0;
 	display: inline-block;
 	
@@ -35,13 +35,12 @@
 		
 		.readmore {
 			margin-bottom: 0;
-			margin-top: $column-gutter / 4;
+			margin-top: $space / 4;
 		}
 		
 		.item-img {
 			
 			position: relative;
-			@include clearfix;
 			
 			.entry-image, img { margin: 0 !important; }
 			
@@ -56,7 +55,7 @@
 					text-transform: none;
 					font-weight: 400;
 					letter-spacing: 0.05em;
-				}				
+				}
 				.style4 & {
 					
 					position: absolute;
@@ -64,7 +63,6 @@
 					text-align: center;
 					left: 0;
 					right: 0;
-										
 
 				} // .style4 &
 				
@@ -91,10 +89,10 @@
 					.ajax-cats &, .filter-cats & {
 						width: auto;
 						height: auto;
-						top: $column-gutter / 2 ;
-						bottom: $column-gutter / 2 ;
-						left: $column-gutter / 2 ;
-						right: $column-gutter / 2 ;
+						top: $space / 2 ;
+						bottom: $space / 2 ;
+						left: $space / 2 ;
+						right: $space / 2 ;
 					}
 				}
 				
@@ -112,7 +110,7 @@
 						position: absolute;
 						width: 100%;
 						top:50%;
-						margin-top: - $column-gutter /2;
+						margin-top: - $space /2;
 					}
 					
 					.button-cell {
@@ -192,10 +190,10 @@
 					.ajax-cats &, .filter-cats & {
 
 						padding: {
-							top: $column-gutter / 2 ;
-							bottom: $column-gutter / 2 ;
-							left: $column-gutter / 2 ;
-							right: $column-gutter / 2 ;						
+							top: $space / 2 ;
+							bottom: $space / 2 ;
+							left: $space / 2 ;
+							right: $space / 2 ;
 						}
 
 					}
@@ -212,7 +210,8 @@
 			.style2 & { 
 				width: 40%;
 				float: left;
-				@media #{$medium-only}, #{$small-only}{
+				
+				@include breakpoint(medium down) {
 					width: 100%;
 				}
 			} // style2
@@ -233,16 +232,16 @@
 						pointer-events: none;
 						a { color: #222; pointer-events: initial; }
 						
-					}			
+					}
 					
 					.back {
 						 background-color: rgba(#fff,0.9);
-					}					
+					}
 						
 				}
 					
 				.dark &, .dark_expanded & {
-								
+
 					.alter {
 						@include linear-gradient(to bottom, rgba(#000,0) 0%, rgba(#000,0.6) 70%, $fallback: rgba(#000,0) );
 						
@@ -284,9 +283,9 @@
 					position: absolute;
 					bottom: 0;
 					text-align: center;
-					left: $column-gutter / 2 ;
-					right: $column-gutter / 2 ;
-					bottom: $column-gutter ;
+					left: $space / 2 ;
+					right: $space / 2 ;
+					bottom: $space ;
 					font-size: 1.1rem;
 					z-index: 2;
 				}
@@ -301,7 +300,7 @@
 					}
 					
 					.excerpt {
-						padding: $column-gutter;
+						padding: $space;
 						padding-bottom: 0;
 						overflow: hidden;
 						p {
@@ -312,24 +311,24 @@
 						
 						
 					
-						@media  #{$medium-only}, #{$small-only} {
+						@include breakpoint(medium down) {
 
 							display: none;
 
 						}
 					
-					}					
+					}
 					
 					.item-buttons-holder {
 						
-						@media #{$large-only} {
+						@include breakpoint(large up) {
 							.button-row {
 								top:30%;
 							}
 						}
 					}
 					
-				}	// .back			
+				}	// .back
 				
 				
 			}// style 3
@@ -361,7 +360,7 @@
 					h4 {
 						color: #fff;
 						a { color: #fff; }
-					}			
+					}
 				
 				} 
 				
@@ -377,7 +376,7 @@
 				
 				.back {
 					
-					padding: $column-gutter;
+					padding: $space;
 					@extend %main-transition;
 					text-align: center;
 					
@@ -388,11 +387,11 @@
 					h4 {
 						position: absolute;
 						top: 50%;
-						margin-top: - $column-gutter /2 ;
+						margin-top: - $space /2 ;
 						bottom: auto;
 						text-align: center;
-						left: $column-gutter / 2 ;
-						right: $column-gutter / 2 ;
+						left: $space / 2 ;
+						right: $space / 2 ;
 						font-size: 1.1rem;
 						z-index: 2;
 						
@@ -407,12 +406,12 @@
 						height: 0;
 						
 						.button-row {
-							margin-top: $column-gutter;
+							margin-top: $space;
 						}
 						
-						@media #{$large-only} {
+						@include breakpoint(large up) {
 							.button-row {
-								margin-top: $column-gutter /2;
+								margin-top: $space /2;
 							}
 						}
 					}
@@ -467,41 +466,39 @@
 		// list products view for item data:
 		.item-data {
 			
-			height: $column-gutter * 3;
-			margin-bottom: $column-gutter ;
+			height: $space * 3;
+			margin-bottom: $space ;
 			backface-visibility: hidden;
-			@include clearfix;
 			
 			ul.list & { display: none; }
 			
 			.excerpt {
 				p {
-					margin: 0 0 ($column-gutter / 2) ;
+					margin: 0 0 ($space / 2) ;
 				}
 				.readmore {
 					clear: both;
-					margin-top: $column-gutter / 2 ;
+					margin-top: $space / 2 ;
 				}
 			}
 			
 			.prod-title-price {
 			
-				padding: ($column-gutter / 2) 0;
+				padding: ($space / 2) 0;
 				
 				> * {
 					width: 100%;
 					float: left;
-					padding: $column-gutter / 8 0;
+					padding: $space / 8 0;
 				}
 				
-				@include clearfix;
 			}
 			
 			h4 {
-				font-size: $column-gutter / 2;
+				font-size: $space / 2;
 				padding:{
-					top: $column-gutter / 2 ;
-					bottom: $column-gutter / 4 ;
+					top: $space / 2 ;
+					bottom: $space / 4 ;
 					left: 0;
 					right: 0;
 				}				
@@ -520,10 +517,10 @@
 						}
 					}
 					
-					@media  #{$medium-only}, #{$small-only} {
+					@include breakpoint(medium down) {
 						padding:{
-							top: $column-gutter / 2 ;
-							bottom: $column-gutter / 2;
+							top: $space / 2 ;
+							bottom: $space / 2;
 						}
 					}
 					
@@ -531,10 +528,10 @@
 				
 				.style2 & { // second block style ( as_ajax_cats.php, as_filter_cats.php )
 					padding-top: 0;
-					@media #{$medium-only}, #{$small-only} {
-						padding-top: $column-gutter / 2 ;
+					@include breakpoint(medium down) {
+						padding-top: $space / 2 ;
 					}
-				}					
+				}
 
 				
 				&.prod-title {
@@ -550,7 +547,7 @@
 			
 			.price {
 				padding:{
-					bottom: $column-gutter / 2 ;
+					bottom: $space / 2 ;
 				}
 				font-size: 1.4rem;
 
@@ -562,9 +559,9 @@
 			.style2 & {
 				width: 60%;
 				float: left;
-				padding-left: $column-gutter ;
+				padding-left: $space ;
 				
-				@media #{$medium-only}, #{$small-only} {
+				@include breakpoint(medium down) {
 					width: 100%;
 					padding-left:0;
 				}
@@ -585,29 +582,29 @@
 			
 			.inner-wrap {
 				
-				padding-left: $column-gutter; // Foundation var
+				padding-left: $space; // Foundation var
 
 				h4, [itemprop="description"], .price {
 					clear: both;
 					display: block;
 					text-align: left;
-					padding-bottom: $column-gutter / 2;
+					padding-bottom: $space / 2;
 					margin: 0;
 					
 					del { 
 						display: inline-block;
 						font-size: 0.8em;
 					}
-										
+
 				}
 				
 				h4, .price {
 					font-size: 1.8rem;
-					@media #{$medium-only} {
+					@include breakpoint(medium only) {
 						font-size: 1.6rem;
 					}
 					
-					@media #{$small-only} {
+					@include breakpoint(small only) {
 						font-size: 1.25rem;
 					}
 				}
@@ -626,9 +623,7 @@
 		} // item-data-list
 	
 		@include postmeta ;
-		
-		@include clearfix;
-		
+				
 		// WooCommerce
 		.rating-wrapper {
 			position: absolute;
@@ -665,7 +660,6 @@
 	}
 	
 
-
 }// item
 
 // EXPANDING QUICK VIEW:
@@ -676,17 +670,16 @@ ul {
 		position: relative;
 		background: $sec-back-color;
 		margin:{
-			top: - $column-gutter; 
-			bottom: $column-gutter;
+			top: - $space; 
+			bottom: $space;
 			left: 0;
 			right: 0;
 		}
 		z-index: 2;
-		left: $column-gutter / 2;
+		left: $space / 2;
 		
-		@include calc(width, "100% - #{$column-gutter}");
+		@include calc(width, "100% - #{$space}");
 		
-		@include clearfix;
 
 	}
 }
@@ -695,7 +688,6 @@ ul {
 	
 	@include pagination;
 	
-	@include clearfix;
 }
 
 // OWL Carousel:
@@ -708,22 +700,22 @@ ul {
 		top: 50%;
 		left: 0;
 		right:0;
-		margin-top: - $column-gutter ;
+		margin-top: - $space ;
 		text-align: center;
 		opacity: 0;
 		@include transition-var(opacity, .5s);
 		
 		.owl-prev, .owl-next {
 			position: absolute;
-			width: $column-gutter ;
-			height: $column-gutter ;
+			width: $space ;
+			height: $space ;
 			background: $body-font-color;
 			color:  $prim-back-color;
 			opacity: 0.8;
 			
 			span {
 				display: block;
-				line-height: $column-gutter;
+				line-height: $space;
 			}
 			
 			&:hover {
@@ -753,7 +745,7 @@ ul {
 	// on single and quick view
 	&.productslides {
 		.owl-nav {
-			margin-top: - $column-gutter / 2;
+			margin-top: - $space / 2;
 		}
 	}
 	
@@ -766,8 +758,8 @@ ul {
 	
 	.owl-dots {
 		position: absolute;
-		bottom: $column-gutter / 2;
-		margin-bottom: - $column-gutter / 4;
+		bottom: $space / 2;
+		margin-bottom: - $space / 4;
 		left: 0;
 		right: 0;
 		text-align: center;

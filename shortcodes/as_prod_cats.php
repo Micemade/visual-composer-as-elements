@@ -50,7 +50,7 @@ function vc_ase_as_prod_cats_func( $atts, $content = null ) {
 	
 	echo $css_classes ? '<div class="'.esc_attr($css_classes).'">' : null;
 	
-	echo '<div id="prod-cats-'.$block_id.'"  class="vc-ase-element content-block prod-cats">';
+	echo '<div id="prod-cats-'.$block_id.'"  class="vc-ase-element content-block prod-cats row">';
 
 	if( $tax_terms ) {
 		
@@ -108,7 +108,7 @@ function vc_ase_as_prod_cats_func( $atts, $content = null ) {
 		}
 		
 		
-		echo '<ul class="taxonomy-menu '. esc_attr($cat_menu_css) .' '. esc_attr( $tax_menu_align ) . esc_attr( $one_per_row ) . '">';
+		echo '<ul class="taxonomy-menu row '. esc_attr($cat_menu_css) .' '. esc_attr( $tax_menu_align ) . esc_attr( $one_per_row ) . '">';
 		
 						
 		// DISPLAY TAXONOMY MENU:

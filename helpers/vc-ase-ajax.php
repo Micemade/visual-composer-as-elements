@@ -178,7 +178,7 @@ function vc_ase_ajax_products () {
 						<div class="item-overlay"></div>
 
 						<?php 
-													
+						
 						if ( $attachment_ids ) {
 							
 							if( $img_width && $img_height ) {
@@ -481,8 +481,10 @@ function vc_ase_ajax_posts () {
  *	QUICK VIEW - Products popup
  *
  */
-add_action( 'wp_ajax_nopriv_load-quick-view', 'vc_ase_quick_view' );// for NOT logged in users
-add_action( 'wp_ajax_load-quick-view', 'vc_ase_quick_view' );// for logged in users
+// for NOT logged in users:
+add_action( 'wp_ajax_nopriv_load-quick-view', 'vc_ase_quick_view' );
+// for logged in users:
+add_action( 'wp_ajax_load-quick-view', 'vc_ase_quick_view' );
 
 function vc_ase_quick_view () {
 
@@ -520,7 +522,13 @@ function vc_ase_quick_view () {
 		
 		echo '<div itemscope itemtype="http://schema.org/Product" id="product-'. esc_attr($productID) .'" class="'. esc_attr($postClass) .' product">';
 		
-		do_action( 'vc_ase_quick_view_images', $qv_img_format );
+		/**
+		 * woocommerce_show_product_images hook
+		 *
+		 * @hooked woocommerce_show_product_sale_flash - 10
+		 * @hooked woocommerce_show_product_images - 20
+		 */
+		do_action( 'woocommerce_before_single_product_summary' );
 
 		echo '<div class="summary entry-summary">';
 		
@@ -556,15 +564,21 @@ function vc_ase_quick_view () {
 		$(document).ready(function () {
 			// First - the MAIN var, that is - OBJECT
 			var qv_holder	= $('#qv-holder-<?php echo esc_js($productID) ?>'),
-				qv_overlay	= $('.qv-overlay');
+				qv_overlay	= $('.qv-overlay'),
+				qv_wrap			= qv_holder.find(".qv-wrapper");
+
+				setTimeout( function() {
+					qv_wrap.addClass('active')
+				},600 );
+				
 					
-			/* Get those variations forms to work ;) : */
+			// Get those variations forms to work ;) 
 			$( function() {
-				if ( typeof wc_add_to_cart_variation_params !== 'undefined' ) {
-					$( '.variations_form' ).each( function() {
-						var select_elm = $( this ).wc_variation_form().find('.variations select:eq(0)');
-						select_elm.change();
-						select_elm.on("change", function() { 
+				
+				if ( typeof wc_add_to_cart_variation_params !== "undefined" ) {
+					$( ".variations_form" ).each( function() {
+						$( this ).wc_variation_form().find(".variations select:eq(0)").change();
+						$( this ).on("change", function() { 
 							setTimeout( function() {
 							$(window).trigger('resize');
 							} ,200 );
@@ -573,30 +587,12 @@ function vc_ase_quick_view () {
 					});
 				}
 			});
-			
-			/*	OWL Carousel:	*/
-			var images = qv_holder.find('.productslides');
-			if( images.length ) {
-				images.owlCarousel({
-						items: 1,
-						loop:true,
-						margin:0,
-						responsiveClass:true,
-						nav: true,
-						dots:  true,
-						autoplay:  false,
-						//navRewind: true,
-						navText: ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"]
-						});
-			}
-			
+		
 			/* Animate and display after images are loaded */
-			
 			qv_holder.imagesLoaded()
 			.always( function( instance ) {
-				console.log('all images loaded');
-				var qv_wrap			= qv_holder.find(".qv-wrapper"),
-					qv_wrap_h		= qv_wrap.outerHeight(),
+				
+				var qv_wrap_h		= qv_wrap.outerHeight(),
 					qv_overlay_H	= qv_overlay.outerHeight(true);
 
 				var	qv_top		= (qv_overlay_H / 2) - (qv_wrap_h/2);
@@ -605,17 +601,16 @@ function vc_ase_quick_view () {
 					qv_top = 75;
 				}
 				
-				qv_holder.stop(true,false).animate({'top': qv_top },{ duration:400, easing: 'easeOutQuart', complete: 
+				qv_holder.stop(true,false).animate({'top': qv_top },{ duration:200, easing: 'easeOutQuart', complete: 
 					function() {
 
-						qv_wrap.stop(true,false).animate({'opacity': 1 },{ duration:400 });
-						qv_holder.stop(true,false).delay(200).animate({'height': qv_wrap_h },
-						{	duration:400, 
+						qv_holder.stop(true,false).delay(300).animate({'height': qv_wrap_h },
+						{	duration:300, 
 							easing: 'easeOutQuart',
-							complete: function() { console.log("Resized"); }
 						});
+						
 					}
-				});				
+				});
 			})
 
 			
@@ -641,9 +636,17 @@ function vc_ase_quick_view () {
 
 			});
 			
-			if ( $.isFunction( window.variableProductImages ) ) {
-				var variableProductImages = window.variableProductImages();
-			}
+			var	wc_prod_gall = qv_holder.find('.woocommerce-product-gallery');
+			wc_prod_gall.each( function() {
+				$( this ).wc_product_gallery();
+				$( this ).resize( function() { 
+					$(window).trigger("resize");
+				});
+			} );
+			
+			$(document).on("ajaxComplete", function() {
+				 $(window).trigger("resize");
+			});
 			
 		});
 	

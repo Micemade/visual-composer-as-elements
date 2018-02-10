@@ -2,22 +2,21 @@
  *	Variables
  *		
  */
-@import "foundation/components/global";
+@import "foundation6/global";
 
 // FOUNDATION IMPORTS
 // $primary-color, $success-color, $warning-color, $alert-color, $info-color, $body-bg, $body-font-color:
 //
 $primary-color:		$primary-color;
 
-$success-color:     $success-color; 
-$warning-color:     $warning-color;
-$alert-color:      	$alert-color;
-$info-color:		$info-color;
-
+$success-color:     map-get( $foundation-palette, success ); 
+$warning-color:     map-get( $foundation-palette, warning );
+$alert-color:      	map-get( $foundation-palette, alert );
+$info-color:		map-get( $foundation-palette, secondary );
 
 // PRIMARY AND SECONDARY BACKGROUND COLORS
-$prim-back-color:	$prim-back-color;
-$sec-back-color :	$sec-back-color;
+$prim-back-color:	$white;
+$sec-back-color :	$light-gray;
 
 
 // IMAGE OVERLAY COLOR (on hover)

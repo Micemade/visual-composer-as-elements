@@ -114,7 +114,7 @@ function vc_ase_as_single_prod_func( $atts, $content = null ) {
 				// #########################################################
 				$(window).on("load", function(e) {
 			
-					var ajaxurl = window.vc_ase_ajaxurl;
+					var ajaxurl = vc_ase_jsvars.vc_ase_ajax_url;
 					
 					var	single_prod_block	= $("#<?php echo esc_attr($block_id); ?>"),
 						hidden_input		= single_prod_block.prev( "input.single-prod-data" );

@@ -127,7 +127,7 @@ function ajax_cats_array(){
 			"admin_label" => true,
 			"edit_field_class"=> "vc_col-sm-4"
 		),
-		
+				
 		array(
 			"type" => "checkbox",
 			"class" => "",

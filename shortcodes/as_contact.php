@@ -178,7 +178,7 @@ $invalid	= __('Invalid email','vc_ase');
 	
 	$(document).ready(function() {
 		
-		var ajaxurl = window.vc_ase_ajaxurl;
+		var ajaxurl = vc_ase_jsvars.vc_ase_ajax_url;
 		// find form with unique class (randomized) and input fields
 		var contactForm		= $('.contactform-<?php echo esc_attr($block_id) ?>'),
 			username		= contactForm.find('.username').find('input'),

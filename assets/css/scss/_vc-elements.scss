@@ -3,6 +3,15 @@
  */
 .vc_row {
 	
+	&[data-equalizer] {
+		display: flex;
+		flex-direction: row;
+
+		@include breakpoint(medium down) {
+			display: block !important;
+		}
+	}
+	
 	.vc_column_container {
 		z-index: 2;
 		&.z-index-above {
@@ -72,24 +81,23 @@
 			bottom: 0 ;
 		}
 		
-		@media  #{$small-only} {
+		@include breakpoint(small only) {
 			padding: 0 !important;
-		
 		}
 		
 	}
 	.page-template-page-full_width & {
 		margin:{
-			left: - $column-gutter /2 ;
-			right: - $column-gutter /2 ;
+			left: - $space /2 ;
+			right: - $space /2 ;
 		}
 	}
 	
 	.vc_column_container {
-		@media  #{$small-only} {
+		@include breakpoint(small only) {
 			padding:{
-				left: $column-gutter /2 !important;
-				right: $column-gutter /2 !important;
+				left: $space /2 !important;
+				right: $space /2 !important;
 			}
 		}
 		
@@ -143,7 +151,7 @@ ul.wpb_thumbnails-fluid > li,
 
 .vc_row {
 	.vc_col-xs-1, .vc_col-sm-1, .vc_col-md-1, .vc_col-lg-1, .vc_col-xs-2, .vc_col-sm-2, .vc_col-md-2, .vc_col-lg-2, .vc_col-xs-3, .vc_col-sm-3, .vc_col-md-3, .vc_col-lg-3, .vc_col-xs-4, .vc_col-sm-4, .vc_col-md-4, .vc_col-lg-4, .vc_col-xs-5, .vc_col-sm-5, .vc_col-md-5, .vc_col-lg-5, .vc_col-xs-6, .vc_col-sm-6, .vc_col-md-6, .vc_col-lg-6, .vc_col-xs-7, .vc_col-sm-7, .vc_col-md-7, .vc_col-lg-7, .vc_col-xs-8, .vc_col-sm-8, .vc_col-md-8, .vc_col-lg-8, .vc_col-xs-9, .vc_col-sm-9, .vc_col-md-9, .vc_col-lg-9, .vc_col-xs-10, .vc_col-sm-10, .vc_col-md-10, .vc_col-lg-10, .vc_col-xs-11, .vc_col-sm-11, .vc_col-md-11, .vc_col-lg-11, .vc_col-xs-12, .vc_col-sm-12, .vc_col-md-12, .vc_col-lg-12 {
-		padding: 0  $column-gutter /2 ;
+		padding: 0  $space /2 ;
 	}
 }
 
@@ -170,7 +178,7 @@ ul.wpb_thumbnails-fluid > li,
 	
 	.titles-holder {
 		
-		padding: $column-gutter ($column-gutter / 2);
+		padding: $space ($space / 2);
 		position: relative;
 		z-index: 1;
 		
@@ -191,8 +199,8 @@ ul.wpb_thumbnails-fluid > li,
 		
 		.no-spacing & {
 			padding:{
-				left:  $column-gutter;
-				right:  $column-gutter;
+				left:  $space;
+				right:  $space;
 			}
 		}
 	}
@@ -206,7 +214,7 @@ ul.wpb_thumbnails-fluid > li,
 		// if regular taxonomies menu
 		&:not(.cat-images) {
 		
-			margin: 0 0 $column-gutter;
+			margin: 0 0 $space;
 			@include clearfix;
 
 			li {
@@ -214,7 +222,7 @@ ul.wpb_thumbnails-fluid > li,
 				position: relative;
 				a {
 					display: block;
-					padding: $column-gutter / 4 $column-gutter / 2 ;
+					padding: $space / 4 $space / 2 ;
 					
 					transition: all .5s;
 					
@@ -246,8 +254,8 @@ ul.wpb_thumbnails-fluid > li,
 					float: none;
 					a {
 						padding:{
-							left:$column-gutter / 2  !important;
-							right:$column-gutter / 2  !important;
+							left:$space / 2  !important;
+							right:$space / 2  !important;
 						}					
 						
 					}
@@ -312,15 +320,15 @@ ul.wpb_thumbnails-fluid > li,
 
 		.vc-ase-ajax-load {
 			position: absolute;
-			top: $column-gutter *4;
+			top: $space *4;
 			left: 50%;
 			background: rgba(255, 255, 255, 0.8);
 			z-index: 2;
 			margin-left: -27px;
-			width: $column-gutter;
-			height: $column-gutter;
+			width: $space;
+			height: $space;
 			text-align: center;
-			line-height: $column-gutter;
+			line-height: $space;
 			color: #565656;
 			box-shadow: 0 0 10px 1px rgba(0,0,0,0.1);
 			
@@ -341,7 +349,7 @@ ul.wpb_thumbnails-fluid > li,
 	.bottom-block-link, .button-wrapper {
 		clear: both;
 		text-align: center;
-		padding: $column-gutter / 2 ;
+		padding: $space / 2 ;
 
 	}
 	
@@ -359,8 +367,8 @@ ul.wpb_thumbnails-fluid > li,
 				
 				.item-data {
 					padding:{
-						left: $column-gutter;
-						right: $column-gutter;
+						left: $space;
+						right: $space;
 					}
 					
 					
@@ -373,7 +381,7 @@ ul.wpb_thumbnails-fluid > li,
 	.block-subtitle {
 		@include special-uppercase( 11, 400 );
 		&.above {
-			padding-bottom: $column-gutter /2;
+			padding-bottom: $space /2;
 		}
 	}
 	
@@ -440,7 +448,7 @@ ul.wpb_thumbnails-fluid > li,
 	position: relative;
 	z-index: 2;
 	
-	margin-bottom:$column-gutter;
+	margin-bottom:$space;
 	
 	.no-spacing & {
 		margin-bottom: 0;
@@ -454,7 +462,7 @@ ul.wpb_thumbnails-fluid > li,
 		position: relative;
 		
 		&.column {
-			margin-bottom: $column-gutter; 
+			margin-bottom: $space; 
 		}
 	
 	
@@ -463,13 +471,13 @@ ul.wpb_thumbnails-fluid > li,
 			position: absolute;
 			z-index: 10;
 			top: 0;
-			left:  $column-gutter / 2;
-			width: $column-gutter;
-			height: $column-gutter;
+			left:  $space / 2;
+			width: $space;
+			height: $space;
 			text-align: center;
 			background: $body-font-color;
 			color:  $prim-back-color;
-			line-height: $column-gutter;
+			line-height: $space;
 
 		}
 		
@@ -495,11 +503,11 @@ ul.wpb_thumbnails-fluid > li,
 				box-shadow: inset 0 0 0 2px rgba( $body-font-color , 1);
 				
 				&:after {
-					@include css-triangle( $column-gutter / 2, $body-font-color, top);
+					@include css-triangle( $space / 2, $body-font-color, top);
 					position: absolute;
 					z-index: 20;
 					left: 50%;
-					margin-left: - $column-gutter / 2;
+					margin-left: - $space / 2;
 				}
 			} //.term
 
@@ -528,7 +536,7 @@ ul.wpb_thumbnails-fluid > li,
 			
 			span {
 				display: inline-block;
-				padding: ($column-gutter / 2) $column-gutter ;
+				padding: ($space / 2) $space ;
 				background: rgba($prim-back-color, 0.9);		
 			}
 
@@ -545,7 +553,7 @@ ul.wpb_thumbnails-fluid > li,
 		}
 			
 		.block-subtitle {
-			margin: $column-gutter /2;
+			margin: $space /2;
 		}
 
 	}
@@ -596,18 +604,18 @@ ul.wpb_thumbnails-fluid > li,
 	
 	.load-product {
 		display: block;
-		padding: ( $column-gutter /2) 0;
+		padding: ( $space /2) 0;
 		text-align: center;
 	}
 	.vc-ase-ajax-load {
 		position: relative;
 		background: rgba(255, 255, 255, 0.8);
 		z-index: 2;
-		width: $column-gutter;
-		height: $column-gutter;
-		margin: 0 auto $column-gutter ;
+		width: $space;
+		height: $space;
+		margin: 0 auto $space ;
 		text-align: center;
-		line-height: $column-gutter;
+		line-height: $space;
 		color: #565656;
 		box-shadow: 0 0 10px 1px rgba(0,0,0,0.1);
 		
@@ -644,6 +652,7 @@ ul.wpb_thumbnails-fluid > li,
 					.item {
 						margin: 0;
 					}
+					
 				}
 				
 			} // &.images_left, &.images_right
@@ -659,7 +668,9 @@ ul.wpb_thumbnails-fluid > li,
 				.back-buttons{
 					a { width: 100%;}
 				}
-				
+				&:after {
+					transform: rotate(180deg);
+				}
 			} 
 			
 			
@@ -669,12 +680,12 @@ ul.wpb_thumbnails-fluid > li,
 				height: 100%;
 				
 				.no-spacing & {
-					padding: 0 $column-gutter;
+					padding: 0 $space;
 				}
 				
 				h3 {
-					margin: $column-gutter 0 0;
-					padding-bottom: $column-gutter / 2;
+					margin: $space 0 0;
+					padding-bottom: $space / 2;
 					@include border(0,1,0,0,#999,0.5);
 					a {
 						border: 0 !important;
@@ -683,9 +694,9 @@ ul.wpb_thumbnails-fluid > li,
 						}
 					}
 					
-					@media #{$medium-only}, #{$small-only}	{
-						margin-top: $column-gutter / 2;
-					}			
+					@include breakpoint(medium down) {
+						margin-top: $space / 2;
+					}
 				
 				} // h3
 				
@@ -729,7 +740,7 @@ ul.wpb_thumbnails-fluid > li,
 						display: block;
 						font-size: 2rem;
 						text-transform: uppercase;
-						margin-bottom: $column-gutter / 2;
+						margin-bottom: $space / 2;
 						@include clearfix;
 						del { font-size: 0.8em; }
 					}
@@ -749,15 +760,15 @@ ul.wpb_thumbnails-fluid > li,
 						width: 100%;
 						@include special-uppercase( 12, 600 );
 						@include border(1,0,0,0,#000,0.2);
-						padding: 0 0 ($column-gutter / 2 );
+						padding: 0 0 ($space / 2 );
 						@include clearfix;
-						margin-top: $column-gutter;
+						margin-top: $space;
 						
 						> span {
 							clear: both;
 							display: block;
 							@include border(0,1,0,0,#999,0.2);
-							padding: ($column-gutter / 4 ) 0;
+							padding: ($space / 4 ) 0;
 							font-size: inherit;
 						}
 						
@@ -766,15 +777,15 @@ ul.wpb_thumbnails-fluid > li,
 					.full_wrapper {
 						
 						.woocommerce-product-rating {
-							margin: ( $column-gutter /2) 0;
+							margin: ( $space /2) 0;
 						}
 						
 						.yith-wcwl-add-to-wishlist {
 													
 							a {
 								text-align: center;
-								width: $column-gutter;
-								height: $column-gutter;
+								width: $space;
+								height: $space;
 								line-height: 3.2rem;
 								background-color: $body-font-color;
 								color:$sec-back-color;
@@ -818,12 +829,12 @@ ul.wpb_thumbnails-fluid > li,
 						position: relative;
 						float: left;
 						text-align: center;
-						margin-top: $column-gutter ;
+						margin-top: $space ;
 					}
 					
 				}
 				
-				@media #{$medium-only}, #{$small-only} {
+				@include breakpoint(medium down) {
 					position: relative !important;
 				
 				}
@@ -833,7 +844,7 @@ ul.wpb_thumbnails-fluid > li,
 			&.back-color {
 				
 				.item-data {
-					padding: $column-gutter;
+					padding: $space;
 				}
 				
 			}
@@ -843,11 +854,11 @@ ul.wpb_thumbnails-fluid > li,
 				width: auto;
 				margin: 0 20%;
 				
-				@media #{$large-only} {
+				@include breakpoint(large up) {
 					margin: 0 10%;
 				
 				}
-				@media #{$medium-only}, #{$small-only} {
+				@include breakpoint(medium down) {
 					margin: 0;
 				
 				}
@@ -878,7 +889,7 @@ ul.wpb_thumbnails-fluid > li,
 						}
 					}
 					.product-details {
-						margin-bottom: $column-gutter;
+						margin-bottom: $space;
 					}
 					form.cart, .yith-wcwl-add-to-wishlist, .quantity, .single_add_to_cart_button {
 						display: inline-block;
@@ -913,14 +924,14 @@ ul.wpb_thumbnails-fluid > li,
 						right: 0;
 						z-index: 1;
 						margin-top: -17px;
-						@include css-triangle( $column-gutter / 2, $prim-back-color, right);
+						@include css-triangle( $space / 2, $prim-back-color, right);
 					}
 					
 				}
 				.item-data {
 					float:right;
 					right: 0;
-					padding-left: $column-gutter;
+					padding-left: $space;
 					text-align: left;
 					
 					.item-buttons-holder, .variations, .variations_button  {
@@ -945,11 +956,11 @@ ul.wpb_thumbnails-fluid > li,
 					}
 					
 					.no-spacing & {
-						padding-left: $column-gutter;
+						padding-left: $space;
 					}
 					
-					@media #{$medium-only}, #{$small-only} {
-						padding-left: 0;				
+					@include breakpoint(medium down) {
+						padding-left: 0;
 					}
 					
 				}//.item-data
@@ -967,7 +978,7 @@ ul.wpb_thumbnails-fluid > li,
 						left: 0;
 						z-index: 2;
 						margin-top: -17px;
-						@include css-triangle( $column-gutter / 2, $prim-back-color, left);
+						@include css-triangle( $space / 2, $prim-back-color, left);
 					}
 					.item-img {
 						&:before {
@@ -986,7 +997,7 @@ ul.wpb_thumbnails-fluid > li,
 				.item-data {
 					float:left;
 					left: 0;
-					padding-right: $column-gutter;
+					padding-right: $space;
 					text-align: right;
 
 					.item-buttons-holder, .variations, .variations_button,
@@ -1007,36 +1018,36 @@ ul.wpb_thumbnails-fluid > li,
 					del, ins {
 						float: right;
 						margin-right: 0;
-						margin-left: $column-gutter / 2 ;
+						margin-left: $space / 2 ;
 					}
 				
 					
 					// FULL PRODUCT OPTIONS
 					.full_wrapper {
 						.yith-wcwl-add-to-wishlist {
-							margin-right:$column-gutter / 2 ;
+							margin-right:$space / 2 ;
 						}
 					}
 					
 					.no-spacing & {
-						padding-right: $column-gutter;
+						padding-right: $space;
 					}
 					
-					@media #{$medium-only}, #{$small-only} {
-						padding-right: 0;				
+					@include breakpoint(medium down) {
+						padding-right: 0;
 					}
 					
 				} //.item-data
 				
 			}	
 			
-			@media #{$large-only} {
+			@include breakpoint(large up) {
 				
 				.item-data {
 					
 					
 					h3, .table.item-buttons-holder {
-						margin: ($column-gutter / 4)  0
+						margin: ($space / 4)  0
 					}
 					
 					.description, [itemprop="description"] {
@@ -1046,7 +1057,7 @@ ul.wpb_thumbnails-fluid > li,
 				
 			}
 			
-			@media #{$medium-only}, #{$small-only} {
+			@include breakpoint(medium down) {
 			
 				.images-holder, .item-data {
 					width: 100% !important;
@@ -1066,7 +1077,7 @@ ul.wpb_thumbnails-fluid > li,
 						left: 50%;
 						z-index: 2;
 						margin-left: -17px;
-						@include css-triangle( $column-gutter / 2, $prim-back-color, bottom);
+						@include css-triangle( $space / 2, $prim-back-color, bottom);
 					}
 					&:after {
 						display: none !important;
@@ -1117,16 +1128,16 @@ ul.wpb_thumbnails-fluid > li,
 			color: inherit;
 			margin: 0;
 			margin:{
-				left: $column-gutter / 2;
-				right: $column-gutter / 2;
+				left: $space / 2;
+				right: $space / 2;
 			}
-			padding-bottom: $column-gutter / 2;
+			padding-bottom: $space / 2;
 			@include clearfix;
 		}
 		
 		.banner-text {
 			&.no-subtitle {
-				margin-top:$column-gutter / 2;
+				margin-top:$space / 2;
 			}
 		}
 		
@@ -1134,7 +1145,7 @@ ul.wpb_thumbnails-fluid > li,
 			clear: both;
 			position: relative;
 			z-index: 2;
-			margin: $column-gutter / 2;
+			margin: $space / 2;
 		}
 		
 		&.center {
@@ -1174,16 +1185,16 @@ ul.wpb_thumbnails-fluid > li,
 // Contact form block
 .vcase-contact-form {
 
-	padding-left: $column-gutter /2;
-	padding-right: $column-gutter /2;
+	padding-left: $space /2;
+	padding-right: $space /2;
 	
 	.entry-image {
-		margin-bottom: $column-gutter ;
+		margin-bottom: $space ;
 	}
 	
 	.no-spacing & {
-		padding-left: $column-gutter;
-		padding-right: $column-gutter;
+		padding-left: $space;
+		padding-right: $space;
 	}
 	
 	.contactform-wrapper {
@@ -1212,21 +1223,21 @@ ul.wpb_thumbnails-fluid > li,
 			z-index: 0;
 			label {
 				font-size: 0.9rem;
-				margin: ($column-gutter /4) 0;
+				margin: ($space /4) 0;
 				color: inherit;
 				float: left;
 			}
 			
 			span {
-				padding: ($column-gutter /4) 0;
+				padding: ($space /4) 0;
 				display: block;
 				float: left;
 			}
 		}
 		
 		.error, .success { 
-			padding: $column-gutter /2;
-			padding-right: $column-gutter;
+			padding: $space /2;
+			padding-right: $space;
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -1315,10 +1326,10 @@ ul.wpb_thumbnails-fluid > li,
 					
 				}
 				
-				@media #{$medium-only}, #{$small-only} {
+				@include breakpoint(medium down) {
 						
 					display: block;
-					margin:0 auto $column-gutter;
+					margin:0 auto $space;
 					
 					padding:{
 						left:0;
@@ -1335,7 +1346,7 @@ ul.wpb_thumbnails-fluid > li,
 				backface-visibility: hidden;
 				display: table-row;
 				
-				@media #{$medium-only}, #{$small-only} {
+				@include breakpoint(medium down) {
 					&:before {
 						font-size:4rem;
 						margin-top: -2rem;
@@ -1364,14 +1375,14 @@ ul.wpb_thumbnails-fluid > li,
 					width: 100%;
 					vertical-align: middle;
 					padding:{
-						left:$column-gutter ;
-						right:$column-gutter ;
+						left:$space ;
+						right:$space ;
 					}				
 				
 					font-size: 1.2rem;
 					font-style: italic;
 					
-					@media #{$medium-only}, #{$small-only} {
+					@include breakpoint(medium down) {
 						
 						display: block;
 						
@@ -1386,7 +1397,7 @@ ul.wpb_thumbnails-fluid > li,
 
 				h4 {
 					display: block;
-					padding: $column-gutter;
+					padding: $space;
 					position: relative;
 					margin: 0;
 					span {
@@ -1416,7 +1427,7 @@ ul.wpb_thumbnails-fluid > li,
 
 			}
 
-			@media #{$medium-only}, #{$small-only} {
+			@include breakpoint(medium down) {
 				padding:{
 					left: 0;
 					right:0 ;
@@ -1435,8 +1446,8 @@ ul.wpb_thumbnails-fluid > li,
 				.inner {
 					display: block;
 					padding:{
-						top: $column-gutter;
-						bottom: $column-gutter;
+						top: $space;
+						bottom: $space;
 					}
 				} //.inner
 			} //.testimonial-item
@@ -1450,7 +1461,7 @@ ul.wpb_thumbnails-fluid > li,
 					text-align: left;
 					margin-top: 0;
 					padding-top: 0;
-					@media  #{$small-only} {
+					@include breakpoint(small only) {
 						width: 70%;
 					}
 					
@@ -1471,7 +1482,7 @@ ul.wpb_thumbnails-fluid > li,
 					text-align: right;
 					margin-top: 0;
 					padding-top: 0;
-					@media  #{$small-only} {
+					@include breakpoint(small only) {
 						width: 70%;
 					}
 					
@@ -1496,8 +1507,8 @@ ul.wpb_thumbnails-fluid > li,
 		}
 		
 		.owl-nav {
-			left: - $column-gutter / 2;
-			right: - $column-gutter / 2;
+			left: - $space / 2;
+			right: - $space / 2;
 		}
 		
 	} // testimonials	
@@ -1589,7 +1600,7 @@ ul.wpb_thumbnails-fluid > li,
 .social-block {
 
 	.table {
-		height: $column-gutter *2 ;
+		height: $space *2 ;
 		text-align: center;
 		line-height: 0;
 		margin: 0 auto;
@@ -1675,13 +1686,13 @@ ul.wpb_thumbnails-fluid > li,
 	&.smaller {
 		
 		.table {
-			height: $column-gutter;
+			height: $space;
 			table-layout: auto;
 			width: auto;
 			margin: 0 auto;
 			
 			.tablecell {
-				width: $column-gutter;
+				width: $space;
 			}
 			
 		}	
@@ -1727,7 +1738,7 @@ ul.wpb_thumbnails-fluid > li,
     -ms-touch-action: pan-y;
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
-	padding: 0 $column-gutter / 2 ;
+	padding: 0 $space / 2 ;
 	
 	.no-spacing & {
 		padding: 0;
@@ -1865,11 +1876,11 @@ ul.wpb_thumbnails-fluid > li,
 					
 					
 					&:after {
-						@include css-triangle( $column-gutter / 2, $body-font-color, top);
+						@include css-triangle( $space / 2, $body-font-color, top);
 						position: absolute;
 						z-index: 20;
 						left: 50%;
-						margin-left: - $column-gutter / 2;
+						margin-left: - $space / 2;
 						top:0;
 					}
 					&:hover {
@@ -1895,7 +1906,7 @@ ul.wpb_thumbnails-fluid > li,
 					@include linear-gradient( to top, rgba( $prim-back-color, 0) , rgba($prim-back-color, 0.8) 100%);
 					
 					h6{
-						padding: $column-gutter / 2 ;
+						padding: $space / 2 ;
 					}
 				}
 				
@@ -1924,8 +1935,8 @@ ul.wpb_thumbnails-fluid > li,
 		position: absolute;
 		z-index: 2;
 		display: block;
-		height: $column-gutter;
-		width: $column-gutter;
+		height: $space;
+		width: $space;
 		line-height: 0;
 		font-size: 0;
 		cursor: pointer;
@@ -1933,7 +1944,7 @@ ul.wpb_thumbnails-fluid > li,
 		color:  $prim-back-color;
 		opacity: 0.8;
 		top: 50%;
-		margin-top: - $column-gutter / 2;
+		margin-top: - $space / 2;
 		padding: 0;
 		border: none;
 		outline: none;
@@ -2009,7 +2020,7 @@ ul.wpb_thumbnails-fluid > li,
 	
 	.slick-dots {
 		position: absolute;
-		bottom:  $column-gutter / 2;
+		bottom:  $space / 2;
 		list-style: none;
 		display: block;
 		text-align: center;
@@ -2117,7 +2128,7 @@ ul.wpb_thumbnails-fluid > li,
 
 	text-transform: uppercase;
 	text-align: left;
-	padding: 0 $column-gutter / 2;
+	padding: 0 $space / 2;
 	
 	&.vertical {
 
@@ -2129,8 +2140,8 @@ ul.wpb_thumbnails-fluid > li,
 			
 			> span.desc {
 				margin:{
-					top: - $column-gutter /4;
-					bottom: $column-gutter /4;
+					top: - $space /4;
+					bottom: $space /4;
 				}
 			}
 		}
@@ -2145,7 +2156,7 @@ ul.wpb_thumbnails-fluid > li,
 			a {
 				
 				display: block;
-				padding: $column-gutter /4 0;
+				padding: $space /4 0;
 				
 				&.button  { 
 					
@@ -2162,7 +2173,7 @@ ul.wpb_thumbnails-fluid > li,
 					&:hover {
 						
 						span{
-							padding-left: $column-gutter / 4;
+							padding-left: $space / 4;
 							width: auto;
 						}	
 					}
@@ -2190,7 +2201,7 @@ ul.wpb_thumbnails-fluid > li,
 				display: none;
 				opacity: 0;
 				background-color: $prim-back-color;
-				padding: $column-gutter ;
+				padding: $space ;
 				margin: 0;
 				
 				@include border(1,1,1,1,#000, 0.5);
@@ -2220,14 +2231,14 @@ ul.wpb_thumbnails-fluid > li,
 						
 						.sub-menu {
 							position: absolute;
-							right: - $column-gutter ;
+							right: - $space ;
 							top: 0;
 						
 						}
 						
 					}
 					// RESPONSIVE SUB
-					@media #{$medium-only}, #{$small-only}  { 
+					@include breakpoint(medium down) {
 						
 						top: 100%;
 						left: 0;
@@ -2253,7 +2264,7 @@ ul.wpb_thumbnails-fluid > li,
 							
 						}
 
-					} // @media #{$medium-only}
+					}
 					
 				} // regular-sub
 
@@ -2273,7 +2284,7 @@ ul.wpb_thumbnails-fluid > li,
 						
 						span.desc {
 					
-							margin: ($column-gutter /4) 0 ;
+							margin: ($space /4) 0 ;
 							
 						}
 
@@ -2306,7 +2317,7 @@ ul.wpb_thumbnails-fluid > li,
 					
 					
 					// RESPONSIVE MEGA:
-					@media #{$large-up} {
+					@include breakpoint(large up) {
 						> li {
 						
 							.sub-menu {
@@ -2315,9 +2326,9 @@ ul.wpb_thumbnails-fluid > li,
 							}
 							
 						}
-					} // @media #{$large-up}
+					} 
 					
-					@media #{$medium-only}, #{$small-only} { 
+					@include breakpoint(medium down) { 
 						position: absolute;
 						top: 100%;
 						left: 0;
@@ -2342,7 +2353,7 @@ ul.wpb_thumbnails-fluid > li,
 								position: absolute;
 								top: 100%;
 								left: 0;
-								padding: $column-gutter;									
+								padding: $space;									
 								display: none;
 								opacity: 0;
 								
@@ -2359,10 +2370,10 @@ ul.wpb_thumbnails-fluid > li,
 							}
 						}
 
-					} // @media #{$medium-only} - RESPONSIVE MEGA
+					}
 				
 				} // as-megamenu
-									
+
 			}// sub-menu
 
 			
@@ -2395,7 +2406,7 @@ ul.wpb_thumbnails-fluid > li,
 		right: 0;
 		bottom: 0;
 		top: 0;
-		padding: ($column-gutter * 2) $column-gutter $column-gutter;
+		padding: ($space * 2) $space $space;
 		text-align: center;
 		z-index: 2;
 		
@@ -2427,7 +2438,7 @@ ul.wpb_thumbnails-fluid > li,
 		
 		
 		.price, .addendum {
-			padding: ($column-gutter / 2) 0 ;
+			padding: ($space / 2) 0 ;
 		}
 		.posted_in {
 			font-size: 0.9rem;
@@ -2442,14 +2453,14 @@ ul.wpb_thumbnails-fluid > li,
 			margin: 0;
 		}
 		
-		@media #{$large-only}, #{$medium-only}, #{$small-only} {
+		@include breakpoint(large down) {
 		
 			.addendum {
 				display: none;
 			}
 		}
 				
-		@media  #{$medium-only}, #{$small-only} {
+		@include breakpoint(medium down) {
 		
 			.posted_in {
 				display: none;
@@ -2466,15 +2477,15 @@ ul.wpb_thumbnails-fluid > li,
 	height: 450px;
 	z-index: 1001;
 	
-	@media #{$large-up} {
+	@include breakpoint(large up) {
 		
-	} // @media #{$large-up}
+	}
 	
-	@media #{$medium-only} {
+	@include breakpoint(medium only) {
 		position:relative !important; height: 450px;
 	}// 
 	
-	@media #{$small-only} {
+	@include breakpoint(small down) {
 		position:relative !important; height: 300px;
 	}// #{$small-only}
 	
@@ -2535,8 +2546,8 @@ ul.wpb_thumbnails-fluid > li,
 				&.prev, &.next {
 					position: absolute;
 					display: block;
-					height: $column-gutter;
-					width: $column-gutter;
+					height: $space;
+					width: $space;
 					cursor: pointer;
 					background: $body-font-color;
 					color:  $prim-back-color;
@@ -2669,12 +2680,12 @@ ul.wpb_thumbnails-fluid > li,
 
 .google-map {
 
-	padding: 0 $column-gutter / 2 ;
+	padding: 0 $space / 2 ;
 	
 	.marker {
 		
 		p {
-			margin-bottom: $column-gutter / 2;
+			margin-bottom: $space / 2;
 		}
 	}
 	
@@ -2695,7 +2706,7 @@ ul.wpb_thumbnails-fluid > li,
  *	VIDEO PLAYER
  */
 .vc-ase-video {
-	padding: 0 $column-gutter / 2 ; 
+	padding: 0 $space / 2 ; 
 	position: relative;
 	@include clearfix;
 	
@@ -2715,8 +2726,8 @@ ul.wpb_thumbnails-fluid > li,
 }
 
 .custom-widget-area {
-	padding-left: $column-gutter / 2 ;
-	padding-right: $column-gutter / 2 ;
+	padding-left: $space / 2 ;
+	padding-right: $space / 2 ;
 	
 	.no-spacing & {
 		padding: 0;
@@ -2735,7 +2746,7 @@ ul.wpb_thumbnails-fluid > li,
 	
 	h3 {
 		float: left;
-		@media #{$small-only}, #{$small-only} {
+		@include breakpoint(small only) {
 			float: none;
 			text-align: center;
 		}
@@ -2749,7 +2760,7 @@ ul.wpb_thumbnails-fluid > li,
 	}
 	
 	.gridlist-toggle {
-		margin-bottom: $column-gutter;
+		margin-bottom: $space;
 		text-align: right;
 		font-size: 0;
 		
@@ -2764,7 +2775,7 @@ ul.wpb_thumbnails-fluid > li,
 			}
 		}
 		
-		@media #{$small-only}, #{$small-only} {
+		@include breakpoint(small only) {
 			float: none;
 			text-align: center;
 		}
@@ -2805,7 +2816,7 @@ ul.wpb_thumbnails-fluid > li,
 .wpb_wrapper {
 	
 	> .woocommerce {
-		padding: 0 $column-gutter / 2 ;
+		padding: 0 $space / 2 ;
 	}
 	
 	@extend %lists;

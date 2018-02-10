@@ -44,7 +44,10 @@ function vc_ase_content_style3_func( $post_id, $link, $post_type, $taxonomy ) {
 	
 	$terms = get_the_term_list( $post_id, $taxonomy , '<span class="posted_in">', ', ','</span>' );
 	
-	echo '<h4>'. $terms . esc_html( strip_tags( get_the_title() ) ) .'</h4>';
+	echo '<h4>';
+	echo wp_kses_post( $terms );
+	echo '<a href="'. esc_url( $link ).'">' . esc_html( strip_tags( get_the_title() ) ) . '</a>';
+	echo '</h4>';
 	
 	if( $post_type === "post") {
 		echo '<div class="vcase-post-meta">';
