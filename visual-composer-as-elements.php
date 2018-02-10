@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Visual Composer AS elements
+Plugin Name: WPB Micemade Elements
 Plugin URI: https://micemade.com
 Description: Extension plugin for WPBakery Page Builder (ex. Visual Composer) plugin - additional elements for page builder. Elements are best used with Micemade Larix theme, but can be used with any theme, with caution.
 Version: 1.3.0
@@ -77,9 +77,15 @@ class AS_VC_ELEMENTS {
 
 	public function as_vce_admin_notice() {
 		
-		$class = "error updated settings-error notice is-dismissible";
-		$message = __("Visual composer AS elements is not effective without Visual Composer plugin activated. Either install and activate Visual Composer plugin or deactivate Visual composer AS elements plugin. ","vc_ase");
-		echo"<div class=\"$class\"> <p>$message</p></div>";
+		echo sprintf( 
+			__( '%s%s"WPB Micemade Elements" (ex. Visual Composer AS elements)%s is not effective without "WPBakery Page Builder" (ex. Visual Composer) plugin activated. %sPlease, either install and activate "WPBakery Page Builder" plugin or deactivate "WPB Micemade Elements" plugin.%s' ,'vc_ase' ),
+			'<div class="error updated settings-error notice is-dismissible"><p>',
+			'<strong>',
+			'</strong>',
+			'<br>',
+			'</p></div>'
+		 );
+
 	}
 	
 	/**
