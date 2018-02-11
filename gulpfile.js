@@ -7,16 +7,18 @@ var gulp = require("gulp"),
     rename = require("gulp-rename"),
     browserSync = require('browser-sync'),
     wpPot = require('gulp-wp-pot'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    dos2unix = require('gulp-dos2unix-js');
 
 // Get project name from json file
 var jsonData = require('./package.json');
 
 // Projekct variables
-var $project_name = jsonData.name,
+var $textdomain = jsonData.name,
+    $plugin_name = jsonData.description,
     $project_version = jsonData.version,
-    $packDest = 'C:/PROJEKTI/'+ $project_name + '-PACKAGE/',
-    $packTemp = $packDest + $project_name;
+    $packDest = 'C:/PROJEKTI/MICEMADE-PLUGIN-'+ $textdomain + '/',
+    $packTemp = $packDest + $plugin_name;
 
 
 // Configure browsersync
@@ -82,21 +84,48 @@ gulp.task('scripts', function() {
 gulp.task('makepot', function () {
     return gulp.src('**/*.php')
         .pipe(wpPot( {
-            domain: $project_name,
-            package: $project_name,
+            domain: $textdomain,
+            package: $textdomain,
             team: 'Micemade <alen@micemade.com>'
         } ))
-        .pipe(gulp.dest('./languages/'+ $project_name +'.pot'));
+        .pipe(gulp.dest('./languages/'+ $textdomain +'.pot'));
 });
+// dos2unix
+gulp.task('eol', function () {
+    return gulp.src(
+    [
+        //$packTemp + '/**/*.{css,js,php}',
+        $packTemp + '/**/**',
+    ])
+    .pipe(dos2unix()) // This defaults to {feedback: false, write: false}
+    .pipe(gulp.dest($packTemp))
+  });
+// end dos2unix
 
+// Copy all files to destination
+gulp.task('copy', function() {
+    return gulp.src([
+        './**',
+        '!./node_modules', 
+        '!./node_modules/**',
+        '!./gulpfile.js',
+        '!./package.json',
+        '!./package-lock.json',
+        '!./js/tmp', 
+        '!./js/tmp/**',
+        '!./**/*.db' // remove Windows Thumbs.db files
+    ])
+        .pipe(gulp.dest( $packTemp ));
+})
 
+// #######################################
 // The DEFAULT task will process sass, run browser-sync and start watchin for changes
 gulp.task('default',['styles','browser-sync'], function() {
     gulp.watch([
         'sass/**/*.scss',
     ],['styles']);
 });
-
+// #######################################
 
 // PACK EVERYTHING FOR INSTALLATION READY WP THEME ZIP
 gulp.task('pack', function(){

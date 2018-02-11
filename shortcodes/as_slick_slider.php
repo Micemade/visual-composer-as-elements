@@ -427,7 +427,6 @@ function vc_ase_as_slick_slider_func( $atts, $content = null ) {
 			// FADE IN SLIDER AFTER IMAGES LOADED ( ImagesLoaded jQuery plugin )
 			$("#slick-<?php echo esc_js($block_id); ?>").imagesLoaded( function() {
 				$("#slick-<?php echo esc_js($block_id); ?>").css("opacity", 1);
-				Foundation.libs.equalizer.reflow();
 			});
 		});
 		

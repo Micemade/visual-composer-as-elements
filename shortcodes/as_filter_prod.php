@@ -474,7 +474,7 @@ function vc_ase_as_filter_prod_func( $atts, $content = null ) {
 			
 			$(document).anim_waypoints_filter_prod("<?php echo esc_attr($block_id); ?>"," <?php echo esc_attr($enter_anim);?>");
 			function onLayout_filter_prod() {
-				Foundation.libs.equalizer.reflow();
+				$(window).trigger('resize');
 			}
 			$("#filter-prod-<?php echo esc_attr($block_id); ?>").on( "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", onLayout_filter_prod );
 		});

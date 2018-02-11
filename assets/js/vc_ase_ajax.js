@@ -144,9 +144,7 @@ $(document).ready(function() {
 				}
 				
 				$.waypoints("refresh");
-				
-				$(document).foundation();
-	
+					
 				return false;
 				
 			}, // end success
@@ -263,9 +261,7 @@ $(document).ready(function() {
 					}			
 					
 					$.waypoints("refresh");
-					
-					$(document).foundation();
-					
+
 					return false;
 					
 				}, // end success

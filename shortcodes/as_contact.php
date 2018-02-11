@@ -172,10 +172,6 @@ $invalid	= __('Invalid email','vc_ase');
 (function($) {
 	"use strict";
 	
-	function equalizer_reflow(){
-		$(document).foundation('equalizer', 'reflow');
-	}
-	
 	$(document).ready(function() {
 		
 		var ajaxurl = vc_ase_jsvars.vc_ase_ajax_url;
@@ -279,7 +275,6 @@ $invalid	= __('Invalid email','vc_ase');
 				$(this).parent().css("display","none");
 				$('.vc_ase_contact_input').val("");
 				allfields.css("opacity",1);
-				equalizer_reflow();
 			});
 			
 		});

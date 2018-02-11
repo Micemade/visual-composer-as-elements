@@ -1,4 +1,5 @@
-(function() {
+jQuery.noConflict();
+( function( $ ) {
 "use strict";
 //
 /*********************************************************
@@ -30,14 +31,12 @@
 				filter.on( 'click', 'a', function() {
 					var filterValue = $(this).attr('data-filter');
 					container.isotope({ filter: filterValue });
-				});				
+				});
 			}
-			
-			//container.on( 'arrangeComplete', function() { Foundation.libs.equalizer.reflow(); console.log("Finished"); } );
+
 			container.on( 'arrangeComplete', function() { 
-				$(document).foundation('equalizer', 'reflow');
 				$.waypoints('refresh');
-				} );
+			});
 		
 		});
 	};
@@ -61,17 +60,11 @@
 			sc_tablet	= config.attr('data-tablet'),
 			sc_mobile	= config.attr('data-mobile'),
 			sc_loop		= config.attr('data-loop');
-		
-		$(document).foundation('equalizer');
-		
+				
 		//WHEN CAROUSEL IS INITALIZED (must be before owlCarousel() call):	
-		$(window).on('initialized.owl.carousel', slidesObj,function(event) {
-			Foundation.libs.equalizer.reflow();
-		});
+		$(window).on('initialized.owl.carousel', slidesObj,function(event) {});
 		//WHEN CAROUSEL IS RESIZED (must be before owlCarousel() call):	
-		$(window).on('resized.owl.carousel', slidesObj,function(event) {
-			Foundation.libs.equalizer.reflow();
-		});
+		$(window).on('resized.owl.carousel', slidesObj,function(event) {});
 		// OWL 2
 		slidesObj.owlCarousel({
 			//loop:true,
@@ -114,15 +107,15 @@
 			
 		relHolder.on( 'mousemove',function(e){
 			
-			var parentOffset = $j(this).offset(),
-				nav = $j(this).find( arrows ),
+			var parentOffset = $(this).offset(),
+				nav = $(this).find( arrows ),
 				navM = Math.abs( parseInt(nav.css("margin-top")) /2 ); 
 			
 			//or $(this).offset(); if you really just want the current element's offset
 			var relY = e.pageY - parentOffset.top;
 			
 			nav.each(function(){
-				$j(this).css("top", relY + navM );
+				$(this).css("top", relY + navM );
 			});
 		
 		});
@@ -133,15 +126,9 @@
 /*********************************************************
  *	AS FUNCTIONS AND PLUGINS CALLS
  ********************************************************/
-var $j = jQuery.noConflict();
-$j(document).ready(function() {
+var $ = jQuery.noConflict();
+$(document).ready(function() {
 	
-	/***************************************
-	 *
-	 *	DO THE FOUNDATION SCRIPTS:	
-	 *
-	 *************************************/
-	$j(document).foundation();
 	/**
 	 *	INTERNET EXPLORERS "SNIFFER":
 	 *
@@ -153,11 +140,11 @@ $j(document).ready(function() {
 		isMobWebkit = /WebKit/.test(ua) && /Mobile/.test(ua); //  is iPad / iPhone
 	
 	if( isIE9 ) {
-		$j('html').addClass('ie9');
+		$('html').addClass('ie9');
 	}else if( isIE10 ) {
-		$j('html').addClass('ie10');
+		$('html').addClass('ie10');
 	}else if( isIE11 ) {
-		$j('html').addClass('ie11');
+		$('html').addClass('ie11');
 	}
  
 
@@ -167,7 +154,7 @@ $j(document).ready(function() {
  *
  */	
 	if( window.vcase_isMobile ) {
-		$j('.to-anim').removeClass('to-anim');
+		$('.to-anim').removeClass('to-anim');
 	
 	}
 	
@@ -178,16 +165,16 @@ $j(document).ready(function() {
 	 *
 	 */	
 	
-	$j(window).load(function(){
+	$(window).load(function(){
 		
 		/**
 		 *	BANNER and PRODUCT CATEGORIES ANIMATE COLOR (transitions in css)
 		 *
 		 */ 
 		
-		$j('.banner-block').each(function () {
+		$('.banner-block').each(function () {
 		
-			 var $this= $j(this);
+			 var $this= $(this);
 			
 			if( $this.hasClass('disable-invert') ) {
 			
@@ -245,9 +232,9 @@ $j(document).ready(function() {
 		 *
 		 */
 				
-		$j('#review_form_wrapper').hide();
+		$('#review_form_wrapper').hide();
 					
-			$j('a[data-gal^="prettyPhoto"]').prettyPhoto(
+			$('a[data-gal^="prettyPhoto"]').prettyPhoto(
 				{	theme: 				'as_default',
 					slideshow:			5000, 
 					social_tools:		false,
@@ -296,8 +283,8 @@ $j(document).ready(function() {
 							'</div>'+
 							'<div class="pp_overlay"></div>',
 						ajaxcallback: function(){
-							if( $j("video,audio").length ) {
-								$j("video,audio").mediaelementplayer();
+							if( $("video,audio").length ) {
+								$("video,audio").mediaelementplayer();
 							}
 						}
 				});
@@ -312,14 +299,14 @@ $j(document).ready(function() {
 	 **/		
 			
 	/* 		
-		$j('.sticky-block').waypoint('sticky', { 
+		$('.sticky-block').waypoint('sticky', { 
 			stuckClass: 'stuck', 
 			offset: 1,
 			handler:	function(){
-				var stickyBlock		= $j('.sticky-block'),
-					stickHeader		= $j('.stick-it-header'),
+				var stickyBlock		= $('.sticky-block'),
+					stickHeader		= $('.stick-it-header'),
 					stickHeadHeight = stickHeader.outerHeight(true),
-					wpadminbarH		= $j('#wpadminbar').outerHeight(true);
+					wpadminbarH		= $('#wpadminbar').outerHeight(true);
 				
 					stickyBlock.css('top', stickHeadHeight + wpadminbarH );
 				}
@@ -328,7 +315,7 @@ $j(document).ready(function() {
 
 		function correctStickyWidth() {
 		
-			var stickyBlock = $j('.sticky-block');
+			var stickyBlock = $('.sticky-block');
 			stickyBlock.width( stickyBlock.parent().width() );
 			
 			stickyBlock.parent().closest('.aq-block').css('z-index', '10');
@@ -337,15 +324,15 @@ $j(document).ready(function() {
 		
 		function correctStickyTop() { // same function as handler in waypoint 
 		
-			var stickyBlock		= $j('.sticky-block'),
-				stickHeader		= $j('.stick-it-header'),
+			var stickyBlock		= $('.sticky-block'),
+				stickHeader		= $('.stick-it-header'),
 				stickHeadHeight = stickHeader.outerHeight(true),
-				wpadminbarH		= $j('#wpadminbar').outerHeight(true);
+				wpadminbarH		= $('#wpadminbar').outerHeight(true);
 			
 			stickyBlock.css('top', stickHeadHeight + wpadminbarH );
 		}
 		
-		$j( window ).resize( function () {
+		$( window ).resize( function () {
 			correctStickyWidth();
 			correctStickyTop();
 		});
@@ -362,12 +349,12 @@ $j(document).ready(function() {
 
 	//############ MENU SYSTEM ###########
 	function customMenu() {
-		var dropdown = $j(".custom-nav").find("li.dropdown");
+		var dropdown = $(".custom-nav").find("li.dropdown");
 		dropdown.each( function(){
 			
-			var $_this		= $j(this),
+			var $_this		= $(this),
 				sub			= $_this.find(" > .sub-menu"),
-				docWidth	= $j(document).width();
+				docWidth	= $(document).width();
 
 			$_this.hover(
 			
@@ -392,7 +379,7 @@ $j(document).ready(function() {
 
 	function megaWidth( parentOfMega ) {
 		
-		var docWidth	= $j(document).width();
+		var docWidth	= $(document).width();
 		
 		var mega		= parentOfMega.find(".as-megamenu");
 		
@@ -415,13 +402,13 @@ $j(document).ready(function() {
 		}
 		
 	}
-	$j(window).resize(function() {
+	$(window).resize(function() {
 		
 		customMenu(); // refresh menu
 		
-		var mega = $j(".as-megamenu");
+		var mega = $(".as-megamenu");
 		mega.each(function() {
-			$j(this).css( "width" , $j(this).data("width"));
+			$(this).css( "width" , $(this).data("width"));
 		});
 		
 			
@@ -434,31 +421,31 @@ $j(document).ready(function() {
 	 *	WAYPOINTS REFRESH
 	 *
 	*/	 
-	$j(window).resize(function() {
-		$j.waypoints('refresh');
+	$(window).resize(function() {
+		$.waypoints('refresh');
 	});
 
 	// prevent empty a href
-	$j('a[href=""]').attr('href', '#');
+	$('a[href=""]').attr('href', '#');
 
 
 	/**
 	 *	ADD GRAB / GRABBING CURSOR ON CAROUSELS
 	 *
 	 */		
-	$j( ".slick-list, .owl-carousel, .superslides" )
+	$( ".slick-list, .owl-carousel, .superslides" )
 		.hover(function() {
-				$j( this ).addClass( 'to-drag');
+				$( this ).addClass( 'to-drag');
 			},
 			function() {
-				$j( this ).removeClass( 'to-drag');
+				$( this ).removeClass( 'to-drag');
 			}
 		)
 		.mouseup(function() {
-			$j( this ).removeClass( 'dragged').addClass( 'to-drag');
+			$( this ).removeClass( 'dragged').addClass( 'to-drag');
 		})
 		.mousedown(function() {
-			$j( this ).addClass( 'dragged' ).removeClass( 'to-drag');
+			$( this ).addClass( 'dragged' ).removeClass( 'to-drag');
 		});
 
 
@@ -466,7 +453,7 @@ $j(document).ready(function() {
  *	GRID / LIST FUNCTIONS FOR WOOCOMMERCE CATALOG PAGE
  *
  */	
-	var itemsHolder		= $j('ul.products'),
+	var itemsHolder		= $('ul.products'),
 		masterParent	= itemsHolder.parent().hasClass("vc_ase_wc_gridlist");
 	
 	if( itemsHolder.length && masterParent ) {
@@ -474,72 +461,72 @@ $j(document).ready(function() {
 		var default_view = 'grid'; // choose the view to show by default (grid/list)
 		
 		// check the presence of the cookie, if not create view cookie with the default view value
-		if($j.cookie('view') !== 'undefined'){
-			$j.cookie('view', default_view, { expires: 7, path: '/' });
+		if($.cookie('view') !== 'undefined'){
+			$.cookie('view', default_view, { expires: 7, path: '/' });
 		}
 		
-		var itemList	= $j('.item-data-list');
+		var itemList	= $('.item-data-list');
 		
-		if($j.cookie('view') == 'list'){ 
+		if($.cookie('view') == 'list'){ 
 			// we dont use the get_list function here to avoid the animation
-			$j('.grid-button').removeClass('active');
-			$j('.list-button').addClass('active');
+			$('.grid-button').removeClass('active');
+			$('.list-button').addClass('active');
 			
 			itemsHolder.css("opacity",0);
 			itemsHolder.addClass('list');
 			itemList.css('display','block');
 			
 			itemsHolder.css("opacity",1);
-			$j.waypoints('refresh');
+			$.waypoints('refresh');
 		} 
 
-		if($j.cookie('view') == 'grid'){ 
-			$j('.list-button').removeClass('active');
-			$j('.grid-button').addClass('active');
+		if($.cookie('view') == 'grid'){ 
+			$('.list-button').removeClass('active');
+			$('.grid-button').addClass('active');
 			
 			itemsHolder.css("opacity",0);
 				itemsHolder.removeClass('list');
 				itemList.css('display','none');
 				
 				itemsHolder.css("opacity",1);
-				$j.waypoints('refresh');
+				$.waypoints('refresh');
 		}
 		
-		$j('.list-button').click(function(event){  
+		$('.list-button').click(function(event){  
 			event.preventDefault();
-			$j.cookie('view', 'list'); 
+			$.cookie('view', 'list'); 
 			get_list();
 		});
 
-		$j('.grid-button').click(function(event){ 
+		$('.grid-button').click(function(event){ 
 			event.preventDefault();
-			$j.cookie('view', 'grid'); 
+			$.cookie('view', 'grid'); 
 			get_grid();
 		});		
 		
 	}
 	function get_list(){
-		$j('.grid-button').removeClass('active');
-		$j('.list-button').addClass('active');
+		$('.grid-button').removeClass('active');
+		$('.list-button').addClass('active');
 		itemsHolder.animate({opacity:0},function(){
 			itemsHolder.addClass('list');
 			itemList.css('display','block');
 			itemsHolder.css("opacity",1);
-			$j.waypoints('refresh');
-			$j('.shuffle').shuffle('layout');
+			$.waypoints('refresh');
+			$('.shuffle').shuffle('layout');
 			console.log("VCASE list");
 		});
 	} // end get_list function
 	
 	function get_grid(){
-		$j('.list-button').removeClass('active');
-		$j('.grid-button').addClass('active');
+		$('.list-button').removeClass('active');
+		$('.grid-button').addClass('active');
 		itemsHolder.animate({opacity:0},function(){
 			itemsHolder.removeClass('list');
 			itemList.css('display','none');
 			itemsHolder.css("opacity",1);
-			$j.waypoints('refresh');
-			$j('.shuffle').shuffle('update');
+			$.waypoints('refresh');
+			$('.shuffle').shuffle('update');
 			console.log("VCASE grid");
 		});
 	} // end get_grid function	
@@ -549,65 +536,52 @@ $j(document).ready(function() {
 	 *	VISUAL COMPOSER "TWEAKS"
 	 *
 	 */
-	$j('.ui-tabs-nav li').mousedown(function() {
-		var tabsParent	= $j(this).closest('.ui-tabs'),
+	$('.ui-tabs-nav li').mousedown(function() {
+		var tabsParent	= $(this).closest('.ui-tabs'),
 			tabContent	= tabsParent.find('.wpb_tab');
 		
 		tabContent.each(function(){
-			$j(this).css('opacity', 0 ).animate( {opacity:1});
+			$(this).css('opacity', 0 ).animate( {opacity:1});
 		});
 		
 	});
-	$j('.ui-tabs-nav li').mouseup(function() {
+	$('.ui-tabs-nav li').mouseup(function() {
 		setTimeout( 
 			function() { 
-				$j.waypoints('refresh');
-				$j(window).trigger('resize');
-				Foundation.libs.equalizer.reflow();
+				$.waypoints('refresh');
+				$(window).trigger('resize');
 			} ,1000);
 	});
 
 	/**
 	 *	STICKED SIDEBAR
 	 */	
-	$j('.special-stick').stickit({
+	$('.special-stick').stickit({
 		scope: StickScope.Parent,
 		className: 'sticked-column',
 		top: 0,
 		extraHeight:0,
 	});
 
-	$j(window).on("load resize",function(e){
+	$(window).on("load resize",function(e){
 		
 		var equalize = true;
 		
-		if ($j(document).width() <= 768) {
+		if ($(document).width() <= 768) {
 			
 			equalize = false;
-			if( typeof $j("div").data('equalizer-watch') !== 'undefined' ) {
-				$j("div").removeAttr("data-equalizer-watch");
+			if( typeof $("div").data('equalizer-watch') !== 'undefined' ) {
+				$("div").removeAttr("data-equalizer-watch");
 			}
 		}else{
 			equalize = true;
 		}
-		setTimeout( 
-			function() { 
-				/* $j(document).foundation({
-					equalizer : {
-						equalize_on_stack: equalize
-					}
-				}); */
-				//Foundation.libs.equalizer.reflow();
-				Foundation.utils.debounce(function(e){
-					$j(document).foundation('equalizer', 'reflow');
-				}, 10);
-			} ,1000);
 		
 	});
 
-	var generalArrows = window.vcase_moveArrows( $j(".owl-carousel"), ".owl-nav");
-	var slickArrows = window.vcase_moveArrows( $j(".slick-slider"), "button[class*='slick-']");
-	var superslidesArrows = window.vcase_moveArrows( $j(".superslides"), ".slides-navigation");
+	var generalArrows = window.vcase_moveArrows( $(".owl-carousel"), ".owl-nav");
+	var slickArrows = window.vcase_moveArrows( $(".slick-slider"), "button[class*='slick-']");
+	var superslidesArrows = window.vcase_moveArrows( $(".superslides"), ".slides-navigation");
 	
 	 	 
 }); // end document.ready

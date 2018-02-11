@@ -14,11 +14,11 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: visual-composer-as-elements.php:85
-msgid "Visual composer AS elements is not effective without Visual Composer plugin activated. Either install and activate Visual Composer plugin or deactivate Visual composer AS elements plugin. "
+#: visual-composer-as-elements.php:81
+msgid "%s%s\"WPB Micemade Elements\" (ex. Visual Composer AS elements)%s is not effective without \"WPBakery Page Builder\" (ex. Visual Composer) plugin activated. %sPlease, either install and activate \"WPBakery Page Builder\" plugin or deactivate \"WPB Micemade Elements\" plugin.%s"
 msgstr ""
 
-#: visual-composer-as-elements.php:161
+#: visual-composer-as-elements.php:157
 msgid "Loading quick view"
 msgstr ""
 
@@ -38,20 +38,20 @@ msgstr ""
 msgid "This post is password protected"
 msgstr ""
 
-#: helpers/vc-ase-ajax.php:804
+#: helpers/wc-functions.php:58
+msgid "Quick view"
+msgstr ""
+
+#: helpers/wc-functions.php:443
 msgid "Read more about the"
 msgstr ""
 
-#: helpers/vc-ase-ajax.php:804
+#: helpers/wc-functions.php:443
 msgid "Product details"
 msgstr ""
 
-#: helpers/vc-ase-ajax.php:832
+#: helpers/wc-functions.php:471
 msgid "No products are selected, or the product doesn't exsist anymore."
-msgstr ""
-
-#: helpers/wc-functions.php:58
-msgid "Quick view"
 msgstr ""
 
 #: inc/default-added-shortcode-params.php:9
@@ -190,11 +190,11 @@ msgstr ""
 msgid "put this column in rendering above other columns (usefull when \"Custom menu\" element is inside - to make sure submenus appear completely )"
 msgstr ""
 
-#: shortcodes/as_ajax_cats.php:189, shortcodes/as_ajax_prod.php:204, shortcodes/as_filter_cats.php:169, shortcodes/as_filter_prod.php:201
+#: shortcodes/as_ajax_cats.php:209, shortcodes/as_ajax_prod.php:220, shortcodes/as_filter_cats.php:169, shortcodes/as_filter_prod.php:201
 msgid "All"
 msgstr ""
 
-#: shortcodes/as_ajax_prod.php:331
+#: shortcodes/as_ajax_prod.php:347
 msgid "Reset categories"
 msgstr ""
 
@@ -226,15 +226,15 @@ msgstr ""
 msgid "Invalid email"
 msgstr ""
 
-#: shortcodes/as_contact.php:198
+#: shortcodes/as_contact.php:194
 msgid "Your e-mail message was sent."
 msgstr ""
 
-#: shortcodes/as_contact.php:199
+#: shortcodes/as_contact.php:195
 msgid "Problem in sending e-mail."
 msgstr ""
 
-#: shortcodes/as_filter_prod.php:508
+#: shortcodes/as_filter_prod.php:495
 msgid "FILTERED PRODUCTS BLOCK DISABLED.<br> Sorry, it seems like WooCommerce is not active. Please install and activate last version of WooCommerce."
 msgstr ""
 
@@ -260,10 +260,6 @@ msgstr ""
 
 #: shortcodes/as_prod_cats.php:260
 msgid "PRODUCT CATEGORIES BLOCK DISABLED.<br> Sorry, it seems like WooCommerce is not active. Please install and activate last version of WooCommerce."
-msgstr ""
-
-#: shortcodes/as_single_product.php:104
-msgid "Loading product"
 msgstr ""
 
 #: shortcodes/as_wc_catalog_view.php:204

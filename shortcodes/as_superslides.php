@@ -309,7 +309,6 @@ function vc_ase_as_superslides_func( $atts, $content = null ) {
 				
 				// WHEN SLIDES STARTED - can be started.slides, too
 				$slides.on('init.slides', function() {
-					Foundation.libs.equalizer.reflow();
 					$slides.css("opacity", 1);
 				});
 				 // WHEN SLIDES STARTS ANIM
@@ -350,11 +349,8 @@ function vc_ase_as_superslides_func( $atts, $content = null ) {
 				}
 				
 				$(window).one("load", $slides,function() {
-					Foundation.libs.equalizer.reflow();
 					setTimeout(function(){ 
-						
 						$slides.css("height","100%");
-						
 					},1500);
 					
 				});

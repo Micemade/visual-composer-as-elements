@@ -77,9 +77,6 @@ function vc_ase_shop_buttons_func( $shop_buy_action = true, $shop_wishlist = tru
 
 } // end shop_buttons()
 add_action('vc_ase_shop_buttons','vc_ase_shop_buttons_func',10,3);
-
-
-
 /**
  * VC_ASE_SHOP_TITLE_PRICE
  * echo product title (product categories) and price
@@ -117,7 +114,6 @@ function vc_ase_shop_title_price_func( $shop_quick = true, $shop_buy_action = tr
 
 }
 add_action('vc_ase_shop_title_price','vc_ase_shop_title_price_func',10,3);
-
 /**
  *	Quick view images
  *
@@ -223,7 +219,6 @@ function vc_ase_single_product_images_func( $img_format = 'thumbnail', $no_galle
 	
 	global $post, $product;
 	
-	
 	// images in product gallery:
 	// 3.0.0 < Fallback conditional
 	if( apply_filters( 'vc_ase_wc_version', '3.0.0' )	) {
@@ -323,6 +318,170 @@ function vc_ase_single_product_images_func( $img_format = 'thumbnail', $no_galle
 	
 	echo '</div>';//. images
 }
+/**
+ *	SINGLE PRODUCT VC ASE ELEMENT content
+ *
+ */
+function vc_ase_single_product ($block_id, $single_product, $block_style, $back_color, $hide_image, $img_format, $no_gallery, $slider_navig, $slider_pagin,$slider_timing, $product_options, $hide_short_desc, $vc_css_item_data_class ) {
+
+	global $post;
+
+	$display_args = array(
+		'no_found_rows'		=> 1,
+		'post_status'		=> 'publish',
+		'post_type'			=> 'product',
+		'post_parent'		=> 0,
+		'suppress_filters'	=> false,
+		'numberposts'		=> 1,
+		'include'			=> $single_product
+	);
+	
+	$posts = get_posts( $display_args );
+	
+	if( $block_style == 'images_right') {
+		$arrow_color = 'border-left-color: '. $back_color .'  !important;' ;
+	}elseif( $block_style == 'images_left'){
+		$arrow_color = 'border-right-color: '. $back_color .'  !important;' ;
+	}elseif( $block_style == 'centered'){
+		$arrow_color = 'border-bottom-color: '. $back_color.'  !important;' ;
+	}elseif( $block_style == 'centered_alt'){
+		$arrow_color = 'border-top-color: '. $back_color .'  !important;' ;
+	}else{
+		$arrow_color = '';
+	}
+		
+	// SCOPED STYLES
+	echo '<style type="text/css" scoped>';
+	if( $back_color ) {
+		
+		echo '#'. esc_attr($block_id) .' .anim-wrap { background-color: '. $back_color .' !important;}';
+		echo '#'. esc_attr($block_id) .'.single-item-element .images-holder:after { '. $arrow_color .'  opacity: 1 !important; 
+		}';
+		echo '@media only screen and (max-width: 48.0625em) { ';
+		echo '#'. esc_attr($block_id) .'.single-item-element .images-holder:before {';
+		echo 'border-bottom-color: '. $back_color.'  !important; }';
+		echo '} ';
+	}
+	echo '</style>';
+
+	foreach ( $posts as $post ) {
+
+		setup_postdata( $post );
+		
+		global $product;
+
+		$classes = array();	
+		$classes = get_post_class();
+		$classes[]	= 'item';
+		
+		echo '<div class="'. implode(' ',$classes).'"><div class="anim-wrap '.$block_style.' '. ($back_color ? ' back-color': '').'">';
+		
+		$id = get_the_ID();
+		$link = esc_url( get_permalink($id));
+		?>
+			
+		<?php if( $block_style != 'centered' ) {  ?>
+		<div class="images-holder">
+			
+			<input type="hidden" class="slides-config" data-navigation="<?php echo esc_attr($slider_navig); ?>" data-pagination="<?php echo esc_attr($slider_pagin); ?>" data-auto="<?php echo esc_attr($slider_timing); ?>" />
+			
+			<?php !$hide_image ? do_action( 'vc_ase_single_product_images', $img_format, $no_gallery ) : null;	?>
+			
+			<?php function_exists('woocommerce_show_product_loop_sale_flash') ? woocommerce_show_product_loop_sale_flash() : '';?>
+			
+		</div>
+		<?php } ?>
+
+		<div class="item-data summary entry-summary <?php echo ( $product_options == 'full' ? ' full' : 'reduced-item-data' ) . esc_attr($vc_css_item_data_class ); ?>">
+		
+			<div class="table">
+			
+			<div class="wrap tablecell">
+			
+				<h3><a href="<?php echo esc_url($link); ?>"><?php echo esc_html($post->post_title); ?></a></h3>
+				
+				<?php
+
+				if( $product_options == 'reduced' ) { // as in catalog:
+				
+					echo '<div class="reduced" itemscope>';
+					
+					echo '<div class="item-buttons-holder"><div class="button-row">	';
+					
+					echo '<div class="button-cell">';
+							do_action( 'woocommerce_after_shop_loop_item' );
+					echo '</div>';
+
+					
+					if( VC_ASE_WISHLIST_ACTIVE  ) {
+					
+						echo '<div class="button-cell">';
+							do_action( 'vc_ase_wishlist_button' );
+						echo '</div>';
+						
+					}
+					
+					echo '</div></div>';//  .tablerow .table
+					
+					woocommerce_template_loop_price();
+					
+					
+					if ( $post->post_excerpt && !$hide_short_desc ) {
+					?>
+						<div itemprop="description" class="description">
+						
+							<?php echo apply_filters( 'woocommerce_short_description', substr( strip_shortcodes(strip_tags($post->post_excerpt)), 0, 150 ) . ' ...' )?>
+							
+						</div>
+					
+					<?php }?>
+					
+					<a href="<?php echo esc_url($link); ?>" title="<?php echo __('Read more about the','vc_ase') .' '. esc_html($post->post_title); ?>" class="button product-details tip-top"><?php _e("Product details","vc_ase"); ?></a>
+					
+					<?php 
+					echo '</div>'; // .reduced
+					
+				}else{ // AS IN SINGLE PRODUCT PAGE: 
+				
+					echo '<div class="full_wrapper">';
+					
+					do_action('vc_ase_remove_anonymous_YITH_hooks'); // in "helpers/wc-functions.php" and "helpers/helpers.php"
+
+					do_action( 'woocommerce_single_product_summary' );
+					
+					echo '</div>';
+				}
+				?>
+			
+			</div>
+		
+			</div>
+		
+		</div>
+
+	<?php }// END foreach ?>
+
+	
+	<?php if( count($posts) == 0 ) { ?>
+
+	<h5><?php _e("No products are selected, or the product doesn't exsist anymore.","vc_ase");?></h5>
+
+	<?php } ?>
+
+	</div></div><!-- .anim-wrap .item -->
+
+	
+	<script>
+		(function( $ ){
+			var $slider = $("#<?php echo esc_attr($block_id); ?>").find(".images");
+			$(window).on("load", $slider,function() {});
+			
+		})( jQuery );
+	</script>
+	
+	<?php 
+
+} // end SINGLE PRODUCT VC ASE ELEMENT content
 /**
  *	WC Rating
  *
@@ -437,19 +596,17 @@ if( VC_ASE_WISHLIST_ACTIVE ) {
 			
 			if ( $var && is_array( $var ) ) 
 				extract( $var );
-								   
+
 			if( $return )
-				{ ob_start(); }   
-																		 
+				{ ob_start(); }
+
 			// include file located
 			include( $located );
 			
 			if( $return )
 				{ return ob_get_clean(); }
 		}
-	}
-		
-	
+	}	
 	
 	/**
 	 *	YITH WC Wishlist template - a template for add to Wishlist
@@ -463,7 +620,5 @@ if( VC_ASE_WISHLIST_ACTIVE ) {
 		vc_ase_wishlist_get_template( 'add-to-wishlist.php' );
 		
 	}
-	
-	
+
 } // end if( VC_ASE_WISHLIST_ACTIVE )
-?>

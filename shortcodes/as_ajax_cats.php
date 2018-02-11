@@ -533,18 +533,13 @@ function vc_ase_as_ajax_cats_func( $atts, $content = null ) {
 			<script>
 			jQuery(document).ready( function($) {
 				
-				if(jQuery().foundation) {
-					 Foundation.utils.debounce(function(e){
-						$(document).foundation('equalizer', 'reflow');
-					}, 10);
-				}
 				var thisBlock = $("#ajax-cats-<?php echo esc_attr($block_id); ?>");
 				
 				var thisMakeSlides = window.vcase_contentSlides( thisBlock );
 
 			});
 			</script>
-			<?php // IF SLIDER IS ENABLED and MASONRY isn't disabled - make Foundation equalizer reflow
+			<?php // IF SLIDER IS ENABLED and MASONRY isn't disabled 
 			} elseif ( $hide_slider && !$no_masonry ) {?>
 			<script>
 			jQuery(document).ready( function($) {

@@ -1,7 +1,7 @@
 {
   "name": "vc_ase",
-  "version": "1.2.0",
-  "description": "Micmade VC ASE Gulp tasks",
+  "version": "1.3.1",
+  "description": "visual-composer-as-elements",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +13,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-dos2unix": "^1.0.1",
     "gulp-dos2unix-js": "^1.0.0",
     "gulp-fs-cache": "^0.1.0",
     "gulp-rename": "^1.2.2",

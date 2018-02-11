@@ -493,7 +493,6 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 			var thisBlock = $('#filter-post-<?php echo esc_attr($block_id); ?>' );
 			
 			function onLayout_filter_posts() {
-				Foundation.libs.equalizer.reflow();
 				$(window).trigger('resize'); 
 			}
 			

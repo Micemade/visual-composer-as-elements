@@ -512,11 +512,6 @@ function vc_ase_as_ajax_prod_func( $atts, $content = null ) {
 		<script>
 		jQuery(document).ready( function($) {
 			
-			if(jQuery().foundation) {
-				 Foundation.utils.debounce(function(e){
-					$(document).foundation('equalizer', 'reflow');
-				}, 10);
-			}
 			var thisBlock = $("#ajax-prod-<?php echo esc_attr($block_id); ?>");
 			
 			var thisMakeSlides = window.vcase_contentSlides( thisBlock );
