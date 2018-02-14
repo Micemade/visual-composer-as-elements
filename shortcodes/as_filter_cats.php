@@ -274,11 +274,10 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 					
 					<div class="anim-wrap<?php echo ($enter_anim != 'none') ? ' to-anim' : '';  ?>">
 					
-					<?php echo ($zoom_button && $link_button) ? '<a href="'. $link.'" title="'. the_title_attribute () .'">' : ''; ?>
-					
+					<?php echo ($zoom_button && $link_button) ? '<a href="'. $link.'" title="'. the_title_attribute( 'echo=0' ) .'">' : ''; ?>
 					
 					<div class="item-img">
-											
+
 						<div class="front">
 							
 							<?php echo wp_kses_post($image_output) ; ?>
@@ -350,7 +349,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 						do_action('vc_ase_archive_content'); //
 						echo '</div>';
 						?>
-												
+
 						<div class="clearfix"></div>
 					
 					</div><!-- .item-data -->
