@@ -8,64 +8,61 @@
  */
 function as_vce_terms_func( $taxonomy ) {
 
-	if( ! taxonomy_exists( $taxonomy ) ) return;
-	
-	$terms_arr		= array();
-	if( VC_ASE_WPML_ON ) { // IF WPML IS ACTIVATED
-				
-		$terms = get_terms( $taxonomy,'hide_empty=1, hierarchical=0' );
-		if ( !empty( $terms ) ){
+	if( ! taxonomy_exists( $taxonomy ) ) {
+		return;
+	}
+
+	$terms_arr = array();
+	// IF WPML IS ACTIVATED.
+	if ( VC_ASE_WPML_ON ) {
+
+		$terms = get_terms( $taxonomy, 'hide_empty=1, hierarchical=0' );
+		if ( ! empty( $terms ) ){
 			foreach ( $terms as $term ) {
-				if($term->term_id == icl_object_id($term->term_id, $taxonomy,false,ICL_LANGUAGE_CODE)){
-					$terms_arr[$term->name]= $term->slug ;
+				if ( icl_object_id( $term->term_id, $taxonomy, false, ICL_LANGUAGE_CODE ) === $term->term_id ){
+					$terms_arr[ $term->name ]= $term->slug ;
 				}
 			}
-		}else{
-			$terms_arr = array();
 		}
-		
-	}else{
-		
-		$terms = get_terms( $taxonomy,'hide_empty=1, hierarchical=0');
-		if ( $terms ) {
-			foreach ($terms as $term) {
-				$terms_arr[$term->name] = $term->slug ;
+
+	} else {
+
+		$terms = get_terms( $taxonomy, 'hide_empty=1, hierarchical=0' );
+		if ( ! empty( $terms ) ) {
+			foreach ( $terms as $term ) {
+				$terms_arr[ $term->name ] = $term->slug ;
 			}
-		}else{
-			$terms_arr = array();
 		}
 	}
-	
+
 	return $terms_arr;
 
 }
-add_filter('as_vce_terms','as_vce_terms_func', 10, 1);
-//
-//
+add_filter( 'as_vce_terms', 'as_vce_terms_func', 10, 1 );
 /**
- *	GET POSTS ARRAY (by post type)
+ * GET POSTS ARRAY (by post type)
  *
  */
-add_filter("vc_ase_posts_array","vc_ase_posts_array_func", 10, 1);
-function vc_ase_posts_array_func( $post_type = "post") {
+add_filter( 'vc_ase_posts_array', 'vc_ase_posts_array_func', 10, 1 );
+function vc_ase_posts_array_func( $post_type = 'post' ) {
 	
 	$args = array(
-		'post_type'			=> $post_type,
-		'posts_per_page'	=> -1,
-		'suppress_filters'	=> true
+		'post_type'        => $post_type,
+		'posts_per_page'   => -1,
+		'suppress_filters' => true
 	);
-	$posts_arr	= array();
-	$posts_obj	= get_posts($args);
+	$posts_arr = array();
+	$posts_obj = get_posts($args);
 	if ( $posts_obj ) {
-		foreach( $posts_obj as $prod ) {
-			
-			$posts_arr[$prod->ID] = strip_tags( $prod->post_title )  ;
+		foreach ( $posts_obj as $prod ) {
+
+			$posts_arr[ $prod->ID ] = strip_tags( $prod->post_title )  ;
 		}
-	}else{
+	} else {
 		$posts_arr[0] = '';
 	}
 	
-	$posts_arr = array_flip($posts_arr); 
+	$posts_arr = array_flip( $posts_arr );
 	
 	return $posts_arr; 
 	

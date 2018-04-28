@@ -70,18 +70,18 @@ function vc_ase_as_superslides_func( $atts, $content = null ) {
 		
 	}elseif( $post_type == 'product' ){
 
-		
+
 		// PRODUCT FILTERS:
 		if ( $filters == 'featured' ){
-			
+
 			$args_filters['tax_query'][] = array(
 				'taxonomy' => 'product_visibility',
 				'field'    => 'name',
 				'terms'    => 'featured',
 			);
-			
+
 		}elseif( $filters == 'on_sale' ) {
-			
+
 			$product_ids_on_sale    = wc_get_product_ids_on_sale();
 			if( ! empty( $product_ids_on_sale ) ) {
 				$args_filters['post__in'] = $product_ids_on_sale;
