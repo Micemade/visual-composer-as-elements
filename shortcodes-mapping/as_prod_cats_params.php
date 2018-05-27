@@ -23,7 +23,7 @@ function as_prod_cats_array(){
 			"class" => "",
 			"heading" => __("Product categories",'vc_ase'),
 			"param_name" => "product_cats",
-			"value" => apply_filters('as_vce_terms', 'product_cat' ),
+			"value" => apply_filters('as_vce_terms', 'product_cat', 'product' ),
 			"description" => __('select one or multiple product categories','vc_ase'),
 			"admin_label" => true,
 		),
@@ -192,7 +192,7 @@ function as_prod_cats_array(){
 	
 	return $elm_array;
 };
-add_action( 'vc_before_init', 'vc_ase_map_as_prod_cats' );
+
 function vc_ase_map_as_prod_cats() {
 	vc_map( array(
 		"name" => __("Product categories",'vc_ase'),
@@ -209,4 +209,4 @@ function vc_ase_map_as_prod_cats() {
 		) // end array vc_map()
 	); // end vc_map()
 }
-?>
+add_action( 'init', 'vc_ase_map_as_prod_cats' );

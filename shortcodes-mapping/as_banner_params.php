@@ -332,7 +332,7 @@ function as_banner_array(){
 	
 	return $elm_array;
 }
-add_action( 'vc_before_init', 'vc_ase_map_as_banner' );
+
 function vc_ase_map_as_banner() {
 	vc_map( array(
 		
@@ -350,4 +350,4 @@ function vc_ase_map_as_banner() {
 		) // end array vc_map()
 	); // end vc_map()
 }
-?>
+add_action( 'init', 'vc_ase_map_as_banner' );

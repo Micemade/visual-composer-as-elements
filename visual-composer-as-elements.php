@@ -3,7 +3,7 @@
 Plugin Name: WPB Micemade Elements
 Plugin URI: https://micemade.com
 Description: Extension plugin for WPBakery Page Builder (ex. Visual Composer) plugin - additional elements for page builder. Elements are best used with Micemade Larix theme, but can be used with any theme (with activated WPBakery Page Builder plugin), with caution.
-Version: 1.3.2
+Version: 1.4.0
 Author: Micemade
 Author URI: https://micemade.com
 Text Domain: vc_ase

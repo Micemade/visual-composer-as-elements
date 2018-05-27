@@ -1,5 +1,5 @@
 <?php
-add_action( 'vc_before_init', 'vc_ase_map_as_slick_slider' );
+
 function vc_ase_map_as_slick_slider() {
 	
 	// IF WOOCOMMERCE IS ACTIVATED: 
@@ -14,7 +14,7 @@ function vc_ase_map_as_slick_slider() {
 				"class" => "",
 				"heading" => __("Product categories",'vc_ase'),
 				"param_name" => "product_cats",
-				"value" => apply_filters('as_vce_terms', 'product_cat' ),
+				"value" => apply_filters('as_vce_terms', 'product_cat', 'product' ),
 				"description" => __('select one or multiple, "Post types" must be set to "Products"','vc_ase'),
 				"admin_label" => true,
 				"edit_field_class"=> "vc_col-sm-4"
@@ -33,7 +33,7 @@ function vc_ase_map_as_slick_slider() {
 				"class" => "",
 				"heading" => __("Portfolio categories",'vc_ase'),
 				"param_name" => "portfolio_cats",
-				"value" => apply_filters('as_vce_terms', 'portfolio_category' ),
+				"value" => apply_filters('as_vce_terms', 'portfolio_category', 'portfolio' ),
 				"description" => __('select one or multiple, "Post types" must be set to "Portfolio categories"','vc_ase'),
 				"admin_label" => true,
 				"edit_field_class"=> "vc_col-sm-4"
@@ -79,7 +79,7 @@ function vc_ase_map_as_slick_slider() {
 				"class" => "",
 				"heading" => __("Blog post categories",'vc_ase'),
 				"param_name" => "post_cats",
-				"value" => apply_filters('as_vce_terms', 'category' ),
+				"value" => apply_filters('as_vce_terms', 'category', 'post' ),
 				"description" => __('select one or multiple, "Post types" must be set to "Post"','vc_ase'),
 				"edit_field_class"=> "vc_col-sm-4"
 				//"weight" => 100 
@@ -337,45 +337,5 @@ function vc_ase_map_as_slick_slider() {
 		) // end array vc_map()
 	); // end vc_map()
 	
-
-	
-	// IF WOOCOMMERCE IS ACTIVATED: 
-	/* 
-	$is_product_tax	= taxonomy_exists( 'product_cat' );
-	$is_port_tax	= taxonomy_exists( 'portfolio_category' );
-	
-	if( $is_product_tax ){
-	
-		$add_prod_cats = array(
-			array(
-				"type" => "checkbox",
-				"class" => "",
-				"heading" => __("Product categories",'vc_ase'),
-				"param_name" => "product_cats",
-				"value" => apply_filters('as_vce_terms', 'product_cat' ),
-				"description" => __('select one or multiple, "Post types" must be set to "Products"','vc_ase'),
-				"weight" => 10 
-			)
-		);
-		vc_add_params( 'as_slick_slider', $add_prod_cats );
-	
-	}
-	
-	if( $is_port_tax ){
-	
-		$add_portfolio_cats = array(
-			array(
-				"type" => "checkbox",
-				"class" => "",
-				"heading" => __("Portfolio categories",'vc_ase'),
-				"param_name" => "portfolio_cats",
-				"value" => apply_filters('as_vce_terms', 'portfolio_category' ),
-				"description" => __('select one or multiple, "Post types" must be set to "Portfolio categories"','vc_ase'),
-				"weight" => 20 
-			)
-		);
-		vc_add_params( 'as_slick_slider', $add_portfolio_cats );
-	}
-	 */
 }
-?>
+add_action( 'init', 'vc_ase_map_as_slick_slider' );

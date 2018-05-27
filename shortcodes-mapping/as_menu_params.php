@@ -60,7 +60,7 @@ function as_menu_array(){
 	
 	return $elm_array;
 };
-add_action( 'vc_before_init', 'vc_ase_map_as_menu' );
+
 function vc_ase_map_as_menu() {
 	vc_map( array(
 		"name" => __("Custom menu",'vc_ase'),
@@ -77,4 +77,5 @@ function vc_ase_map_as_menu() {
 		) // end array vc_map()
 	); // end vc_map()
 }
+add_action( 'init', 'vc_ase_map_as_menu' );
 ?>

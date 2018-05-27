@@ -5,9 +5,9 @@
  *
  */
 function filter_cats_array(){
-	
+	 
 	$elm_array = array(
-	
+
 		array(
 			"type" => "dropdown",
 			"class" => "",
@@ -75,11 +75,10 @@ function filter_cats_array(){
 			"class" => "",
 			"heading" => __("Post categories",'vc_ase'),
 			"param_name" => "post_cats",
-			"value" => apply_filters('as_vce_terms', 'category' ),
+			"value" => apply_filters('as_vce_terms', 'category', 'post' ),
 			"description" => __('select one or multiple, "Post types" must be set to "Post"','vc_ase'),
 			"admin_label" => true,
 		),
-	
 		array(
 			"type" => "checkbox",
 			"class" => "",
@@ -88,17 +87,15 @@ function filter_cats_array(){
 			"value" => array( __( 'Yes, please', 'js_composer' ) => 'yes' ),
 			"description" => __('show only featured posts or portfolio items','vc_ase')
 		),
-		
 		array(
 			"type" => "checkbox",
 			"class" => "",
 			"heading" => __("Portfolio  categories",'vc_ase'),
 			"param_name" => "portfolio_cats",
-			"value" => apply_filters('as_vce_terms', 'portfolio_category' ),
+			"value" => apply_filters( 'as_vce_terms', 'portfolio_category', 'portfolio' ),
 			"description" => __('select one or multiple, "Post types" must be set to "Portfolio"','vc_ase'),
 			"admin_label" => true,
 		),
-		
 		array(
 			"type" => "separator",
 			"class" => "",
@@ -107,7 +104,6 @@ function filter_cats_array(){
 			"value" => '',
 			"edit_field_class"=> "vc_col-sm-12"
 		),
-		
 		array(
 			"type" => "dropdown",
 			"class" => "",
@@ -365,11 +361,11 @@ function filter_cats_array(){
 	
 	return $elm_array;
 };
-add_action( 'vc_before_init', 'vc_ase_map_as_filter_cats' );
+
 function vc_ase_map_as_filter_cats() {
 		
 	vc_map( array(
-		"name" => __("Content (masonry/filter)",'vc_ase'),
+		"name" => __( "Content (masonry/filter)",'vc_ase'),
 		"base" => "as_filter_cats",
 		"class" => "",
 		"weight"=> 1,
@@ -378,10 +374,9 @@ function vc_ase_map_as_filter_cats() {
 		'description' => __( 'filter by categories', 'vc_ase' ),
 		//'admin_enqueue_js' => array( plugin_dir_url( __FILE__ ).'/vc_extend/bartag.js'),
 		//'admin_enqueue_css' => array( plugin_dir_url( __FILE__ ).'/as_vc_extend/shotcodes/css/input.css'),
-		"params" => array_merge( apply_filters("head_param_array",""), filter_cats_array() )
+		"params" => array_merge( apply_filters( 'head_param_array', '' ), filter_cats_array() )
 		
 		) // end array vc_map()
 	); // end vc_map()
 }
-
-?>
+add_action( 'init', 'vc_ase_map_as_filter_cats' );

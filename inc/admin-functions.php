@@ -6,31 +6,38 @@
  *
  * return array $terms_arr
  */
-function as_vce_terms_func( $taxonomy ) {
+function as_vce_terms_func( $taxonomy = 'category', $post_type = 'post' ) {
 
 	if( ! taxonomy_exists( $taxonomy ) ) {
 		return;
 	}
 
+	$args = array(
+		'hide_empty'   => true,
+		'hierarchical' => false,
+		'post_type'    => $post_type,
+		'fields'       => 'all',
+	);
+
 	$terms_arr = array();
 	// IF WPML IS ACTIVATED.
 	if ( VC_ASE_WPML_ON ) {
 
-		$terms = get_terms( $taxonomy, 'hide_empty=1, hierarchical=0' );
+		$terms = get_terms( $taxonomy, $args );
 		if ( ! empty( $terms ) ){
 			foreach ( $terms as $term ) {
 				if ( icl_object_id( $term->term_id, $taxonomy, false, ICL_LANGUAGE_CODE ) === $term->term_id ){
-					$terms_arr[ $term->name ]= $term->slug ;
+					$terms_arr[ $term->name ]= $term->slug;
 				}
 			}
 		}
 
 	} else {
 
-		$terms = get_terms( $taxonomy, 'hide_empty=1, hierarchical=0' );
+		$terms = get_terms( $taxonomy, $args );
 		if ( ! empty( $terms ) ) {
 			foreach ( $terms as $term ) {
-				$terms_arr[ $term->name ] = $term->slug ;
+				$terms_arr[ $term->name ] = $term->slug;
 			}
 		}
 	}
@@ -38,7 +45,7 @@ function as_vce_terms_func( $taxonomy ) {
 	return $terms_arr;
 
 }
-add_filter( 'as_vce_terms', 'as_vce_terms_func', 10, 1 );
+add_filter( 'as_vce_terms', 'as_vce_terms_func', 10, 2 );
 /**
  * GET POSTS ARRAY (by post type)
  *

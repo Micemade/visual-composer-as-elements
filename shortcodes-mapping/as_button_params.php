@@ -97,7 +97,7 @@ function as_button_array(){
 	
 	return $elm_array;
 };
-add_action( 'vc_before_init', 'vc_ase_map_as_button' );
+
 function vc_ase_map_as_button() {
 	vc_map( array(
 		"name" => __("Button",'vc_ase'),
@@ -114,4 +114,4 @@ function vc_ase_map_as_button() {
 		)
 	); // end vc_map()
 }
-?>
+add_action( 'init', 'vc_ase_map_as_button' );

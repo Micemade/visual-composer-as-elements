@@ -23,8 +23,8 @@ function as_wc_catalog_view_array(){
 			"class" => "",
 			"heading" => __("Product categories",'vc_ase'),
 			"param_name" => "product_cats",
-			"value" => apply_filters('as_vce_terms', 'product_cat' ),
-			"description" => __('select one or multiple product categories','vc_ase'),
+			"value" => apply_filters('as_vce_terms', 'product_cat', 'product' ),
+			"description" => __('select one or multiple categories','vc_ase'),
 			"edit_field_class"=> "vc_col-sm-4",
 			"admin_label" => true,
 		),
@@ -92,24 +92,7 @@ function as_wc_catalog_view_array(){
 			"description" => "",
 			"edit_field_class"=> "vc_col-sm-3"
 		),
-		/* 
-		array(
-			"type" => "dropdown",
-			"class" => "",
-			"heading" => __("Grid / list control",'vc_ase'),
-			"param_name" => "grid_list",
-			"value" => array(
-				'Show buttons, "list view" default'		=> 'show_list',
-				'Show buttons, "grid view" default'		=> 'show_grid',
-				'Hide buttons, "list view" default'		=> 'hide_list',
-				'Hide buttons, "grid view" default'		=> 'hide_grid',
-				
-				),
-			"std"	=> "show_grid",
-			"description" => "",
-			"edit_field_class"=> "vc_col-sm-6"
-		),
-		 */
+
 
 	);
 	
@@ -124,38 +107,36 @@ function as_wc_catalog_view_array(){
  *  If Larix (Micemade) theme is activated, control the grid / list view, otherwise ignore
  */
 function larix_grid_list_array() {
-	
+
 	$grid_list_select = array();
-	
+
 	if( LARIX_THEME_ACTIVE ) {
 		$grid_list_select = array(
-				
+
 			array(
 				"type" => "dropdown",
 				"class" => "",
 				"heading" => __("Grid / list control",'vc_ase'),
 				"param_name" => "grid_list",
 				"value" => array(
-					'Show buttons, "grid view" default'		=> 'show_grid',
-					'Show buttons, "list view" default'		=> 'show_list',
-					'Hide buttons, "grid view" default'		=> 'hide_grid',
-					'Hide buttons, "list view" default'		=> 'hide_list',
-					
+					'Show buttons, "grid view" default' => 'show_grid',
+					'Show buttons, "list view" default' => 'show_list',
+					'Hide buttons, "grid view" default' => 'hide_grid',
+					'Hide buttons, "list view" default' => 'hide_list',
 					),
 				"std"	=> "show_grid",
 				"description" => "",
 				"edit_field_class"=> "vc_col-sm-6"
 			),
-		);		
+		);
 	}
-	
+
 	return $grid_list_select;
 };
 
 function additional_classes_param(){
-	
+
 	$elm_array = array(
-			
 
 		array(
 			"type" => "textfield",
@@ -167,12 +148,10 @@ function additional_classes_param(){
 			"edit_field_class"=> "vc_col-sm-12"
 		)
 	);
-	
+
 	return $elm_array;
 };
 
-
-add_action( 'vc_before_init', 'vc_ase_map_as_wc_catalog_view' );
 function vc_ase_map_as_wc_catalog_view() {
 	vc_map( array(
 		"name" => __("WC catalog page view",'vc_ase'),
@@ -185,8 +164,8 @@ function vc_ase_map_as_wc_catalog_view() {
 		//'admin_enqueue_js' => array( plugin_dir_url( __FILE__ ).'/vc_extend/bartag.js'),
 		//'admin_enqueue_css' => array( plugin_dir_url( __FILE__ ).'/as_vc_extend/shotcodes/css/input.css'),
 		"params" => array_merge( apply_filters("head_param_array",""), as_wc_catalog_view_array(), larix_grid_list_array(), additional_classes_param() )
-		
+
 		) // end array vc_map()
 	); // end vc_map()
 }
-?>
+add_action( 'init', 'vc_ase_map_as_wc_catalog_view' );

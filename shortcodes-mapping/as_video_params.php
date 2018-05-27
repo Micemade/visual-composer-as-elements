@@ -81,7 +81,7 @@ function as_video_array(){
 	
 	return $elm_array;
 };
-add_action( 'vc_before_init', 'vc_ase_map_as_video' );
+
 function vc_ase_map_as_video() {
 	vc_map( array(
 		"name" => __("Video player",'vc_ase'),
@@ -98,4 +98,4 @@ function vc_ase_map_as_video() {
 		)
 	); // end vc_map()
 }
-?>
+add_action( 'init', 'vc_ase_map_as_video' );

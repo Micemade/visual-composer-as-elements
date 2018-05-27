@@ -1,5 +1,5 @@
 <?php
-add_action( 'vc_before_init', 'vc_ase_map_as_heading' );
+add_action( 'init', 'vc_ase_map_as_heading' );
 function vc_ase_map_as_heading() {
 	vc_map( array(
 		"name" => __("Heading",'vc_ase'),

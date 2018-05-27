@@ -201,7 +201,7 @@ function as_testimonials_array(){
 	
 	return $elm_array;
 };
-add_action( 'vc_before_init', 'vc_ase_map_as_testimonials' );
+
 function vc_ase_map_as_testimonials() {
 	vc_map( array(
 		"name" => __("Testimonials",'vc_ase'),
@@ -218,4 +218,4 @@ function vc_ase_map_as_testimonials() {
 		) // end array vc_map()
 	); // end vc_map()
 }
-?>
+add_action( 'init', 'vc_ase_map_as_testimonials' );

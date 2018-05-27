@@ -118,7 +118,7 @@ function as_widget_areas_array(){
 	
 	return $elm_array;
 };
-add_action( 'vc_before_init', 'vc_ase_map_as_widget_areas' );
+
 function vc_ase_map_as_widget_areas() {
 	vc_map( array(
 		"name" => __("Widget area",'vc_ase'),
@@ -135,4 +135,4 @@ function vc_ase_map_as_widget_areas() {
 		) // end array vc_map()
 	); // end vc_map()
 }
-?>
+add_action( 'init', 'vc_ase_map_as_widget_areas' );

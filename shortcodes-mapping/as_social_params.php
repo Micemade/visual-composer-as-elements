@@ -198,7 +198,7 @@ function as_social_array(){
 	
 	return $elm_array;
 };
-add_action( 'vc_before_init', 'vc_ase_map_as_social' );
+
 function vc_ase_map_as_social() {
 	vc_map( array(
 		"name" => __("Social links",'vc_ase'),
@@ -215,4 +215,5 @@ function vc_ase_map_as_social() {
 		) // end array vc_map()
 	); // end vc_map()
 }
+add_action( 'init', 'vc_ase_map_as_social' );
 ?>

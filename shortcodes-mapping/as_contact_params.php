@@ -115,7 +115,7 @@ function as_contact_array(){
 	
 	return $elm_array;
 };
-add_action( 'vc_before_init', 'vc_ase_map_as_contact' );
+
 function vc_ase_map_as_contact() {
 	vc_map( array(
 		"name" => __("Contact form",'vc_ase'),
@@ -132,4 +132,4 @@ function vc_ase_map_as_contact() {
 		) // end array vc_map()
 	); // end vc_map()
 }
-?>
+add_action( 'init', 'vc_ase_map_as_contact' );

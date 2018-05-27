@@ -1,5 +1,4 @@
 <?php
-add_action( 'vc_before_init', 'vc_ase_map_as_superslides', 20 );
 function vc_ase_map_as_superslides() {
 
 	// Product categories params.
@@ -23,7 +22,7 @@ function vc_ase_map_as_superslides() {
 	}
 	// Portfolio categories params.
 	$portfolio_params   = array();
-	$portfolio_cats_arr = apply_filters( 'as_vce_terms', 'portfolio_category' );
+	$portfolio_cats_arr = apply_filters( 'as_vce_terms', 'portfolio_category', 'portfolio' );
 	if ( ! empty( $portfolio_cats_arr ) ) {
 
 		$portfolio_params = array(
@@ -100,7 +99,7 @@ function vc_ase_map_as_superslides() {
 				"class" => "",
 				"heading" => __("Blog post categories",'vc_ase'),
 				"param_name" => "post_cats",
-				"value" => apply_filters('as_vce_terms', 'category' ),
+				"value" => apply_filters('as_vce_terms', 'category', 'post' ),
 				"description" => __('select one or multiple, "Post types" must be set to "Post"','vc_ase'),
 				"edit_field_class"=> "vc_col-sm-4"
 				//"weight" => 100 
@@ -282,3 +281,4 @@ function vc_ase_map_as_superslides() {
 	); // end vc_map()
 
 }
+add_action( 'init', 'vc_ase_map_as_superslides', 20 );

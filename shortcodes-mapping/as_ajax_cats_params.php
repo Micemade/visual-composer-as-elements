@@ -122,18 +122,18 @@ function ajax_cats_array(){
 			"class" => "",
 			"heading" => __("Post categories",'vc_ase'),
 			"param_name" => "post_cats",
-			"value" => apply_filters('as_vce_terms', 'category' ),
+			"value" => apply_filters('as_vce_terms', 'category', 'post' ),
 			"description" => __('select one or multiple, "Post types" must be set to "Post"','vc_ase'),
 			"admin_label" => true,
 			"edit_field_class"=> "vc_col-sm-4"
 		),
-				
+
 		array(
 			"type" => "checkbox",
 			"class" => "",
 			"heading" => __("Portfolio  categories",'vc_ase'),
 			"param_name" => "portfolio_cats",
-			"value" => apply_filters('as_vce_terms', 'portfolio_category' ),
+			"value" => apply_filters('as_vce_terms', 'portfolio_category', 'portfolio' ),
 			"description" => __('select one or multiple, "Post types" must be set to "Portfolio"','vc_ase'),
 			"admin_label" => true,
 			"edit_field_class"=> "vc_col-sm-4"
@@ -143,7 +143,7 @@ function ajax_cats_array(){
 			"class" => "",
 			"heading" => __("Product  categories",'vc_ase'),
 			"param_name" => "product_cats",
-			"value" => apply_filters('as_vce_terms', 'product_cat' ),
+			"value" => apply_filters('as_vce_terms', 'product_cat', 'product' ),
 			"description" => __('select one or multiple, "Post types" must be set to "Portfolio"','vc_ase'),
 			"admin_label" => true,
 			"edit_field_class"=> "vc_col-sm-4"
@@ -450,7 +450,6 @@ function ajax_cats_array(){
 	return $elm_array;
 }
 
-add_action( 'vc_before_init', 'vc_ase_map_as_ajax_cats' );
 function vc_ase_map_as_ajax_cats() {
 	vc_map( array(
 			"name" => __("Content (ajax)",'vc_ase'),
@@ -467,4 +466,4 @@ function vc_ase_map_as_ajax_cats() {
 		) // end array vc_map()
 	); // end vc_map()
 }
-?>
+add_action( 'init', 'vc_ase_map_as_ajax_cats' );

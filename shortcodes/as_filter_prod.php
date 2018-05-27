@@ -154,68 +154,64 @@ function vc_ase_as_filter_prod_func( $atts, $content = null ) {
 		}
 		// if custom img size is set:
 		$img_width = $img_height = "";
-		if( $custom_image_width && $custom_image_height ) {
-			
+		if ( $custom_image_width && $custom_image_height ) {
 			$img_width	= $custom_image_width ? $custom_image_width : 450;
 			$img_height = $custom_image_height ? $custom_image_height : 300;
-			
-		}		
+		}
 		// end IMAGE FORMAT AND SIZES
-		
+
 		// Items grid: 
-		$l = 12 / ( $items_desktop ? $items_desktop : 3);
-		$m = 12 / ( $items_tablet ? $items_tablet : 2 );
-		$s = 12 / ( $items_mobile ? $items_mobile : 1 );
-		
-		$grid_css = 'large-'.$l.' medium-'. $m . ' small-'.$s;
-		
+		$l = 12 / ( $items_desktop ? $items_desktop : 3 );
+		$t = 12 / ( $items_tablet ? $items_tablet : 2 );
+		$m = 12 / ( $items_mobile ? $items_mobile : 1 );
+
+		$grid_css = 'grid-d-' . $l . ' grid-t-' . $t . ' grid-m-' . $m;
+
 		####################  HTML STARTS HERE: ###########################
-		
+
 		ob_start();
-		
-		echo $css_classes ? '<div class="'.esc_attr($css_classes).'">' : null;
-		
-		echo '<div id="filter-prod-'. esc_attr($block_id).'" class="vc-ase-element content-block filter-prods'. ( $remove_gutter ? ' remove-gutter' : '' ) . '">';
-			
-			do_action('vc_ase_block_heading',  $title, $subtitle, $title_style, $sub_position, $title_custom_css, $subtitle_custom_css, $title_color, $subtitle_color,  $title_size, $heading_css );
+
+		echo $css_classes ? '<div class="' . esc_attr( $css_classes ) . '">' : null;
+
+		echo '<div id="filter-prod-'. esc_attr( $block_id ) . '" class="vc-ase-element content-block filter-prods' . ( $remove_gutter ? ' remove-gutter' : '' ) . '">';
+
+			do_action( 'vc_ase_block_heading', $title, $subtitle, $title_style, $sub_position, $title_custom_css, $subtitle_custom_css, $title_color, $subtitle_color,  $title_size, $heading_css );
 			?>
 			
 			<?php
 			// GET TAXONOMY OBJECT:
 			$tax_terms_arr = array();
-			if( $tax_terms ) {
-				$term_Objects = array();
+			if ( $tax_terms ) {
+				$term_objects = array();
 				$tax_terms_arr = explode(',', $tax_terms );
 				foreach ( $tax_terms_arr as $term ) {
 					if( term_exists( $term,  $taxonomy) ) {
-						$term_Objects[] = get_term_by( 'slug', $term, $taxonomy );
+						$term_objects[] = get_term_by( 'slug', $term, $taxonomy );
 					}
 				}
 			}
-			
-			if( $tax_terms && $tax_menu_style != 'none') {	
-			?> 
-				
-				<ul class="taxonomy-menu tax-filters <?php echo esc_attr($tax_menu_align) . ( $remove_gutter ? '' : ' column' ); ?>">
+
+			if ( $tax_terms && 'none' !== $tax_menu_style ) {
+			?>
+
+				<ul class="taxonomy-menu tax-filters <?php echo esc_attr( $tax_menu_align ) . ( $remove_gutter ? '' : ' column' ); ?>">
 					
-					<li class="all category-link"><a href="#" class="active" data-filter="*"><div class="term"><?php esc_attr_e('All','vc_ase'); ?></div></a></li>
+					<li class="all category-link"><a href="#" class="active" data-filter="*"><div class="term"><?php esc_attr_e( 'All', 'vc_ase' ); ?></div></a></li>
 					
 					<?php
 					// DISPLAY TAXONOMY MENU:
-					if( !empty( $term_Objects ) ) {
-						foreach ( $term_Objects as $term_obj ) {
-						
-							echo '<li class="'. esc_attr($term_obj->slug) .' category-link">';
-							echo '<a href="#" data-filter=".'. esc_attr($term_obj->slug) .'">';
-							echo '<div class="term">' . esc_attr($term_obj->name) . '</div>';
+					if ( ! empty( $term_objects ) ) {
+						foreach ( $term_objects as $term_obj ) {
+
+							echo '<li class="' . esc_attr( $term_obj->slug ) . ' category-link">';
+							echo '<a href="#" data-filter=".' . esc_attr( $term_obj->slug ) . '">';
+							echo '<div class="term">' . esc_attr( $term_obj->name ) . '</div>';
 							echo '</a>';
 							echo '</li>';
-							
-							
 						}
 					}
 					?>
-				</ul>				
+				</ul>
 				
 			<?php } // endif $tax_terms ?>
 		
@@ -223,7 +219,7 @@ function vc_ase_as_filter_prod_func( $atts, $content = null ) {
 		
 			<?php 
 			// if there are taxonomies selected, turn on taxonomy filter:
-			if( !empty($tax_terms_arr) ) {
+			if ( ! empty( $tax_terms_arr ) ) {
 
 				$tax_filter_args = array('tax_query' => array(
 									array(
@@ -234,100 +230,99 @@ function vc_ase_as_filter_prod_func( $atts, $content = null ) {
 									)
 								)
 							);
-			}else{
+			} else {
 				$tax_filter_args = array();
 			}
-			
-			$order_random = ($filters == 'random') ? 'rand ' : '';
-			
+
+			$order_random = ( 'random' === $filters ) ? 'rand ' : '';
+
 			$main_args = array(
-				'no_found_rows'		=> 1,
-				'post_status'		=> 'publish',
-				'post_type'			=> $post_type,
-				'post_parent'		=> 0,
-				'suppress_filters'	=> false,
-				'orderby'			=> $order_rand ? 'rand menu_order date' : 'menu_order date',
-				'order'				=> 'DESC',
-				'numberposts'		=> $total_items
+				'no_found_rows'    => 1,
+				'post_status'      => 'publish',
+				'post_type'        => $post_type,
+				'post_parent'      => 0,
+				'suppress_filters' => false,
+				'orderby'          => $order_rand ? 'rand menu_order date' : 'menu_order date',
+				'order'            => 'DESC',
+				'numberposts'      => $total_items,
 			);
-			
+
 			$all_args = array_merge( $main_args, $args_filters, $tax_filter_args );
 
-			$posts = get_posts($all_args);
-			?>	
+			$posts = get_posts( $all_args );
+			?>
 		
-			<ul class="row vcase-masonry<?php echo ' '. esc_attr($anim) ;?> woocommerce" id="masonry-filter-<?php echo esc_attr($block_id); ?>">
+			<ul class="container vcase-masonry<?php echo ' ' . esc_attr( $anim ); ?> woocommerce" id="masonry-filter-<?php echo esc_attr( $block_id ); ?>">
 			
-			<?php 
-	
-			$i = 1;			
-			
+			<?php
+
+			$i = 1;
+
 			//start products loop
 			foreach ( $posts as $post ) {
-				
+
 				setup_postdata( $post );
-				
+
 				global $product;
-				
-				if ( ! $product || ! $product->is_visible() || !$product->is_in_stock() ) {
+
+				if ( ! $product || ! $product->is_visible() || ! $product->is_in_stock() ) {
 					continue;
 				}
-				
+
 				// GET LIST OF ITEM CATEGORY (CATEGORIES) for FILTERING jquery.shuffle
 				$terms = get_the_terms( $post->ID, $taxonomy );
-				if ( $terms && ! is_wp_error( $terms ) ) : 
-					
+				if ( $terms && ! is_wp_error( $terms ) ) :
+
 					$terms_str = '';
-					
+
 					foreach ( $terms as $term ) {
 
 						$terms_str .= $term->slug . ' '; 
 						$t++;
 					}
-					
+
 				else :
 					$terms_str = '';
 				endif;
-				
-				if( VC_ASE_WPML_ON ) { // if WPML plugin is active
-					$id			= icl_object_id( get_the_ID(), 'product', false, ICL_LANGUAGE_CODE ); 
-					$lang_code	= ICL_LANGUAGE_CODE;
-				}else{
-					$id			= get_the_ID();
-					$lang_code	= '';
+
+				if ( VC_ASE_WPML_ON ) { // if WPML plugin is active
+					$id        = icl_object_id( get_the_ID(), 'product', false, ICL_LANGUAGE_CODE ); 
+					$lang_code = ICL_LANGUAGE_CODE;
+				} else {
+					$id        = get_the_ID();
+					$lang_code = '';
 				}
-				$link =  get_permalink($id);
-				
+				$link =  get_permalink( $id );
+
 				// 3.0.0 < Fallback conditional
-				if( apply_filters( 'vc_ase_wc_version', '3.0.0' )	) {
-					$attachment_ids   = $product->get_gallery_image_ids();
-				}else{
-					$attachment_ids   = $product->get_gallery_attachment_ids();
+				if ( apply_filters( 'vc_ase_wc_version', '3.0.0' ) ) {
+					$attachment_ids = $product->get_gallery_image_ids();
+				} else {
+					$attachment_ids = $product->get_gallery_attachment_ids();
 				}
-				
-				$image_url = "";
+
+				$image_url = '';
 				if ( $attachment_ids ) {
 					$image_url = wp_get_attachment_image_src( $attachment_ids[0], 'full'  );
 					$img_url = $image_url[0];
-					
+
 				}
 				// end DATA for back image
-				
-				
-				// PRODUCT TITLE AND PRODUCT CATS
-				// 3.0.0 < Fallback conditional
+
+				// PRODUCT TITLE AND PRODUCT CATS.
+				// 3.0.0 < Fallback conditional.
 				$cats = "";
 				if( apply_filters( 'vc_ase_wc_version', '3.0.0' ) ) {
 					$cats =  wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">', '</span>' );
 				}else{
 					$cats = $product->get_categories( ', ', '<span class="posted_in">', '</span>' );
 				}
-				
+
 				$prod_title = '<h4 class="prod-title">'.wp_kses_post($cats).'<a href="'. esc_url($link) .'" title="'. the_title_attribute (array('echo' => 0)) .'"> ' . esc_attr(get_the_title()) .'</a></h4>';
 				?>
 					
 				
-				<li class="<?php echo ($grid_css ? esc_attr($grid_css) : '') . esc_attr(' '.$terms_str); ?> item column" data-id="id-<?php echo esc_attr($i);?>" <?php echo $terms_str ? 'data-groups="'. esc_attr($terms_str). '"'  : null ; ?> data-date-created="<?php echo get_the_date( 'Y-m-d' ); ?>" data-title="<?php echo the_title_attribute ();?>" data-i="<?php echo esc_attr($i); ?>">
+				<li class="<?php echo ($grid_css ? esc_attr($grid_css) : '') . esc_attr(' '.$terms_str); ?> item" data-id="id-<?php echo esc_attr($i);?>" <?php echo $terms_str ? 'data-groups="'. esc_attr($terms_str). '"'  : null ; ?> data-date-created="<?php echo get_the_date( 'Y-m-d' ); ?>" data-title="<?php echo the_title_attribute ();?>" data-i="<?php echo esc_attr($i); ?>">
 
 					<div class="anim-wrap<?php echo ($enter_anim != 'none') ? ' to-anim' : '';  ?>">
 					

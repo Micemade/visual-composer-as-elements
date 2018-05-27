@@ -32,7 +32,7 @@ function filter_prod_array(){
 			"class" => "",
 			"heading" => __("Product categories",'vc_ase'),
 			"param_name" => "product_cats",
-			"value" => apply_filters('as_vce_terms', 'product_cat' ),
+			"value" => apply_filters('as_vce_terms', 'product_cat', 'product' ),
 			"description" => __('select one or multiple product categories','vc_ase'),
 			"admin_label" => true,
 		),
@@ -333,7 +333,7 @@ function filter_prod_array(){
 	
 	return $elm_array;
 };
-add_action( 'vc_before_init', 'vc_ase_map_as_filter_prod' );
+
 function vc_ase_map_as_filter_prod() {
 	vc_map( array(
 		"name" => __("Products (masonry/filter)",'vc_ase'),
@@ -350,4 +350,4 @@ function vc_ase_map_as_filter_prod() {
 		) // end array vc_map()
 	); // end vc_map()
 }
-?>
+add_action( 'init', 'vc_ase_map_as_filter_prod' );

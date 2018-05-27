@@ -1,10 +1,8 @@
 <?php 
 function vc_ase_as_filter_cats_func( $atts, $content = null ) { 
-  
+
 	global $post, $wp_query;
-	
-	
-	
+
 	extract( shortcode_atts( array(
 		'title'				=> '',
 		'subtitle'			=> '',
@@ -16,18 +14,18 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 		'subtitle_color'	=> '',
 		'title_size'		=> '',
 		'heading_css'		=> '',
-		
+
 		'enter_anim'		=> 'none',
 		'block_style'		=> 'style1',
 		'block_style_color'	=> 'light',
-		
+
 		'post_type'			=> 'post',
 		'post_cats'			=> '',
 		'portfolio_cats'	=> '',
-		
+
 		'tax_menu_style'	=> 'none',
 		'tax_menu_align'	=> 'center',
-		
+
 		'img_format'		=> '',
 		'custom_image_width'=> '',
 		'custom_image_height'=> '',
@@ -78,7 +76,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 		$args_only_featured = array();
 	}
 	//
-	
+
 	// TERMS ARGS
 	if( $post_cats &&  $post_type == 'post' ) {
 		$tax_terms = $post_cats;
@@ -95,7 +93,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 	}else{
 		$taxonomy = '';
 	}
-	
+
 	/**
 	 * IMAGE FORMAT AND SIZES:
 	 *
@@ -103,174 +101,166 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 	 * set WP default image format
 	 */
 	// currently registered image sizes:
-	$imgSizes			= apply_filters( 'vc_ase_image_sizes_list','' );	// simple list of sizes
-	$imgSize_values		= apply_filters( 'vc_ase_get_image_sizes','' );		// get width / height values
+	// simple list of sizes
+	$img_sizes = apply_filters( 'vc_ase_image_sizes_list','' );
+	// get width / height values
+	$img_size_values = apply_filters( 'vc_ase_get_image_sizes','' );
 
-	if( !in_array( $img_format, $imgSizes ) ) {
+	if ( ! in_array( $img_format, $img_sizes ) ) {
 		$img_format = 'thumbnail';
 	}
 	// if custom img size is set:
-	if( $custom_image_width && $custom_image_height ) {
-		
-		$img_width	= $custom_image_width ? $custom_image_width : 450;
+	if ( $custom_image_width && $custom_image_height ) {
+		$img_width  = $custom_image_width ? $custom_image_width : 450;
 		$img_height = $custom_image_height ? $custom_image_height : 300;
-		
-	}else{			
-
-		$img_width	= "";
+	} else {
+		$img_width  = '';
 		$img_height = "";
-	}				
+	}
 	// end IMAGE FORMAT AND SIZES
-	
-	/* 
-	 *	Items grid:
+
+	/**
+	 * Items grid:
 	 *
 	 */
 	$l = 12 / ( $items_desktop ? $items_desktop : 3);
 	$t = 12 / ( $items_tablet ? $items_tablet : 2 );
 	$m = 12 / ( $items_mobile ? $items_mobile : 1 );
-	
-	$grid_css = 'large-'.$l.' medium-'. $t . ' small-'.$m;
 
-	
+	$grid_css = 'grid-d-' . $l . ' grid-t-' . $t . ' grid-m-' . $m;
+
 	###### HTML OUTPUT STARTS HERE
 	ob_start();
-	
-	
-	
+
 	echo $css_classes ? '<div class="'.esc_attr($css_classes).'">' : null;
 	?>
 	
-	<div class="vc-ase-element content-block filter-cats<?php echo $remove_gutter ? ' remove-gutter' : '' ; echo esc_attr(' '.$block_style_color ) ; ?>" id="filter-post-<?php echo esc_attr($block_id); ?>">	
+	<div class="vc-ase-element content-block filter-cats<?php echo $remove_gutter ? ' remove-gutter' : '' ; echo esc_attr( ' ' . $block_style_color ) ; ?>" id="filter-post-<?php echo esc_attr( $block_id ); ?>">	
 	
 	<?php
 	// Block title and subtitle:
-	do_action('vc_ase_block_heading',  $title, $subtitle, $title_style, $sub_position, $title_custom_css, $subtitle_custom_css, $title_color, $subtitle_color,  $title_size, $heading_css );
+	do_action( 'vc_ase_block_heading', $title, $subtitle, $title_style, $sub_position, $title_custom_css, $subtitle_custom_css, $title_color, $subtitle_color,  $title_size, $heading_css );
 	?>
 	
 	<?php
 	// GET TAXONOMY OBJECT:
 	$tax_terms_arr = array();
 	if( $tax_terms ) {
-		
+
 		$term_Objects = array();
 		$tax_terms_arr = explode(',', $tax_terms );
 		foreach ( $tax_terms_arr as $term ) {
 			if( term_exists( $term,  $taxonomy) ) {
 				$term_Objects[] = get_term_by( 'slug', $term, $taxonomy );
 			}
-		}			
+		}
 	}
-	
-	if( $tax_terms && $tax_menu_style != 'none') {
 
-		$terms_menu = '<ul class="taxonomy-menu tax-filters '. esc_attr($tax_menu_align) .' column">';
-		
-		$terms_menu .= '<li class="all category-link"><a href="#" class="active" data-filter="*"><div class="term">'. esc_html__('All','vc_ase') .'</div></a></li>';
+	if( $tax_terms && 'none' !== $tax_menu_style ) {
+
+		$terms_menu = '<ul class="taxonomy-menu tax-filters ' . esc_attr( $tax_menu_align ) . ' column">';
+
+		$terms_menu .= '<li class="all category-link"><a href="#" class="active" data-filter="*"><div class="term">' . esc_html__( 'All', 'vc_ase' ) . '</div></a></li>';
 
 		// DISPLAY TAXONOMY MENU:
-		if( !empty( $term_Objects ) ) {
+		if ( ! empty( $term_Objects ) ) {
 			foreach ( $term_Objects as $term_obj ) {
-			
+
 				$terms_menu .= '<li class="'. esc_attr($term_obj->slug) .' category-link">';
 				$terms_menu .= '<a href="#" data-filter=".'. esc_attr($term_obj->slug) .'">';
 				$terms_menu .= '<div class="term">' . esc_attr($term_obj->name) . '</div>';
 				$terms_menu .= '</a>';
 				$terms_menu .= '</li>';
-				
 			}
 		}
-		
+
 		$terms_menu .= '</ul>';
-		
+
 		echo wp_specialchars_decode( $terms_menu );
-	
+
 	} // endif $tax_terms
-	
 
 		// if there are taxonomies selected, turn on taxonomy filter:
-		if( !empty($tax_terms_arr) ) {
+		if ( ! empty($tax_terms_arr) ) {
 
-			$tax_filter_args = array('tax_query' => array(
+			$tax_filter_args = array( 'tax_query' => array(
 								array(
 									'taxonomy' => $taxonomy,
-									'field' => 'slug', // can be 'slug' too
+									'field'    => 'slug', // can be 'slug' too
 									'operator' => 'IN', // NOT IN to exclude
-									'terms' => $tax_terms_arr
+									'terms'    => $tax_terms_arr,
 								)
 							)
 						);
-		}else{
+		} else {
 			$tax_filter_args = array();
 		}
+
 		$main_args = array(
-			'no_found_rows'		=> 1,
-			'post_status'		=> 'publish',
-			'post_type'			=> $post_type,
-			'post_parent'		=> 0,
-			'suppress_filters'	=> false,
-			'orderby'     		=> 'post_date',
-			'order'       		=> 'DESC',
-			'numberposts' 		=> $total_items
+			'no_found_rows'    => 1,
+			'post_status'      => 'publish',
+			'post_type'        => $post_type,
+			'post_parent'      => 0,
+			'suppress_filters' => false,
+			'orderby'          => 'post_date',
+			'order'            => 'DESC',
+			'numberposts'      => $total_items
 		);
-		
+
 		$all_args = array_merge( $main_args, $args_only_featured, $tax_filter_args );
 
-		$posts = get_posts($all_args);
+		$posts = get_posts( $all_args );
 		?>
 		
-		<ul class="row vcase-masonry<?php echo ' '.esc_attr($anim) ;?> <?php echo ' '.esc_attr($block_style); ?>" id="masonry-filter-<?php echo esc_attr($block_id); ?>">
+		<ul class="container vcase-masonry<?php echo ' ' . esc_attr( $anim );?> <?php echo ' ' . esc_attr( $block_style ); ?>" id="masonry-filter-<?php echo esc_attr( $block_id ); ?>">
 			
-			<?php 
-	
+			<?php
 			$i = 1;
-			
-			//start posts loop
+
+			// start posts loop
 			foreach ( $posts as $post ) {
-				
+
 				setup_postdata( $post );
-				
-				// GET LIST OF ITEM CATEGORY (CATEGORIES) for FILTERING jquery.shuffle
+
+				// GET LIST OF ITEM CATEGORY (CATEGORIES) for FILTERING jquery.shuffle.
 				$terms = get_the_terms( $post->ID, $taxonomy );
-				
-				if ( $terms && ! is_wp_error( $terms ) ) : 
-					 
+
+				if ( $terms && ! is_wp_error( $terms ) ) :
+
 					$terms_str = ''; 
-					
 					foreach ( $terms as $term ) {
 						$terms_str .=  $term->slug . ' '; 
 						$t++;
 					}
-				
+
 				else :
 					$terms_str = '';
 				endif;
 
-				
 				if( VC_ASE_WPML_ON ) { // if WPML plugin is active
-					$post_id	= icl_object_id( get_the_ID(), get_post_type(), false, ICL_LANGUAGE_CODE ); 
-					$lang_code	= ICL_LANGUAGE_CODE;
+					$post_id   = icl_object_id( get_the_ID(), get_post_type(), false, ICL_LANGUAGE_CODE ); 
+					$lang_code = ICL_LANGUAGE_CODE;
 				}else{
-					$post_id	= get_the_ID();
-					$lang_code	= '';
+					$post_id   = get_the_ID();
+					$lang_code = '';
 				}
-				
-				$link			=  esc_attr( get_permalink($post_id) );
-				$post_title		= '<h4><a href="'. $link.'" title="'. the_title_attribute(array('echo' => 0)) .'">'. esc_html( strip_tags(get_the_title()) ) .'</a></h4>';
-				$post_format	= get_post_format();
-				$pP_rel			= '';
-				
-				$post_formats 	=  apply_filters('vc_ase_post_formats_media', $post_id, $block_id, $img_format, $img_width, $img_height );
-				
-				$img_url			= $post_formats['img_url'];
-				$image_output		= $post_formats['image_output'];
-				$pP_rel				= $post_formats['pP_rel'];
-				$img_urls_gallery	= $post_formats['img_urls_gallery'];
-				$quote_html			= $post_formats['quote_html'];
+
+				$link        =  esc_attr( get_permalink( $post_id ) );
+				$post_title  = '<h4><a href="' . $link . '" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '">' . esc_html( strip_tags( get_the_title() ) ) . '</a></h4>';
+				$post_format = get_post_format();
+				$pp_rel      = '';
+
+				$post_formats = apply_filters( 'vc_ase_post_formats_media', $post_id, $block_id, $img_format, $img_width, $img_height );
+
+				$img_url          = $post_formats['img_url'];
+				$image_output     = $post_formats['image_output'];
+				$pp_rel           = $post_formats['pP_rel'];
+				$img_urls_gallery = $post_formats['img_urls_gallery'];
+				$quote_html       = $post_formats['quote_html'];
 				?>
 					
 				
-				<li class="<?php echo ( $grid_css ? esc_attr($grid_css) : '' ) . esc_attr(' '.$terms_str); ?> item column" data-id="id-<?php echo $i;?>"  <?php echo $terms_str ? 'data-groups="'. esc_attr($terms_str) . '"'  : null ; ?> data-date-created="<?php echo get_the_date( 'Y-m-d' ); ?>" data-title="<?php echo the_title_attribute ();?>" data-i="<?php echo esc_attr($i); ?>">
+				<li class="<?php echo ( $grid_css ? esc_attr( $grid_css ) : '' ) . esc_attr(' '.$terms_str); ?> item" data-id="id-<?php echo $i;?>"  <?php echo $terms_str ? 'data-groups="'. esc_attr($terms_str) . '"'  : null ; ?> data-date-created="<?php echo get_the_date( 'Y-m-d' ); ?>" data-title="<?php echo the_title_attribute ();?>" data-i="<?php echo esc_attr($i); ?>">
 					
 					<div class="anim-wrap<?php echo ($enter_anim != 'none') ? ' to-anim' : '';  ?>">
 					
@@ -302,7 +292,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 								<div class="back-buttons">
 							
 								<?php
-								echo !$zoom_button ? '<a href="'.esc_url($img_url).'"  data-gal="prettyPhoto'.$pP_rel.'" title="'.the_title_attribute(array('echo' => 0)).'">'. apply_filters('vc_ase_post_format_icon','').'</a>' : null;
+								echo !$zoom_button ? '<a href="'.esc_url($img_url).'"  data-gal="prettyPhoto'.$pp_rel.'" title="'.the_title_attribute(array('echo' => 0)).'">'. apply_filters('vc_ase_post_format_icon','').'</a>' : null;
 								
 								echo !$link_button ? '<a href="'. $link.'"  title="'. the_title_attribute(array('echo' => 0)).'"><i class="fa fa-link" aria-hidden="true"></i></a>' : null;
 								?>
