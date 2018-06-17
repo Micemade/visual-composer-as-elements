@@ -117,6 +117,19 @@ gulp.task('copy', function() {
     ])
         .pipe(gulp.dest( $packTemp ));
 })
+// Zip the [$project_name] folder in pack desitnation
+gulp.task('zipit', function() {
+    return gulp.src( $packTemp + '**/**' )
+    .pipe(zip( $project_name + '.' + $project_version +'.zip'))
+    .pipe( gulp.dest( $packDest ) )
+});
+// Delete tempoarary folder ( copied theme folder in $packDest directory )
+gulp.task('clean-temp', function () {
+    del(
+        $packTemp,
+        {force: true }
+    );
+});
 
 // #######################################
 // The DEFAULT task will process sass, run browser-sync and start watchin for changes

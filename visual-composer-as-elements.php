@@ -79,7 +79,7 @@ class AS_VC_ELEMENTS {
 
 		echo sprintf(
 			// translators: %s are for html elements div / strong
-			__( '%s%s"WPB Micemade Elements" (ex. Visual Composer AS elements)%s is not effective without "WPBakery Page Builder" (ex. Visual Composer) plugin activated. %sPlease, either install and activate "WPBakery Page Builder" plugin or deactivate "WPB Micemade Elements" plugin.%s', 'vc_ase' ),
+			__( '%s%s"WPB Micemade Elements" (ex. Visual Composer AS elements) %s is not effective without "WPBakery Page Builder" (ex. Visual Composer) plugin activated. %sPlease, either install and activate "WPBakery Page Builder" plugin or deactivate "WPB Micemade Elements" plugin.%s', 'vc_ase' ),
 			'<div class="error updated settings-error notice is-dismissible"><p>',
 			'<strong>',
 			'</strong>',

@@ -693,12 +693,30 @@ add_action( 'wp_ajax_vc_ase_contactform', 'vc_ase_cf' );	// for logged in users
 
 function vc_ase_cf() {
 	
-	$to			= sanitize_email( $_POST["recipient"] );
-	$subject	= sanitize_text_field( $_POST["subject"] );
-	$message	= sanitize_text_field( $_POST["message"] );
-	$headers	= "From: " . sanitize_text_field( $_POST["userName"] ) . "<". sanitize_email( $_POST["userEmail"] ) .">\r\n";
+	$to      = sanitize_email( $_POST["recipient"] );
+	$subject = sanitize_text_field( $_POST["subject"] );
+
+	// Compose message text body (message + name + email)
+	$name    = sanitize_text_field( $_POST["userName"] );
+	$email   = sanitize_email( $_POST["userEmail"] );
+	$message = sanitize_text_field( $_POST["message"] );
+
+	$headers = "From: " . sanitize_text_field( $_POST["userName"] ) . "<". sanitize_email( $_POST["userEmail"] ) .">\r\n";
 	
-	if( wp_mail( $to, $subject ,$message, $headers ) ) {
+	$email = WP_Mail::init()
+	->to( $to )
+	->subject( $subject )
+	->headers( $headers )
+	->template( VC_ASE_DIR . '/helpers/contact-form-template.php', [
+		'subject' => $subject,
+		'name'    => $name,
+		'email'   => $email,
+		'message' => $message,
+	])
+	->send();
+	
+	//if( wp_mail( $to, $subject ,$message, $headers ) ) {
+	if( $email ) {
 
 		$mailsent = $_POST["mailsent"];
 		print "<div class='emailform-message success alert-box' data-alert>$mailsent<a href='#' class='close-alert'>&times;</a></div>";
