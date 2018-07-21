@@ -28,3 +28,7 @@ Thumbs.db
 ##########
 node_modules/
 .tmp/
+
+# Ignore package-lock.json #
+##########
+package-lock.json
