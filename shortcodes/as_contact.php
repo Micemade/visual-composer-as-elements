@@ -1,27 +1,31 @@
 <?php
 function vc_ase_as_contact_func( $atts, $content = null ) {
 
-	extract( shortcode_atts( array(
+	extract(
+		shortcode_atts(
+			array(
 
-		'title'               => '',
-		'subtitle'            => '',
-		'sub_position'        => 'bellow',
-		'title_style'         => 'center',
-		'title_custom_css'    => '',
-		'subtitle_custom_css' => '',
-		'title_color'         => '',
-		'subtitle_color'      => '',
-		'title_size'          => '',
-		'heading_css'         => '',
-		'enter_anim'          => 'none',
-		'contact_email'       => get_option('admin_email'),
-		'attach_id'           => '',
-		'img_format'          => 'thumbnail',
-		'show_desc'           => '',
-		'css'                 => '',
-		'css_classes'         => '',
-		'block_id'            => apply_filters( 'vc_ase_randomString', 10 )
-	), $atts ) );
+				'title'               => '',
+				'subtitle'            => '',
+				'sub_position'        => 'bellow',
+				'title_style'         => 'center',
+				'title_custom_css'    => '',
+				'subtitle_custom_css' => '',
+				'title_color'         => '',
+				'subtitle_color'      => '',
+				'title_size'          => '',
+				'heading_css'         => '',
+				'enter_anim'          => 'none',
+				'contact_email'       => get_option( 'admin_email' ),
+				'attach_id'           => '',
+				'img_format'          => 'thumbnail',
+				'show_desc'           => '',
+				'css'                 => '',
+				'css_classes'         => '',
+				'block_id'            => apply_filters( 'vc_ase_randomString', 10 ),
+			), $atts
+		)
+	);
 
 	$text         = wpb_js_remove_wpautop( $content, true );
 	$vc_css_class = vc_shortcode_custom_css_class( $css, ' ' );
@@ -32,7 +36,7 @@ function vc_ase_as_contact_func( $atts, $content = null ) {
 
 	echo $css_classes ? '<div class="' . esc_attr( $css_classes ) . '">' : ''; ?>
 
-	<div id="contact-block-<?php echo esc_attr( $block_id ); ?>" class="vc-ase-element vcase-contact-form<?php echo ( $additional ? ' row' : '' ); ?> <?php echo esc_attr ( $vc_css_class ); ?>">
+	<div id="contact-block-<?php echo esc_attr( $block_id ); ?>" class="vc-ase-element vcase-contact-form<?php echo ( $additional ? ' row' : '' ); ?> <?php echo esc_attr( $vc_css_class ); ?>">
 
 		<div class="anim-wrap">
 
@@ -98,10 +102,11 @@ function vc_ase_as_contact_func( $atts, $content = null ) {
 					<?php echo wp_kses_post( $text ); ?>
 
 				</div>
-				<?php
-				};
+					<?php
+};
 
-				echo $additional ? '</div>' : null; // end .contact-additional ?>
+				echo $additional ? '</div>' : null; // end .contact-additional
+?>
 
 		</div><!-- .anim-wrap -->
 
@@ -151,12 +156,12 @@ function vc_ase_as_contact_func( $atts, $content = null ) {
 })( jQuery );
 </script>
 
-<?php echo $css_classes ? '</div>' : null; ?>
+	<?php echo $css_classes ? '</div>' : null; ?>
 
-<?php
-$required = __( 'Required field', 'vc_ase' );
-$invalid  = __( 'Invalid email', 'vc_ase' );
-?>
+	<?php
+	$required = __( 'Required field', 'vc_ase' );
+	$invalid  = __( 'Invalid email', 'vc_ase' );
+	?>
 
 <script type="text/javascript">
 (function($) {
@@ -273,13 +278,13 @@ $invalid  = __( 'Invalid email', 'vc_ase' );
 
 })(jQuery);
 </script>
-<?php
-$output_string = ob_get_contents();
+	<?php
+	$output_string = ob_get_contents();
 
-ob_end_clean();
+	ob_end_clean();
 
-return $output_string ;
-####################  HTML ENDS HERE: ###########################
+	return $output_string;
+	####################  HTML ENDS HERE: ###########################
 }
 
 add_shortcode( 'as_contact', 'vc_ase_as_contact_func' );

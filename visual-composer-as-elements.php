@@ -3,7 +3,7 @@
 Plugin Name: WPB Micemade Elements
 Plugin URI: https://micemade.com
 Description: Extension plugin for WPBakery Page Builder (ex. Visual Composer) plugin - additional elements for page builder. Elements are best used with Micemade Larix theme, but can be used with any theme (with activated WPBakery Page Builder plugin), with caution.
-Version: 1.4.0
+Version: 1.5.0
 Author: Micemade
 Author URI: https://micemade.com
 Text Domain: vc_ase
@@ -79,7 +79,7 @@ class AS_VC_ELEMENTS {
 
 		echo sprintf(
 			// translators: %s are for html elements div / strong
-			__( '%s%s"WPB Micemade Elements" (ex. Visual Composer AS elements) %s is not effective without "WPBakery Page Builder" (ex. Visual Composer) plugin activated. %sPlease, either install and activate "WPBakery Page Builder" plugin or deactivate "WPB Micemade Elements" plugin.%s', 'vc_ase' ),
+			__( '%1$s%2$s"WPB Micemade Elements" (ex. Visual Composer AS elements) %3$s is not effective without "WPBakery Page Builder" (ex. Visual Composer) plugin activated. %4$sPlease, either install and activate "WPBakery Page Builder" plugin or deactivate "WPB Micemade Elements" plugin.%5$s', 'vc_ase' ),
 			'<div class="error updated settings-error notice is-dismissible"><p>',
 			'<strong>',
 			'</strong>',

@@ -16,72 +16,73 @@
  * @var string $icon_type
  * @var string $accent_color / AS themes edit /
  */
-$defaultFont = 'fontawesome';
-$defaultIconClass = 'fa fa-info-circle';
-//$this->convert..
-$atts = $this->convertAttributesToMessageBox2( $atts );
+
+$default_font       = 'fontawesome';
+$default_icon_class = 'fa fa-info-circle';
+
+$atts     = $this->convertAttributesToMessageBox2( $atts );
 $defaults = array(
-	'el_class' => '',
+	'el_class'          => '',
 	'message_box_style' => 'classic',
-	'style' => 'rounded', // dye to backward compatibility message_box_shape
-	'color' => '', //message_box_type due to backward compatibility
+	'style'             => 'rounded', // dye to backward compatibility message_box_shape
+	'color'             => '', //message_box_type due to backward compatibility
 	'message_box_color' => 'alert-info',
-	'css_animation' => '',
-	'icon_type' => $defaultFont,
-	'icon_fontawesome' => $defaultIconClass,
-	'accent_color' => '',
+	'css_animation'     => '',
+	'icon_type'         => $default_font,
+	'icon_fontawesome'  => $default_icon_class,
+	'accent_color'      => '',
 );
 
 $atts = vc_shortcode_attribute_parse( $defaults, $atts );
 extract( $atts );
 
-$orig_color = ( strlen( $color ) > 0 && strpos( 'alert', $color ) === false && !$accent_color ) ? 'vc_color-' . $color : 'vc_color-' . $message_box_color;
+$orig_color     = ( strlen( $color ) > 0 && strpos( 'alert', $color ) === false && ! $accent_color ) ? 'vc_color-' . $color : 'vc_color-' . $message_box_color;
 $color_override = $accent_color ? '' : $orig_color;
 
-$elementClass = array(
-	'base' => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'vc_message_box', $this->settings['base'], $atts ),
-	'style' => 'vc_message_box-' . $message_box_style,
-	'shape' => 'vc_message_box-' . $style,
-	'color' => $color_override,
-	'extra' => $this->getExtraClass( $el_class ),
+$element_class = array(
+	'base'          => apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, 'vc_message_box', $this->settings['base'], $atts ),
+	'style'         => 'vc_message_box-' . $message_box_style,
+	'shape'         => 'vc_message_box-' . $style,
+	'color'         => $color_override,
+	'extra'         => $this->getExtraClass( $el_class ),
 	'css_animation' => $this->getCSSAnimation( $css_animation ),
 );
-$elementClass = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $elementClass ) );
+$element_class = preg_replace( array( '/\s+/', '/^\s|\s$/' ), array( ' ', '' ), implode( ' ', $element_class ) );
 
-// Pick up icons
-$iconClass = isset( ${"icon_" . $icon_type} ) ? ${"icon_" . $icon_type} : $defaultIconClass;
+// Pick up icons.
+$icon_class = isset( ${'icon_' . $icon_type} ) ? ${'icon_' . $icon_type} : $default_icon_class;
 switch ( $color ) {
 	case 'info':
-		$icon_type = 'fontawesome';
-		$iconClass = 'fa fa-info-circle';
+		$icon_type  = 'fontawesome';
+		$icon_class = 'fa fa-info-circle';
 		break;
 	case 'alert-info':
-		$icon_type = 'pixelicons';
-		$iconClass = 'vc_pixel_icon vc_pixel_icon-info';
+		$icon_type  = 'pixelicons';
+		$icon_class = 'vc_pixel_icon vc_pixel_icon-info';
 		break;
 	case 'success':
-		$icon_type = 'fontawesome';
-		$iconClass = 'fa fa-check';
+		$icon_type  = 'fontawesome';
+		$icon_class = 'fa fa-check';
 		break;
 	case 'alert-success':
-		$icon_type = 'pixelicons';
-		$iconClass = 'vc_pixel_icon vc_pixel_icon-tick';
+		$icon_type  = 'pixelicons';
+		$icon_class = 'vc_pixel_icon vc_pixel_icon-tick';
 		break;
 	case 'warning':
-		$icon_type = 'fontawesome';
-		$iconClass = 'fa fa-exclamation-triangle';
+		$icon_type  = 'fontawesome';
+		$icon_class = 'fa fa-exclamation-triangle';
 		break;
 	case 'alert-warning':
-		$icon_type = 'pixelicons';
-		$iconClass = 'vc_pixel_icon vc_pixel_icon-alert';
+		$icon_type  = 'pixelicons';
+		$icon_class = 'vc_pixel_icon vc_pixel_icon-alert';
 		break;
 	case 'danger':
-		$icon_type = 'fontawesome';
-		$iconClass = 'fa fa-times';
+		$icon_type  = 'fontawesome';
+		$icon_class = 'fa fa-times';
 		break;
 	case 'alert-danger':
-		$icon_type = 'pixelicons';
-		$iconClass = 'vc_pixel_icon vc_pixel_icon-explanation';
+		$icon_type  = 'pixelicons';
+		$icon_class = 'vc_pixel_icon vc_pixel_icon-explanation';
 		break;
 	case 'alert-custom':
 	default:
@@ -95,7 +96,15 @@ if ( 'pixelicons' != $icon_type ) {
 
 $accent = $accent_color ? ' ' . $accent_color : '';
 ?>
-<div class="<?php echo esc_attr( $elementClass ); echo esc_attr($accent);?>">
-	<div class="vc_message_box-icon"><i class="<?php echo esc_attr( $iconClass ); ?>"></i>
-	</div><?php echo wpb_js_remove_wpautop( $content, true );
-	?></div>
+<div class="
+<?php
+echo esc_attr( $element_class );
+echo esc_attr( $accent );
+?>
+">
+	<div class="vc_message_box-icon"><i class="<?php echo esc_attr( $icon_class ); ?>"></i>
+	</div>
+	<?php
+	echo wpb_js_remove_wpautop( $content, true );
+	?>
+	</div>

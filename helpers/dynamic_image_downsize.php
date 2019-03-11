@@ -2,7 +2,7 @@
 /**
  * Filter the output of image_downsize() to return dynamically generated images for intermediate or inline sizes.
  *
- * <p>Because Wordpress generates all image sizes on first upload, if you change
+ * <p>Because WordPress generates all image sizes on first upload, if you change
  * theme or size settings after the upload, there won't be a matching file for
  * the requested size.<br/>
  * This filter addresses the problem of the default downsize process laoding
@@ -10,17 +10,17 @@
  * size image. This can cause large files to be loaded unnecessarily and will
  * only scale it to a max width or height using the proportions of the next best
  * image, it won't crop to the exact dimensions.</p>
- * <p>Other solutions involve either patching Wordpress, using custom functions or
+ * <p>Other solutions involve either patching WordPress, using custom functions or
  * using plugins that regenerate images manually. They work with some success but
  * don't satisfy all the following ideal (imo) criteria:</p>
  * <ul>
- * 	<li>Regenerate images automatically when required by the current theme</li>
- * 	<li>Don't require a plugin to manage media and extra images sizes</li>
- * 	<li>Don't use depreciated or custom image processing functions</li>
- * 	<li>Let wordpress handle creation, paths, error checking, library detection</li>
- * 	<li>Allow other filters to still apply (don't bypass filtered functions)</li>
- * 	<li>Keep generated sizes in meta to avoid orphan files in uploads folder</li>
- * 	<li>Can be disabled/removed without errors or changing anything else</li>
+ *  <li>Regenerate images automatically when required by the current theme</li>
+ *  <li>Don't require a plugin to manage media and extra images sizes</li>
+ *  <li>Don't use depreciated or custom image processing functions</li>
+ *  <li>Let WordPress handle creation, paths, error checking, library detection</li>
+ *  <li>Allow other filters to still apply (don't bypass filtered functions)</li>
+ *  <li>Keep generated sizes in meta to avoid orphan files in uploads folder</li>
+ *  <li>Can be disabled/removed without errors or changing anything else</li>
  * </ul>
  * <p>This does all that! :D</p>
  * <p>The issue was well defined in 2010 by Victor Teixeira and subsiquent
@@ -47,54 +47,56 @@
  * @param array|string $size     Size of image, either array or string. Default passed in 'medium'.
  * @return array|bool            [ Image URL, width, height, bool ($is_intermediate) ] OR false if not resizing
  */
-function vc_ase_dynamic_image_downsize( $downsize=true, $id, $size, $crop=true ) {
-	
+function vc_ase_dynamic_image_downsize( $downsize = true, $id, $size, $crop = true ) {
+
 	$sizes = array();
-	
-	$meta = wp_get_attachment_metadata( $id );
+
+	$meta  = wp_get_attachment_metadata( $id );
 	$sizes = vc_ase_get_image_sizes();
 
-	if( empty($meta) ) {
+	if ( empty( $meta ) ) {
 		return;
 	}
-	
-	
+
 	// use specific w/h dimensions requested
 	if ( is_array( $size ) && sizeof( $size ) == 2 ) {
 		list( $width, $height ) = $size;
 
 		// make a size name from requested dimensions as a fallback for saving to meta
-		$size = $width.'x'.$height;
+		$size = $width . 'x' . $height;
 
 		// if dimensions match a named size, use that instead
 		foreach ( $sizes as $size_name => $size_atts ) {
-			if ( $width == $size_atts['width'] && $height == $size_atts['height'] )
+			if ( $width == $size_atts['width'] && $height == $size_atts['height'] ) {
 				$size = $size_name;
+			}
 		}
 
-	// or get key/values (width, height, crop) from named size
+		// or get key/values (width, height, crop) from named size
 	} elseif ( array_key_exists( $size[0], $sizes ) ) {
-		extract( $sizes[$size] );
+		extract( $sizes[ $size ] );
 
-	// unrecognized size, exit to handle as normal
+		// unrecognized size, exit to handle as normal
 	} else {
 		return false;
 	}
 
 	// exit if there's already a generated image with the right dimensions
 	// the default downsize function would use it anyway (even if it had a different name)
-	if ( array_key_exists( $size, $meta['sizes'] ) && $width == $meta['sizes'][$size]['width'] && $height == $meta['sizes'][$size]['height'] )
+	if ( array_key_exists( $size, $meta['sizes'] ) && $width == $meta['sizes'][ $size ]['width'] && $height == $meta['sizes'][ $size ]['height'] ) {
 		return false;
+	}
 
 	// nothing matching size exists, generate and save new image from original
 	$intermediate = image_make_intermediate_size( get_attached_file( $id ), $width, $height, $crop );
 
 	// exit if failed creating image
-	if ( !is_array( $intermediate ) )
+	if ( ! is_array( $intermediate ) ) {
 		return false;
+	}
 
 	// save the new size parameters in meta (to find it next time)
-	$meta['sizes'][$size] = $intermediate;
+	$meta['sizes'][ $size ] = $intermediate;
 	wp_update_attachment_metadata( $id, $meta );
 
 	// this step is from the default image_downsize function in media.php
@@ -102,9 +104,9 @@ function vc_ase_dynamic_image_downsize( $downsize=true, $id, $size, $crop=true )
 	list( $width, $height ) = image_constrain_size_for_editor( $intermediate['width'], $intermediate['height'], $size );
 
 	// use path of original file with new filename
-	$original_url = wp_get_attachment_url( $id );
+	$original_url      = wp_get_attachment_url( $id );
 	$original_basename = wp_basename( $original_url );
-	$img_url = str_replace($original_basename, $intermediate['file'], $original_url);
+	$img_url           = str_replace( $original_basename, $intermediate['file'], $original_url );
 
 	// 'Tis done, and here's the image
 	return array( $img_url, $width, $height, true );
@@ -114,33 +116,34 @@ add_filter( 'image_downsize', 'vc_ase_dynamic_image_downsize', 10, 3 );
 // Useful helper function from codex example: http://codex.wordpress.org/Function_Reference/get_intermediate_image_sizes
 function vc_ase_get_image_sizes( $size = '' ) {
 	global $_wp_additional_image_sizes;
-	$sizes = array();
+	$sizes                        = array();
 	$get_intermediate_image_sizes = get_intermediate_image_sizes();
 
 	// Create the full array with sizes and crop info
-	foreach( $get_intermediate_image_sizes as $_size ) {
+	foreach ( $get_intermediate_image_sizes as $_size ) {
 		if ( in_array( $_size, array( 'thumbnail', 'medium', 'large' ) ) ) {
-			$sizes[ $_size ]['width'] = get_option( $_size . '_size_w' );
+			$sizes[ $_size ]['width']  = get_option( $_size . '_size_w' );
 			$sizes[ $_size ]['height'] = get_option( $_size . '_size_h' );
-			$sizes[ $_size ]['crop'] = (bool) get_option( $_size . '_crop' );
+			$sizes[ $_size ]['crop']   = (bool) get_option( $_size . '_crop' );
 		} elseif ( isset( $_wp_additional_image_sizes[ $_size ] ) ) {
 			$sizes[ $_size ] = array(
-				'width' => $_wp_additional_image_sizes[ $_size ]['width'],
+				'width'  => $_wp_additional_image_sizes[ $_size ]['width'],
 				'height' => $_wp_additional_image_sizes[ $_size ]['height'],
-				'crop' =>  $_wp_additional_image_sizes[ $_size ]['crop']
+				'crop'   => $_wp_additional_image_sizes[ $_size ]['crop'],
 			);
 		}
 	}
 
 	// Get only 1 size if found
 	if ( $size ) {
-		if( isset( $sizes[ $size ] ) )
+		if ( isset( $sizes[ $size ] ) ) {
 			return $sizes[ $size ];
-		else
+		} else {
 			return false;
+		}
 	}
 
 	return $sizes;
 }
 
-?>
+

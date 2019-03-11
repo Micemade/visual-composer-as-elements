@@ -1,96 +1,98 @@
-<?php 
-function vc_ase_as_filter_cats_func( $atts, $content = null ) { 
+<?php
+function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 
 	global $post, $wp_query;
 
-	extract( shortcode_atts( array(
-		'title'				=> '',
-		'subtitle'			=> '',
-		'sub_position'		=> 'bellow',
-		'title_style'		=> 'center',
-		'title_custom_css'	=> '',
-		'subtitle_custom_css'=> '',
-		'title_color'		=> '',
-		'subtitle_color'	=> '',
-		'title_size'		=> '',
-		'heading_css'		=> '',
+	extract(
+		shortcode_atts(
+			array(
+				'title'               => '',
+				'subtitle'            => '',
+				'sub_position'        => 'bellow',
+				'title_style'         => 'center',
+				'title_custom_css'    => '',
+				'subtitle_custom_css' => '',
+				'title_color'         => '',
+				'subtitle_color'      => '',
+				'title_size'          => '',
+				'heading_css'         => '',
 
-		'enter_anim'		=> 'none',
-		'block_style'		=> 'style1',
-		'block_style_color'	=> 'light',
+				'enter_anim'          => 'none',
+				'block_style'         => 'style1',
+				'block_style_color'   => 'light',
 
-		'post_type'			=> 'post',
-		'post_cats'			=> '',
-		'portfolio_cats'	=> '',
+				'post_type'           => 'post',
+				'post_cats'           => '',
+				'portfolio_cats'      => '',
 
-		'tax_menu_style'	=> 'none',
-		'tax_menu_align'	=> 'center',
+				'tax_menu_style'      => 'none',
+				'tax_menu_align'      => 'center',
 
-		'img_format'		=> '',
-		'custom_image_width'=> '',
-		'custom_image_height'=> '',
-		'zoom_button'		=> '',
-		'link_button'		=> '',
-		'total_items'		=> '',
-		'remove_gutter'		=> '',
-		
-		'items_desktop'		=> '',
-		'items_tablet'		=> '',
-		'items_mobile'		=> '',
-		
-		'only_featured' 	=> '',
-		
-		'anim'				=> 'no-hover-anim',
-		'button_label'		=> '',
-		'afc_link_button'	=> '',
-		'btn_css'			=> '',
-		
-		'css_classes'		=> '',
-		'block_id'			=> apply_filters( 'vc_ase_randomString',10 )
-		  
-	), $atts ) );
+				'img_format'          => '',
+				'custom_image_width'  => '',
+				'custom_image_height' => '',
+				'zoom_button'         => '',
+				'link_button'         => '',
+				'total_items'         => '',
+				'remove_gutter'       => '',
 
-	$content = wpb_js_remove_wpautop($content, true);
-	
-	
-	$button 	= vc_build_link( $afc_link_button );
-	$but_url	= $button['url'];
-	$but_title	= $button['title'];
-	$but_target	= $button['target'];
-	
-	$btn_vc_css_class =  vc_shortcode_custom_css_class( $btn_css, ' '  );
-	
+				'items_desktop'       => '',
+				'items_tablet'        => '',
+				'items_mobile'        => '',
+
+				'only_featured'       => '',
+
+				'anim'                => 'no-hover-anim',
+				'button_label'        => '',
+				'afc_link_button'     => '',
+				'btn_css'             => '',
+
+				'css_classes'         => '',
+				'block_id'            => apply_filters( 'vc_ase_randomString', 10 ),
+
+			), $atts
+		)
+	);
+
+	$content = wpb_js_remove_wpautop( $content, true );
+
+	$button     = vc_build_link( $afc_link_button );
+	$but_url    = $button['url'];
+	$but_title  = $button['title'];
+	$but_target = $button['target'];
+
+	$btn_vc_css_class = vc_shortcode_custom_css_class( $btn_css, ' ' );
+
 	$sticky_array = get_option( 'sticky_posts' );
-	$total_items = $total_items ? $total_items : -1;
-	
-	
+	$total_items  = $total_items ? $total_items : -1;
+
 	// FEATURED POSTS FILTER ARGS
 	if ( $post_type == 'post' && $only_featured ) {
-		$args_only_featured = array('post__in' => $sticky_array);
-	}elseif ( $post_type == 'portfolio' && $only_featured ){
-		$args_only_featured = array( 
-			'meta_key' => 'micemade_featured_item',
-			'meta_value' => 1
+		$args_only_featured = array( 'post__in' => $sticky_array );
+	} elseif ( $post_type == 'portfolio' && $only_featured ) {
+		$args_only_featured = array(
+			'meta_key'   => 'micemade_featured_item',
+			'meta_value' => 1,
 		);
-	}else{
+	} else {
 		$args_only_featured = array();
 	}
 	//
 
 	// TERMS ARGS
-	if( $post_cats &&  $post_type == 'post' ) {
+	if ( $post_cats && $post_type == 'post' ) {
 		$tax_terms = $post_cats;
-	}elseif( $portfolio_cats && $post_type == 'portfolio' ){
+	} elseif ( $portfolio_cats && $post_type == 'portfolio' ) {
 		$tax_terms = $portfolio_cats;
-	}else{
+	} else {
 		$tax_terms = '';
 	}
 	// TAXONOMY:
-	if( $post_type == 'post' ) {
+	if ( $post_type == 'post' ) {
 		$taxonomy = 'category';
-	}elseif( $post_type == 'portfolio' ){
+	} elseif ( $post_type == 'portfolio' ) {
 		$taxonomy = 'portfolio_category';
-	}else{
+	} else {
 		$taxonomy = '';
 	}
 
@@ -102,9 +104,9 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 	 */
 	// currently registered image sizes:
 	// simple list of sizes
-	$img_sizes = apply_filters( 'vc_ase_image_sizes_list','' );
+	$img_sizes = apply_filters( 'vc_ase_image_sizes_list', '' );
 	// get width / height values
-	$img_size_values = apply_filters( 'vc_ase_get_image_sizes','' );
+	$img_size_values = apply_filters( 'vc_ase_get_image_sizes', '' );
 
 	if ( ! in_array( $img_format, $img_sizes ) ) {
 		$img_format = 'thumbnail';
@@ -115,7 +117,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 		$img_height = $custom_image_height ? $custom_image_height : 300;
 	} else {
 		$img_width  = '';
-		$img_height = "";
+		$img_height = '';
 	}
 	// end IMAGE FORMAT AND SIZES
 
@@ -123,7 +125,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 	 * Items grid:
 	 *
 	 */
-	$l = 12 / ( $items_desktop ? $items_desktop : 3);
+	$l = 12 / ( $items_desktop ? $items_desktop : 3 );
 	$t = 12 / ( $items_tablet ? $items_tablet : 2 );
 	$m = 12 / ( $items_mobile ? $items_mobile : 1 );
 
@@ -132,31 +134,36 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 	###### HTML OUTPUT STARTS HERE
 	ob_start();
 
-	echo $css_classes ? '<div class="'.esc_attr($css_classes).'">' : null;
+	echo $css_classes ? '<div class="' . esc_attr( $css_classes ) . '">' : null;
 	?>
 	
-	<div class="vc-ase-element content-block filter-cats<?php echo $remove_gutter ? ' remove-gutter' : '' ; echo esc_attr( ' ' . $block_style_color ) ; ?>" id="filter-post-<?php echo esc_attr( $block_id ); ?>">	
+	<div class="vc-ase-element content-block filter-cats
+	<?php
+	echo $remove_gutter ? ' remove-gutter' : '';
+	echo esc_attr( ' ' . $block_style_color );
+	?>
+	" id="filter-post-<?php echo esc_attr( $block_id ); ?>">	
 	
 	<?php
 	// Block title and subtitle:
-	do_action( 'vc_ase_block_heading', $title, $subtitle, $title_style, $sub_position, $title_custom_css, $subtitle_custom_css, $title_color, $subtitle_color,  $title_size, $heading_css );
+	do_action( 'vc_ase_block_heading', $title, $subtitle, $title_style, $sub_position, $title_custom_css, $subtitle_custom_css, $title_color, $subtitle_color, $title_size, $heading_css );
 	?>
 	
 	<?php
 	// GET TAXONOMY OBJECT:
 	$tax_terms_arr = array();
-	if( $tax_terms ) {
+	if ( $tax_terms ) {
 
-		$term_Objects = array();
-		$tax_terms_arr = explode(',', $tax_terms );
+		$term_Objects  = array();
+		$tax_terms_arr = explode( ',', $tax_terms );
 		foreach ( $tax_terms_arr as $term ) {
-			if( term_exists( $term,  $taxonomy) ) {
+			if ( term_exists( $term, $taxonomy ) ) {
 				$term_Objects[] = get_term_by( 'slug', $term, $taxonomy );
 			}
 		}
 	}
 
-	if( $tax_terms && 'none' !== $tax_menu_style ) {
+	if ( $tax_terms && 'none' !== $tax_menu_style ) {
 
 		$terms_menu = '<ul class="taxonomy-menu tax-filters ' . esc_attr( $tax_menu_align ) . ' column">';
 
@@ -166,9 +173,9 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 		if ( ! empty( $term_Objects ) ) {
 			foreach ( $term_Objects as $term_obj ) {
 
-				$terms_menu .= '<li class="'. esc_attr($term_obj->slug) .' category-link">';
-				$terms_menu .= '<a href="#" data-filter=".'. esc_attr($term_obj->slug) .'">';
-				$terms_menu .= '<div class="term">' . esc_attr($term_obj->name) . '</div>';
+				$terms_menu .= '<li class="' . esc_attr( $term_obj->slug ) . ' category-link">';
+				$terms_menu .= '<a href="#" data-filter=".' . esc_attr( $term_obj->slug ) . '">';
+				$terms_menu .= '<div class="term">' . esc_attr( $term_obj->name ) . '</div>';
 				$terms_menu .= '</a>';
 				$terms_menu .= '</li>';
 			}
@@ -181,20 +188,21 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 	} // endif $tax_terms
 
 		// if there are taxonomies selected, turn on taxonomy filter:
-		if ( ! empty($tax_terms_arr) ) {
+	if ( ! empty( $tax_terms_arr ) ) {
 
-			$tax_filter_args = array( 'tax_query' => array(
-								array(
-									'taxonomy' => $taxonomy,
-									'field'    => 'slug', // can be 'slug' too
-									'operator' => 'IN', // NOT IN to exclude
-									'terms'    => $tax_terms_arr,
-								)
-							)
-						);
-		} else {
-			$tax_filter_args = array();
-		}
+		$tax_filter_args = array(
+			'tax_query' => array(
+				array(
+					'taxonomy' => $taxonomy,
+					'field'    => 'slug', // can be 'slug' too
+					'operator' => 'IN', // NOT IN to exclude
+					'terms'    => $tax_terms_arr,
+				),
+			),
+		);
+	} else {
+		$tax_filter_args = array();
+	}
 
 		$main_args = array(
 			'no_found_rows'    => 1,
@@ -204,15 +212,15 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 			'suppress_filters' => false,
 			'orderby'          => 'post_date',
 			'order'            => 'DESC',
-			'numberposts'      => $total_items
+			'numberposts'      => $total_items,
 		);
 
 		$all_args = array_merge( $main_args, $args_only_featured, $tax_filter_args );
 
 		$posts = get_posts( $all_args );
-		?>
+	?>
 		
-		<ul class="container vcase-masonry<?php echo ' ' . esc_attr( $anim );?> <?php echo ' ' . esc_attr( $block_style ); ?>" id="masonry-filter-<?php echo esc_attr( $block_id ); ?>">
+		<ul class="container vcase-masonry<?php echo ' ' . esc_attr( $anim ); ?> <?php echo ' ' . esc_attr( $block_style ); ?>" id="masonry-filter-<?php echo esc_attr( $block_id ); ?>">
 			
 			<?php
 			$i = 1;
@@ -227,9 +235,9 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 
 				if ( $terms && ! is_wp_error( $terms ) ) :
 
-					$terms_str = ''; 
+					$terms_str = '';
 					foreach ( $terms as $term ) {
-						$terms_str .=  $term->slug . ' '; 
+						$terms_str .= $term->slug . ' ';
 						$t++;
 					}
 
@@ -237,15 +245,15 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 					$terms_str = '';
 				endif;
 
-				if( VC_ASE_WPML_ON ) { // if WPML plugin is active
-					$post_id   = icl_object_id( get_the_ID(), get_post_type(), false, ICL_LANGUAGE_CODE ); 
+				if ( VC_ASE_WPML_ON ) { // if WPML plugin is active
+					$post_id   = icl_object_id( get_the_ID(), get_post_type(), false, ICL_LANGUAGE_CODE );
 					$lang_code = ICL_LANGUAGE_CODE;
-				}else{
+				} else {
 					$post_id   = get_the_ID();
 					$lang_code = '';
 				}
 
-				$link        =  esc_attr( get_permalink( $post_id ) );
+				$link        = esc_attr( get_permalink( $post_id ) );
 				$post_title  = '<h4><a href="' . $link . '" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '">' . esc_html( strip_tags( get_the_title() ) ) . '</a></h4>';
 				$post_format = get_post_format();
 				$pp_rel      = '';
@@ -260,30 +268,32 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 				?>
 					
 				
-				<li class="<?php echo ( $grid_css ? esc_attr( $grid_css ) : '' ) . esc_attr(' '.$terms_str); ?> item" data-id="id-<?php echo $i;?>"  <?php echo $terms_str ? 'data-groups="'. esc_attr($terms_str) . '"'  : null ; ?> data-date-created="<?php echo get_the_date( 'Y-m-d' ); ?>" data-title="<?php echo the_title_attribute ();?>" data-i="<?php echo esc_attr($i); ?>">
+				<li class="<?php echo ( $grid_css ? esc_attr( $grid_css ) : '' ) . esc_attr( ' ' . $terms_str ); ?> item" data-id="id-<?php echo $i; ?>"  <?php echo $terms_str ? 'data-groups="' . esc_attr( $terms_str ) . '"' : null; ?> data-date-created="<?php echo get_the_date( 'Y-m-d' ); ?>" data-title="<?php echo the_title_attribute(); ?>" data-i="<?php echo esc_attr( $i ); ?>">
 					
-					<div class="anim-wrap<?php echo ($enter_anim != 'none') ? ' to-anim' : '';  ?>">
+					<div class="anim-wrap<?php echo ( $enter_anim != 'none' ) ? ' to-anim' : ''; ?>">
 					
-					<?php echo ($zoom_button && $link_button) ? '<a href="'. $link.'" title="'. the_title_attribute( 'echo=0' ) .'">' : ''; ?>
+					<?php echo ( $zoom_button && $link_button ) ? '<a href="' . $link . '" title="' . the_title_attribute( 'echo=0' ) . '">' : ''; ?>
 					
 					<div class="item-img">
 
 						<div class="front">
 							
-							<?php echo wp_kses_post($image_output) ; ?>
+							<?php echo wp_kses_post( $image_output ); ?>
 							
 						</div>
 						
 						
-						<?php if( $block_style == "style3") { 
-							
-							do_action( "vc_ase_content_style3", $post_id, $link, $post_type, $taxonomy );
-						
-						}elseif( $block_style == "style4" ) {
-							
-							do_action( "vc_ase_content_style4",  $post_id, $link, $post_type, $taxonomy );
-							
-						}else{ ?>
+						<?php
+						if ( $block_style == 'style3' ) {
+
+							do_action( 'vc_ase_content_style3', $post_id, $link, $post_type, $taxonomy );
+
+						} elseif ( $block_style == 'style4' ) {
+
+							do_action( 'vc_ase_content_style4', $post_id, $link, $post_type, $taxonomy );
+
+						} else {
+							?>
 						
 							<div class="back">
 						
@@ -292,72 +302,72 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 								<div class="back-buttons">
 							
 								<?php
-								echo !$zoom_button ? '<a href="'.esc_url($img_url).'"  data-gal="prettyPhoto'.$pp_rel.'" title="'.the_title_attribute(array('echo' => 0)).'">'. apply_filters('vc_ase_post_format_icon','').'</a>' : null;
-								
-								echo !$link_button ? '<a href="'. $link.'"  title="'. the_title_attribute(array('echo' => 0)).'"><i class="fa fa-link" aria-hidden="true"></i></a>' : null;
+								echo ! $zoom_button ? '<a href="' . esc_url( $img_url ) . '"  data-gal="prettyPhoto' . $pp_rel . '" title="' . the_title_attribute( array( 'echo' => 0 ) ) . '">' . apply_filters( 'vc_ase_post_format_icon', '' ) . '</a>' : null;
+
+								echo ! $link_button ? '<a href="' . $link . '"  title="' . the_title_attribute( array( 'echo' => 0 ) ) . '"><i class="fa fa-link" aria-hidden="true"></i></a>' : null;
 								?>
 								
 								</div>
 								
 							</div>
 						
-						<?php } ?>
+												<?php } ?>
 						
 						<?php
 						$allowed = array(
 							'a' => array(
-								'href' => array(),
-								'class' => array(),
-								'rel' => array(),
+								'href'     => array(),
+								'class'    => array(),
+								'rel'      => array(),
 								'data-gal' => array(),
-							)
+							),
 						);
 						echo $img_urls_gallery ? wp_kses( $img_urls_gallery, $allowed ) : null; // for usage with prettPhoto
-						
-						echo $post_format == 'quote' ? '<div class="hidden-quote" id="quote-'.esc_attr($post_id.'-'.$block_id).'">'. esc_html($quote_html) .'</div>' : null;
+
+						echo $post_format == 'quote' ? '<div class="hidden-quote" id="quote-' . esc_attr( $post_id . '-' . $block_id ) . '">' . esc_html( $quote_html ) . '</div>' : null;
 						?>
 					
 					</div><!-- .item-img -->
 						
-					<?php echo ($zoom_button && $link_button) ? '</a>' : ''; ?>
+					<?php echo ( $zoom_button && $link_button ) ? '</a>' : ''; ?>
 						
 					
-					<?php if( $block_style != "style3" && $block_style != "style4" ) { ?>
+					<?php if ( $block_style != 'style3' && $block_style != 'style4' ) { ?>
 					<div class="item-data">
 					
-						<?php echo wp_kses_post($post_title); ?>
+						<?php echo wp_kses_post( $post_title ); ?>
 						
 						<div class="vcase-post-meta">
-							<?php 
-							do_action('vc_ase_entry_date');
-							do_action('vc_ase_entry_author');
+							<?php
+							do_action( 'vc_ase_entry_date' );
+							do_action( 'vc_ase_entry_author' );
 							?>
 						</div>
 
-						<?php 
+						<?php
 						echo '<div class="excerpt">';
-						do_action('vc_ase_archive_content'); //
+						do_action( 'vc_ase_archive_content' ); //
 						echo '</div>';
 						?>
 
 						<div class="clearfix"></div>
 					
 					</div><!-- .item-data -->
-					<?php } // end if( $block_style != "style3")?>
+					<?php } // end if( $block_style != "style3") ?>
 					
 					</div><!-- .anim-wrap -->
 
 				</li>
 				
-				<?php 
+				<?php
 				$i++;
 			}// END foreach
-			
+
 			wp_reset_postdata();
 			?>
 			</ul>
 			
-			<?php if( $block_style == "style3") {  // HIDING EXCERPT IF ITEM GETS SMALLER ?>
+			<?php if ( $block_style == 'style3' ) {  // HIDING EXCERPT IF ITEM GETS SMALLER ?>
 			<script>
 			jQuery(document).ready( function($) {
 				
@@ -394,7 +404,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 			<script type="text/javascript">
 			jQuery(document).ready( function($) {
 				
-				var thisBlock = $("#filter-post-<?php echo esc_attr($block_id); ?>");
+				var thisBlock = $("#filter-post-<?php echo esc_attr( $block_id ); ?>");
 				
 				var container	= thisBlock.find(".vcase-masonry"),
 					filter		= thisBlock.find(".tax-filters");
@@ -422,10 +432,10 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 			});
 			</script>
 			
-			<?php if( $button_label && $but_url ) { ?>
+			<?php if ( $button_label && $but_url ) { ?>
 			<div class="bottom-block-link <?php echo ( $btn_vc_css_class ? $btn_vc_css_class : '' ); ?>">
 			
-				<a href="<?php echo esc_url( $but_url ); ?>" <?php echo ($but_target ? ' target="'.esc_attr($but_target).'" ' : '');?> class="button" <?php echo ($but_title ? 'title="'.esc_attr($but_title).'"' : 'title="'.esc_attr($button_label).'"'); ?> >
+				<a href="<?php echo esc_url( $but_url ); ?>" <?php echo ( $but_target ? ' target="' . esc_attr( $but_target ) . '" ' : '' ); ?> class="button" <?php echo ( $but_title ? 'title="' . esc_attr( $but_title ) . '"' : 'title="' . esc_attr( $button_label ) . '"' ); ?> >
 					<?php echo esc_html( $button_label ); ?>
 				</a>
 				
@@ -438,7 +448,7 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 		
 		<?php echo $css_classes ? '</div>' : null; ?>
 		
-		<?php if( $enter_anim != 'none' ) {?>
+		<?php if ( $enter_anim != 'none' ) { ?>
 		<script>
 		(function( $ ){
 			$.fn.anim_waypoints_filter_post = function(blockId, enter_anim) {
@@ -477,28 +487,28 @@ function vc_ase_as_filter_cats_func( $atts, $content = null ) {
 		
 		jQuery(document).ready( function($) {
 			
-			$(document).anim_waypoints_filter_post("<?php echo esc_attr($block_id); ?>"," <?php echo esc_attr($enter_anim);?>");
+			$(document).anim_waypoints_filter_post("<?php echo esc_attr( $block_id ); ?>"," <?php echo esc_attr( $enter_anim ); ?>");
 			
-			var thisBlock = $('#filter-post-<?php echo esc_attr($block_id); ?>' );
+			var thisBlock = $('#filter-post-<?php echo esc_attr( $block_id ); ?>' );
 			
 			function onLayout_filter_posts() {
 				$(window).trigger('resize'); 
 			}
 			
-			$("#filter-post-<?php echo esc_attr($block_id); ?>").on( "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", onLayout_filter_posts );
+			$("#filter-post-<?php echo esc_attr( $block_id ); ?>").on( "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", onLayout_filter_posts );
 			
 			thisBlock.on( 'layoutComplete', onLayout_filter_posts );
 			
 		});
 		</script>
 		<?php } ?>
-<?php
+	<?php
 	####################  HTML OUTPUT ENDS HERE: ###########################
 	$output_string = ob_get_contents();
-   
+
 	ob_end_clean();
-	
-	return $output_string ;
+
+	return $output_string;
 	//return "<div style='color:{$color};' data-foo='${foo}'>{$content}${foo}</div>";
 }
 
